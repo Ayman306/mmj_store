@@ -6,11 +6,15 @@ export default   [
     loadComponent: () => import('./home/home.component').then(c => c.HomeComponent)
   },
   {
+    path: 'home',
+    loadComponent: () => import('./home/home.component').then(c => c.HomeComponent)
+  },
+  {
     path: 'user',
     loadChildren: () => import('./user/user.route')
   },
   {
-    path: 'products',
+    path: 'product',
     loadChildren:()=> import('./product/product.route')
   }
 ] as Routes

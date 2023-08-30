@@ -6,7 +6,7 @@ export default [
     loadComponent: () => import('./all-product/all-product.component').then(c=>c.AllProductComponent)
   },
   {
-    path: 'profile',
+    path: ':id',
     loadComponent: () => import('./product-page/product-page.component').then(c=>c.ProductPageComponent)
   }
 ]as Routes
