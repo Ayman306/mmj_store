@@ -1,7 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('./assets/style/toaster.scss');
-*{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.otp-input {
+  border: 0px !important;
+  border-bottom: 1px solid black !important;
+  margin: 25px !important;
+
+  &:visited {
+    border-bottom: 1px solid yellow;
+  }
 }
