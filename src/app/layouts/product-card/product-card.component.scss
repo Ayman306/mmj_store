@@ -3,11 +3,30 @@
     width: 350px;
     transition: 0.5s ease-in-out;
 
-    .img {
-      img {
+    @media (max-width:480px) {
+      width: 280px;
+      margin: 10px auto;
+      display: block;
+    }
 
+    .img {
+      position: relative;
+
+      .hero {
         width: 100%;
         height: 550px;
+      }
+
+      .icon {
+        position: absolute;
+        top: 5px;
+        flex-direction: column;
+        display: flex;
+        right: 25px;
+
+        img {
+          margin-top: 10px;
+        }
       }
     }
 
@@ -66,4 +85,20 @@
     &:hover {
       box-shadow: 1px 1px 5px #dcdcdc;
     }
+  }
+
+  .wishlistTrue {
+    background-image: url('../../../assets/product/wishlistTrue.svg');
+  }
+
+  .wishlistFalse {
+    background-image: url('../../../assets/product/wishlistFalse.svg');
+  }
+
+  .bagTrue {
+    background-image: url('../../../assets/product/bagTrue.svg');
+  }
+
+  .bagFalse {
+    background-image: url('../../../assets/product/bagFalse.svg');
   }

@@ -1,0 +1,17 @@
+<div class="category">
+  <ng-container *ngFor="let catg of categories">
+
+
+    <div class="main">
+      <div class="content">
+        <div class="img">
+
+          <img [src]="catg.image" alt="" srcset="" class="w-100">
+          <div class="overlay"></div>
+          <button class="btn w-100">{{catg.title}} &nbsp; <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

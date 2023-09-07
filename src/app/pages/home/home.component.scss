@@ -48,26 +48,78 @@
        font-size: clamp(40px, 10vw, 85px);
      }
 
-     button {
-       width: 100%;
-       background-color: #005F5F;
-       color: #fff;
-       padding: 20px;
-       border-radius: 10px;
+
+   }
+ }
+
+ .sliderImg {
+   width: 100vw;
+   height: 760px;
+   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.70) 100%), url('https://images.unsplash.com/photo-1656945590230-fa5b1964cfaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&');
+   background-position: center;
+   background-size: cover;
+   align-items: center;
+
+   .content {
+     width: 500px;
+     margin-left: 80px;
+
+     @media (max-width:580px) {
+       margin-left: 0px;
+     }
+
+     h2 {
+       color: #FFF;
        font-family: Poppins;
-       font-size: clamp(10px, 10vw, 24px);
+       font-size: clamp(20px, 10vw, 50px);
        font-style: normal;
        font-weight: 700;
        line-height: normal;
-       letter-spacing: 2.4px;
+       letter-spacing: 7.5px;
        text-transform: uppercase;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-
-       &:hover {
-         box-shadow: 1px 1px 5px #005F5F;
-       }
      }
+
+     p {
+       color: #FFF;
+       font-size: clamp(14px, 10vw, 20px);
+       font-style: normal;
+       font-weight: 700;
+       line-height: normal;
+       letter-spacing: 2px;
+       text-transform: uppercase;
+     }
+   }
+ }
+
+ .head {
+   margin-top: 100px;
+   text-align: center;
+   color: #000;
+   font-family: Roboto;
+   font-size: 36px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+   letter-spacing: 10.8px;
+   text-transform: uppercase;
+ }
+
+ .shopNow {
+   width: 100%;
+   background-color: #005F5F;
+   color: #fff;
+   border-radius: 10px;
+   font-size: clamp(5px, 10vw, 20px);
+   font-style: normal;
+   font-weight: 500;
+   line-height: normal;
+   letter-spacing: 2.4px;
+   text-transform: uppercase;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   &:hover {
+     box-shadow: 1px 1px 5px #005F5F;
    }
  }

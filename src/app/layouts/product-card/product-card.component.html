@@ -1,17 +1,27 @@
 <div class="main">
   <div class="img">
-    <img src="../../../assets/productImg/prodctuImage.jpg" alt="" srcset="">
+    <img [src]="product.img" alt="" srcset="" class="hero">
+    <div class="icon">
+      <img src="../../../assets/product/wishlistTrue.svg" alt="" *ngIf="product.wishlist">
+      <!-- [ngClass]="{'wishlistTrue': !isHovered && product.wishlist, 'wishlistFalse': isHovered && product.wishlist}"
+      (mouseenter)="addActiveClass()" (mouseleave)="removeActiveClass()" -->
+
+      <img src="../../../assets/product/wishlistFalse.svg" alt="" *ngIf="!product.wishlist">
+      <img src="../../../assets/product/bagTrue.svg" alt="" *ngIf="product.cart">
+      <img src="../../../assets/product/bagFalse.svg" alt="" *ngIf="!product.cart">
+    </div>
+
   </div>
   <div class="content">
     <div class="head">
 
       <h2>
-        RoadWays Tshirts
+        {{product.title}}
       </h2>
-      <p>{{1400 | currency}} </p>
+      <p>{{product.price | currency}} </p>
     </div>
     <div class="desc">
-      <p>Stylish tshirts , perfect for any casual or chic ensemble.</p>
+      <p>{{product.des}}</p>
     </div>
     <button class="btn w-100">Buy Now</button>
   </div>

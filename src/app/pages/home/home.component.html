@@ -11,12 +11,54 @@
         <h2>Namma trendy</h2>
         <h1>mangaluru</h1>
         <p class="text-end">nama cool aka....</p>
-        <button class="btn">shope now <img src="../../../assets/arrow-down1.svg" alt="" srcset=""></button>
+        <button class="btn shopNow">shope now <img src="../../../assets/arrow-down1.svg" alt="" srcset=""></button>
       </div>
     </div>
-    <!-- <img src="image2.jpg" alt="" /> -->
   </splide-slide>
 </splide>
-<div class="newarrival">
-  <app-product-card></app-product-card>
+
+<h2 class="head">new arrivals</h2>
+<div class="newarrival d-flex flex-wrap flex-row justify-content-center">
+  <ng-container *ngFor="let item of product">
+    <app-product-card [product]="item"></app-product-card>
+  </ng-container>
+</div>
+
+<h2 class="head">trending</h2>
+<div class="trending d-flex flex-wrap flex-row justify-content-center">
+  <ng-container *ngFor="let item of product">
+    <app-product-card [product]="item"></app-product-card>
+  </ng-container>
+</div>
+
+<div class="slider">
+  <splide [options]="
+{
+  arrows:false,
+}
+">
+    <splide-slide>
+      <div class="w-100 sliderImg d-flex ">
+        <div class="content">
+
+          <h2>Adventure <br> Bound attire</h2>
+          <p>Adventure-ready apparel, designed for comfort and style on the open road.</p>
+          <button class="btn shopNow">
+            shope now
+            <img src="../../../assets/arrow-down1.svg" alt="" srcset="">
+
+          </button>
+        </div>
+
+      </div>
+    </splide-slide>
+  </splide>
+</div>
+
+<div class="category">
+  <div class="main">
+    <h2 class="head">categories</h2>
+    <app-category-card></app-category-card>
+
+  </div>
 </div>
