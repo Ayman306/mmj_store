@@ -24,6 +24,7 @@
     "ng-otp-input": "^1.9.3",
     "ngx-bootstrap": "^11.0.2",
     "ngx-countdown": "^16.0.0",
+    "ngx-splide": "^2.0.2",
     "ngx-toastr": "^17.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
