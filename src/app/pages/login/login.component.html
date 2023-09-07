@@ -6,10 +6,15 @@
           <img src="../../../assets/mmj_logo.png" alt="logo" class="w-100">
         </div>
         <h1 class="card-subtitle">Welcome back!</h1>
-        <form class="d-flex flex-column" [formGroup]="loginForm" (submit)="login(loginForm)">
+        <form class="d-flex flex-column" [formGroup]="loginForm" (ngSubmit)="login()">
           <label class="card-text" for="Mobile">Mobile Number</label>
-          <input type="number" name="mobile" id="" minlength="10" maxlength="10" placeholder="Enter mobile number"
-            class="p-2">
+          <input type="number" name="mobile" id="" placeholder="Enter mobile number" class="p-2"
+            formControlName="mobile" required>
+
+          <div *ngIf="m.mobile.touched && !loginForm.valid" class="alert alert-danger">
+            <div *ngIf="m.mobile.errors?.['required']">Please enter mobile number</div>
+            <div *ngIf="m.mobile.errors?.['pattern']">Mobile number is not 10 digit</div>
+          </div>
           <button type="submit" class="btn fw-bold m-auto d-block w-100">Send OTP</button>
         </form>
 

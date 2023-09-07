@@ -18,15 +18,15 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private fb: FormBuilder, private route: Router) {}
   loginForm = this.fb.group({
-    mobile: [
-      '',
-      Validators.required,
-      Validators.maxLength,
-      Validators.minLength,
-    ],
+    mobile: ['', [Validators.required]],
   });
-  login(form: any) {
-    console.log(form);
-    this.route.navigateByUrl('/otp');
+  login() {
+    console.log(this.loginForm);
+    const mobile = this.loginForm.value.mobile;
+    sessionStorage.setItem('mobile', mobile || '');
+    this.route.navigate(['/otp']);
+  }
+  get m() {
+    return this.loginForm.controls;
   }
 }

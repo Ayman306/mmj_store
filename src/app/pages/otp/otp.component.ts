@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   NgOtpInputComponent,
   NgOtpInputConfig,
@@ -27,7 +27,15 @@ import {
   styleUrls: ['./otp.component.scss'],
 })
 export class OtpComponent {
-  constructor(private fb: FormBuilder, private route: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private route: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.mobile = sessionStorage.getItem('mobile');
+    console.log(this.mobile);
+  }
+  mobile!: any;
   @ViewChild(NgOtpInputComponent, { static: false })
   otp!: string;
   showOtpComponent = true;
@@ -68,6 +76,10 @@ export class OtpComponent {
       this.resendDisable = true;
     }
     console.log('Notify', e);
+  }
+
+  verify() {
+    this.route.navigateByUrl('/home');
   }
   backTOlogin() {
     this.route.navigateByUrl('/login');
