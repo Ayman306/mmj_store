@@ -145,6 +145,8 @@ export class HomeComponent {
   navigateTo(type: string) {
     // if (type === 'allProduct') {
     this.route.navigate(['/product']);
+    console.log(type);
+
     // }
   }
   productRoute(index: number) {

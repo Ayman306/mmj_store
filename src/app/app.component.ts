@@ -4,7 +4,6 @@ import {
   RouteConfigLoadEnd,
   RouteConfigLoadStart,
   Router,
-  RouterModule,
   RouterOutlet,
 } from '@angular/router';
 import { setTheme } from 'ngx-bootstrap/utils';

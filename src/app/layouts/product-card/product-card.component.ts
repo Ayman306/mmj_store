@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
