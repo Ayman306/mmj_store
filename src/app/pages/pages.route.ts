@@ -6,19 +6,23 @@ export default [
   {
     path: '',
     component: LoginComponent,
+    data: { num: -1 },
   },
   {
     path: 'login',
     component: LoginComponent,
+    data: { num: 1 },
   },
   {
     path: 'otp',
     component: OtpComponent,
+    data: { num: 2 },
   },
   {
     path: 'home',
     loadComponent: () =>
       import('./home/home.component').then((c) => c.HomeComponent),
+    data: { num: 3 },
   },
   {
     path: 'user',

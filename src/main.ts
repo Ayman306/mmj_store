@@ -1,7 +1,10 @@
 import { importProvidersFrom } from '@angular/core';
 import { AppComponent } from './app/app.component';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import {
+  BrowserAnimationsModule,
+  provideAnimations,
+} from '@angular/platform-browser/animations';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { provideRouter } from '@angular/router';
 import { App_Route } from './app/app.route';
@@ -16,6 +19,7 @@ bootstrapApplication(AppComponent, {
     provideRouter(App_Route),
     ApiServiceService,
     importProvidersFrom(
+      BrowserAnimationsModule,
       BrowserModule,
       ToastrModule.forRoot({
         timeOut: 10000,

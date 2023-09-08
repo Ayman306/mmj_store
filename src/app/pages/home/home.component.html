@@ -31,7 +31,7 @@
   </ng-container>
 </div>
 
-<div class="slider">
+<div class="slider w-100">
   <splide [options]="
 {
   arrows:false,
@@ -55,10 +55,48 @@
   </splide>
 </div>
 
-<div class="category">
+<div class="category mb-5">
   <div class="main">
     <h2 class="head">categories</h2>
     <app-category-card></app-category-card>
 
+  </div>
+</div>
+<div class="slider w-100">
+  <splide [options]="
+{
+  arrows:false,
+}
+">
+    <splide-slide>
+      <div class="w-100 sliderImg1 d-flex ">
+        <div class="content">
+
+          <h2>time to upgrade your</h2>
+          <h1>wardrobe</h1>
+          <button class="btn shopNow p-3">
+            explore collection &nbsp;
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+    </splide-slide>
+  </splide>
+</div>
+
+<div class="newarrival d-flex flex-wrap flex-row justify-content-center">
+  <ng-container *ngFor="let item of products">
+    <app-product-card [product]="item"></app-product-card>
+  </ng-container>
+</div>
+
+
+<div class="gallery d-flex justify-content-spaceBetween">
+  <div class="img1 w-100 h-100"></div>
+  <div class="img2">
+
+    <div></div>
+    <p>travel in style</p>
   </div>
 </div>
