@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import {
   NavigationEnd,
+  RouteConfigLoadEnd,
+  RouteConfigLoadStart,
   Router,
   RouterModule,
   RouterOutlet,
@@ -11,13 +13,14 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { filter } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { routerAnimation } from './shared/animation/routerAnimation';
+import { FooterComponent } from './layouts/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, CommonModule],
+  imports: [RouterOutlet, HeaderComponent, CommonModule, FooterComponent],
   animations: [routerAnimation()],
 })
 export class AppComponent implements OnInit {
@@ -31,8 +34,12 @@ export class AppComponent implements OnInit {
   }
   title = 'mmj_store';
   isDisplay = true;
-
-  constructor(private toaster: ToastrService, private router: Router) {
+  loader = false;
+  constructor(
+    private toaster: ToastrService,
+    private router: Router,
+    private el: ElementRef
+  ) {
     setTheme('bs5');
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -40,6 +47,13 @@ export class AppComponent implements OnInit {
         this.isDisplay =
           this.router.url !== '/login' && this.router.url !== '/otp';
       });
+    this.router.events.subscribe((event) => {
+      if (event instanceof RouteConfigLoadStart) {
+        this.loader = true;
+      } else if (event instanceof RouteConfigLoadEnd) {
+        this.loader = false;
+      }
+    });
   }
 
   ngOnInit() {
