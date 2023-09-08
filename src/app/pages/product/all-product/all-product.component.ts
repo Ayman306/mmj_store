@@ -50,6 +50,6 @@ export class AllProductComponent {
     console.log(type, 'filter');
   }
   navigaToProduct(index: number) {
-    this.route.navigate(['product/tshirts'], { queryParams: { id: index } });
+    this.route.navigate(['product/tshirt'], { queryParams: { id: index } });
   }
 }
