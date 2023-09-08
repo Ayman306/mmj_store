@@ -83,14 +83,14 @@
 .sliderImg1 {
   width: 100vw;
   height: 760px;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.70) 100%), url('https://images.unsplash.com/photo-1656945590230-fa5b1964cfaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&');
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.70) 100%), url('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-position: center;
   background-size: cover;
   align-items: center;
 
   .content {
     width: max-content;
-    margin-left: 80px;
+    margin-left: 10rem;
 
     @media (max-width:580px) {
       margin-left: 0px;

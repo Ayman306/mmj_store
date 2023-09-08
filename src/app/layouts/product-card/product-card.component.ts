@@ -8,13 +8,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
 })
-export class ProductCardComponent implements AfterViewInit {
+export class ProductCardComponent {
   @Input() product!: any;
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-    console.log(this.product);
-  }
   isHovered = false;
 
   // Method to add the 'active' class

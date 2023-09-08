@@ -11,7 +11,8 @@
         <h2>Namma trendy</h2>
         <h1>mangaluru</h1>
         <p class="text-end">nama cool aka....</p>
-        <button class="btn shopNow">shope now <img src="../../../assets/arrow-down1.svg" alt="" srcset=""></button>
+        <button class="btn shopNow" (click)="navigateTo('allProduct')">shope now <img
+            src="../../../assets/arrow-down1.svg" alt="" srcset=""></button>
       </div>
     </div>
   </splide-slide>
@@ -19,15 +20,15 @@
 
 <h2 class="head">new arrivals</h2>
 <div class="newarrival d-flex flex-wrap flex-row justify-content-center">
-  <ng-container *ngFor="let item of product">
-    <app-product-card [product]="item"></app-product-card>
+  <ng-container *ngFor="let item of product;let i=index">
+    <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
   </ng-container>
 </div>
 
-<h2 class="head">trending</h2>
+<h2 class="head">Top selling</h2>
 <div class="trending d-flex flex-wrap flex-row justify-content-center">
-  <ng-container *ngFor="let item of product">
-    <app-product-card [product]="item"></app-product-card>
+  <ng-container *ngFor="let item of product; let i=index">
+    <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
   </ng-container>
 </div>
 
@@ -43,7 +44,7 @@
 
           <h2>Adventure <br> Bound attire</h2>
           <p>Adventure-ready apparel, designed for comfort and style on the open road.</p>
-          <button class="btn shopNow">
+          <button class="btn shopNow" (click)="navigateTo('adventure')">
             shope now
             <img src="../../../assets/arrow-down1.svg" alt="" srcset="">
 
@@ -74,7 +75,7 @@
 
           <h2>time to upgrade your</h2>
           <h1>wardrobe</h1>
-          <button class="btn shopNow p-3">
+          <button class="btn shopNow p-3" (click)="navigateTo('wardrobe')">
             explore collection &nbsp;
             <i class="fa-solid fa-arrow-right"></i>
           </button>
@@ -86,8 +87,8 @@
 </div>
 
 <div class="newarrival d-flex flex-wrap flex-row justify-content-center">
-  <ng-container *ngFor="let item of products">
-    <app-product-card [product]="item"></app-product-card>
+  <ng-container *ngFor="let item of products;let i=index">
+    <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
   </ng-container>
 </div>
 

@@ -1,1 +1,87 @@
-<p>all-product works!</p>
+<div class="hero">
+  <div class="main d-flex flex-row">
+    <div class="img1 w-100 h-100   ">
+      <h2 class="blink_me">Trending Now!</h2>
+      <div>
+
+        <button class="btn heroBtn">
+          View Product &nbsp; <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+    <div class="img2 w-100 h-100   ">
+      <h2 class="blink_me">Best Seller!</h2>
+      <div>
+
+        <button class="btn heroBtn">
+          View Product &nbsp; <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- filter  -->
+<div class="filter container fixed-bottom ">
+  <div class="main">
+    <div class="content">
+      <div class="size">
+        <p>
+          Size
+        </p>
+        <button class="btn" (click)="filterBy('size')">+</button>
+      </div>
+      <div class="color">
+        <p>
+          Color
+        </p>
+        <button class="btn" (click)="filterBy('size')">+</button>
+      </div>
+      <div class="price">
+        <p>
+          Price
+        </p>
+        <button class="btn" (click)="filterBy('size')">+</button>
+      </div>
+      <button class="btn text-mutted">Reset all</button>
+    </div>
+  </div>
+</div>
+
+<!-- top selling products  -->
+<h2 class="head">Top selling</h2>
+<div class="trending d-flex flex-wrap flex-row justify-content-center">
+  <ng-container *ngFor="let item of product;let i=index">
+    <app-product-card [product]="item" (click)=" navigaToProduct(i)"></app-product-card>
+  </ng-container>
+</div>
+
+<!-- trending products -->
+<h2 class="head">Trending</h2>
+<div class="trending d-flex flex-wrap flex-row justify-content-center">
+  <ng-container *ngFor="let item of product;let i=index">
+    <app-product-card [product]="item" (click)=" navigaToProduct(i)"></app-product-card>
+  </ng-container>
+</div>
+
+<hr>
+<!-- other products  -->
+<div class="trending d-flex flex-wrap flex-row justify-content-center">
+
+  <ng-container *ngFor="let item of [1,2,3,4,5,6,7,8]">
+
+    <ng-container *ngFor="let item of product;let i=index">
+      <app-product-card [product]="item" (click)=" navigaToProduct(i)"></app-product-card>
+    </ng-container>
+  </ng-container>
+</div>
+
+<!-- gallery  -->
+<div class="gallery d-flex justify-content-spaceBetween">
+  <div class="img1 w-100 h-100"></div>
+  <div class="img2">
+
+    <div></div>
+    <p>travel in style</p>
+  </div>
+</div>

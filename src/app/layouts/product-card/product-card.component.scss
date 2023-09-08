@@ -9,6 +9,12 @@
       display: block;
     }
 
+    @media (max-width:380px) {
+      width: 50%;
+      margin: 10px;
+      display: inline;
+    }
+
     .img {
       position: relative;
 
@@ -46,6 +52,7 @@
           font-weight: 500;
           line-height: normal;
           width: 200px;
+          max-inline-size: -webkit-fill-available;
         }
 
         p {
@@ -75,7 +82,7 @@
     }
 
     &:hover {
-      box-shadow: 1px 1px 5px #dcdcdc;
+      box-shadow: 0px 0px 5px #FFA300;
     }
   }
 

@@ -1,8 +1,10 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <div class="category">
   <ng-container *ngFor="let catg of categories">
 
 
-    <div class="main">
+    <div class="main" (click)="navigateToCatg(catg.title)">
       <div class="content">
         <div class="img">
 

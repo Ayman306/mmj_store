@@ -27,9 +27,11 @@ export default [
   {
     path: 'user',
     loadChildren: () => import('./user/user.route'),
+    data: { num: 4 },
   },
   {
     path: 'product',
     loadChildren: () => import('./product/product.route'),
+    data: { num: 5 },
   },
 ] as Routes;

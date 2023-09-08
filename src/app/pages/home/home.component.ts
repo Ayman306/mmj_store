@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgxSplideModule } from 'ngx-splide';
 import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.component';
 import { CategoryCardComponent } from 'src/app/layouts/category-card/category-card.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -16,6 +17,7 @@ import { CategoryCardComponent } from 'src/app/layouts/category-card/category-ca
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  constructor(private route: Router) {}
   product = [
     {
       img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -140,4 +142,12 @@ export class HomeComponent {
       wishlist: false,
     },
   ];
+  navigateTo(type: string) {
+    // if (type === 'allProduct') {
+    this.route.navigate(['/product']);
+    // }
+  }
+  productRoute(index: number) {
+    this.route.navigate(['/product/tshirt'], { queryParams: { id: index } });
+  }
 }
