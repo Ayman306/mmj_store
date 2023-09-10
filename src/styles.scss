@@ -74,3 +74,21 @@ ul {
 a {
   color: white;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-badge-medium.mat-badge-above .mat-badge-content {
+  top: -14px !important;
+}
+
+.mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+  right: -17px !important;
+}

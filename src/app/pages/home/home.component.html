@@ -11,25 +11,40 @@
         <h2>Namma trendy</h2>
         <h1>mangaluru</h1>
         <p class="text-end">nama cool aka....</p>
-        <button class="btn shopNow" (click)="navigateTo('allProduct')">shope now <img
-            src="../../../assets/arrow-down1.svg" alt="" srcset=""></button>
+        <button class="btn shopNow " (click)="navigateTo('allProduct')">shope now <img
+            src="../../../assets/arrow-down1.svg" alt="" srcset="" class="blink_me"></button>
       </div>
     </div>
   </splide-slide>
 </splide>
 
-<h2 class="head">new arrivals</h2>
-<div class="newarrival d-flex flex-wrap flex-row justify-content-center">
-  <ng-container *ngFor="let item of product;let i=index">
-    <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
-  </ng-container>
+<div class="new-arrival">
+  <div class="vector">
+    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com-right.svg" alt="">
+    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com.svg" alt="">
+
+  </div>
+  <h2 class="head"> new arrivals</h2>
+  <div class="newarrival d-flex flex-wrap flex-row justify-content-evenly">
+    <ng-container *ngFor="let item of product;let i=index">
+      <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
+    </ng-container>
+  </div>
 </div>
 
-<h2 class="head">Top selling</h2>
-<div class="trending d-flex flex-wrap flex-row justify-content-center">
-  <ng-container *ngFor="let item of product; let i=index">
-    <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
-  </ng-container>
+
+<div class="new-arrival">
+  <div class="vector">
+    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com-right.svg" alt="">
+    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com.svg" alt="">
+
+  </div>
+  <h2 class="head">Top selling</h2>
+  <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
+    <ng-container *ngFor="let item of product; let i=index">
+      <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
+    </ng-container>
+  </div>
 </div>
 
 <div class="slider w-100">
@@ -56,11 +71,18 @@
   </splide>
 </div>
 
-<div class="category mb-5">
-  <div class="main">
-    <h2 class="head">categories</h2>
-    <app-category-card></app-category-card>
+<div class="new-arrival">
+  <div class="vector">
+    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com-right.svg" alt="">
+    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com.svg" alt="">
 
+  </div>
+  <div class="category mb-5">
+    <div class="main">
+      <h2 class="head">categories</h2>
+      <app-category-card></app-category-card>
+
+    </div>
   </div>
 </div>
 <div class="slider w-100">
@@ -86,7 +108,7 @@
   </splide>
 </div>
 
-<div class="newarrival d-flex flex-wrap flex-row justify-content-center">
+<div class="newarrival d-flex flex-wrap flex-row justify-content-evenly">
   <ng-container *ngFor="let item of products;let i=index">
     <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
   </ng-container>

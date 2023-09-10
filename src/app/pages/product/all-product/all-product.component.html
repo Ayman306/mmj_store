@@ -5,7 +5,7 @@
       <div>
 
         <button class="btn heroBtn" (click)="navigaToProduct(1)">
-          View Product &nbsp; <i class="fa-solid fa-magnifying-glass"></i>
+          View Product &nbsp; <i class="fa-solid fa-magnifying-glass blink_me"></i>
         </button>
       </div>
     </div>
@@ -14,7 +14,7 @@
       <div>
 
         <button class="btn heroBtn" (click)="navigaToProduct(2)">
-          View Product &nbsp; <i class="fa-solid fa-magnifying-glass"></i>
+          View Product &nbsp; <i class="fa-solid fa-magnifying-glass blink_me"></i>
         </button>
       </div>
     </div>
@@ -40,7 +40,7 @@
         <p>
           Price
         </p>
-        <button class="btn" (click)="filterBy('size')">+</button>
+        <button class="btn p-0" (click)="filterBy('size')">+</button>
       </div>
       <button class="btn text-mutted">Reset all</button>
     </div>
@@ -49,7 +49,7 @@
 
 <!-- top selling products  -->
 <h2 class="head">Top selling</h2>
-<div class="trending d-flex flex-wrap flex-row justify-content-center">
+<div class="trending d-flex flex-wrap flex-row justify-content-evenly">
   <ng-container *ngFor="let item of product;let i=index">
     <app-product-card [product]="item" (click)=" navigaToProduct(i)"></app-product-card>
   </ng-container>
@@ -57,7 +57,7 @@
 
 <!-- trending products -->
 <h2 class="head">Trending</h2>
-<div class="trending d-flex flex-wrap flex-row justify-content-center">
+<div class="trending d-flex flex-wrap flex-row justify-content-evenly">
   <ng-container *ngFor="let item of product;let i=index">
     <app-product-card [product]="item" (click)=" navigaToProduct(i)"></app-product-card>
   </ng-container>
@@ -65,7 +65,7 @@
 
 <hr>
 <!-- other products  -->
-<div class="trending d-flex flex-wrap flex-row justify-content-center">
+<div class="trending d-flex flex-wrap flex-row justify-content-evenly">
 
   <ng-container *ngFor="let item of [1,2,3,4,5,6,7,8]">
 

@@ -18,10 +18,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(App_Route),
     ApiServiceService,
-    importProvidersFrom(
-      BrowserAnimationsModule,
-      BrowserModule,
-      ToastrModule.forRoot({
+    importProvidersFrom(BrowserAnimationsModule, BrowserModule, ToastrModule.forRoot({
         timeOut: 10000,
         positionClass: 'toast-bottom-right',
         preventDuplicates: true,
@@ -30,11 +27,11 @@ bootstrapApplication(AppComponent, {
         newestOnTop: true,
         tapToDismiss: true,
         autoDismiss: true,
-      })
-    ),
-    provideAnimations(), // required animations providers
-    provideToastr(), // Toastr providers
+    })),
+    provideAnimations(),
+    provideToastr(),
     { provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
-  ],
+    provideAnimations()
+],
 }).catch((err) => console.error(err));
 [];

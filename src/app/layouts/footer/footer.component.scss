@@ -215,7 +215,7 @@ footer.light .footer-copyright {
   right: 0;
 }
 
-.widget .badge {
+.widget.badge {
   float: right;
   background: #7f7f7f;
 }
@@ -232,6 +232,10 @@ footer.light .footer-copyright {
 .typo-light small {
   color: #fff;
   padding-bottom: 5px;
+
+  a {
+    word-wrap: break-word;
+  }
 }
 
 ul.social-footer2 {
@@ -246,7 +250,7 @@ ul.social-footer2 li {
 }
 
 ul.social-footer2 li a:hover {
-  background-color: #ff8d1e;
+  color: white;
 }
 
 ul.social-footer2 li a {

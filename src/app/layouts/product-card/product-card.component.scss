@@ -1,3 +1,5 @@
+  @import url('../../shared/style/animation.scss');
+
   .main {
     margin: 10px;
     width: 330px;
@@ -7,12 +9,6 @@
       width: 180px;
       margin: 10px 5px;
       display: block;
-    }
-
-    @media (max-width:380px) {
-      width: 50%;
-      margin: 10px;
-      display: inline;
     }
 
     .img {
@@ -25,8 +21,8 @@
 
       .icon {
         position: absolute;
-        top: 5px;
-        right: 25px;
+        top: 0%;
+        right: 5%;
         display: flex;
         flex-direction: column;
 
@@ -48,7 +44,7 @@
 
         h2 {
           color: #000;
-          font-size: clamp(14px, 10vw, 20px);
+          font-size: clamp(20px, 5vw, 24px);
           font-weight: 500;
           line-height: normal;
           width: 200px;
@@ -57,7 +53,7 @@
 
         p {
           color: #000;
-          font-size: clamp(12px, 10vw, 20px);
+          font-size: clamp(20px, 5vw, 24px);
           font-weight: 400;
           line-height: normal;
         }
@@ -100,4 +96,41 @@
 
   .bagFalse {
     background-image: url('../../../assets/product/bagFalse.svg');
+  }
+
+  @media (max-width:480px) {
+    .main {
+      width: 47vw;
+      margin: 10px 3px;
+
+      .img {
+        .icon {
+          width: 20px;
+        }
+      }
+
+      .content {
+        .head {
+          h2 {
+            font-size: 12px;
+          }
+
+          p {
+            font-size: 12px;
+          }
+        }
+
+        .desc p {
+          font-size: 10px;
+        }
+
+        button {
+          padding: 5px 10px;
+          font-size: 8px;
+          font-weight: 400;
+          border: 0;
+          box-shadow: 0px 0px 2px #FFA300;
+        }
+      }
+    }
   }
