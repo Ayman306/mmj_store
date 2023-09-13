@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxSplideModule } from 'ngx-splide';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -18,9 +18,14 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   navbarOpen = false;
-
+  constructor(private router: Router) {}
+  ngOnInit() {
+    this.router.events.subscribe(() => {
+      window.scrollTo(0, 0);
+    });
+  }
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
