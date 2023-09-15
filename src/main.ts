@@ -11,6 +11,7 @@ import { App_Route } from './app/app.route';
 import { ApiServiceService } from './app/shared/api/api-service.service';
 import { CountdownConfig, CountdownGlobalConfig } from 'ngx-countdown';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 function countdownConfigFactory(): CountdownConfig {
   return { format: `mm:ss` };
@@ -23,6 +24,7 @@ bootstrapApplication(AppComponent, {
       BrowserAnimationsModule,
       HttpClientModule,
       BrowserModule,
+      ModalModule.forRoot(),
       ToastrModule.forRoot({
         timeOut: 10000,
         positionClass: 'toast-bottom-right',

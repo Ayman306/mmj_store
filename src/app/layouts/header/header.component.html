@@ -59,7 +59,7 @@
         <p class="link">Wish</p>
       </div>
 
-      <div class="d-flex cursor-pointer nav-item icons_main" (click)="navigate('cart')">
+      <div class="d-flex cursor-pointer nav-item icons_main" (click)="openModal(template)">
 
         <mat-icon matBadge="15" matBadgeColor="warn" class="material-symbols-outlined">shopping_bag</mat-icon>
         <!-- <img src="../../../assets/cartbag-outline.svg" alt="" srcset=""> -->
@@ -69,3 +69,4 @@
     </div>
   </div>
 </nav>
+<app-cart-model #template></app-cart-model>
