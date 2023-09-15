@@ -6,7 +6,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { CartModelComponent } from '../../shared/model/cart-model/cart-model.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -23,7 +23,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class HeaderComponent implements OnInit {
   // @ViewChild(lgModal) CartModelComponent!: ElementRef;
-  constructor(private router: Router, private modalService: BsModalService) {}
+  constructor(private router: Router, private modalService: BsModalService,private dialog: MatDialog) {}
   navbarOpen = false;
   modalRef!: BsModalRef;
 
@@ -42,13 +42,32 @@ export class HeaderComponent implements OnInit {
     }
   }
   openCartModal() {
-    this.modalRef = this.modalService.show(CartModelComponent, {
-      class: 'modal-lg', // You can specify modal options here
+    // this.modalRef = this.modalService.show(CartModelComponent, {
+    //   class: 'modal-lg right-slide-modal', // You can specify modal options here
+    // });
+    this.dialog.open(CartModelComponent, {
+      panelClass: 'right-hidden-dialog', // Apply custom CSS class
+      position: {
+        right: '0', // Start from the right
+        top: '0',
+      },
     });
   }
   openModal(template: any) {
-    this.modalRef = this.modalService.show(template);
+    const initialState = {
+      // Your modal data or configuration here
+    };
+
+    const config = {
+      class: 'custom-modal-class', // Add your custom class here
+      initialState,
+    };
+
+    this.modalRef = this.modalService.show(template, config);
   }
+  // openModal(template: any) {
+  //   this.modalRef = this.modalService.show(template);
+  // }
 
   closeCartModal() {
     this.modalRef.hide();
