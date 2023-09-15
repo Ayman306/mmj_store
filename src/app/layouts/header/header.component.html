@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <!-- <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
     <a class="navbar-brand"><i class="fa-solid fa-bars"></i></a>
@@ -39,20 +41,25 @@
 
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
     <div class="icons navbar-nav mr-auto">
-      <div class="d-flex cursor-pointer nav-item icons_main">
+      <div class="d-flex cursor-pointer nav-item icons_main" (click)="navigate('profile')">
+        <!-- <img src="../../../assets/profile.svg" alt="" srcset=""> -->
+        <mat-icon>search</mat-icon>
+        <p class="link">Search</p>
+      </div>
+      <div class="d-flex cursor-pointer nav-item icons_main" (click)="navigate('profile')">
         <!-- <img src="../../../assets/profile.svg" alt="" srcset=""> -->
         <mat-icon>account_circle</mat-icon>
         <p class="link">Account</p>
       </div>
 
-      <div class="d-flex cursor-pointer nav-item icons_main">
+      <div class="d-flex cursor-pointer nav-item icons_main" (click)="navigate('wishlist')">
         <!-- <img  src="../../../assets/heart-outline.svg" alt="" srcset=""> -->
         <mat-icon matBadge="15" matBadgeColor="warn" class="material-symbols-outlined">favorite</mat-icon>
 
         <p class="link">Wish</p>
       </div>
 
-      <div class="d-flex cursor-pointer nav-item icons_main">
+      <div class="d-flex cursor-pointer nav-item icons_main" (click)="navigate('cart')">
 
         <mat-icon matBadge="15" matBadgeColor="warn" class="material-symbols-outlined">shopping_bag</mat-icon>
         <!-- <img src="../../../assets/cartbag-outline.svg" alt="" srcset=""> -->

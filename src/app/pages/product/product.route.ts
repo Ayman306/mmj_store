@@ -16,4 +16,9 @@ export default [
         (c) => c.ProductPageComponent
       ),
   },
+  {
+    path: 'wishlist',
+    loadComponent: () =>
+      import('./wishlist/wishlist.component').then((c) => c.WishlistComponent),
+  },
 ] as Routes;

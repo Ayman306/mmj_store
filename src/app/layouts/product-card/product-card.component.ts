@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductCardComponent {
   @Input() product!: any;
+  @Output() productId = new EventEmitter();
   isHovered = false;
 
   // Method to add the 'active' class
@@ -21,5 +22,8 @@ export class ProductCardComponent {
   // Method to remove the 'active' class
   removeActiveClass() {
     this.isHovered = false;
+  }
+  productFunc(id: any) {
+    this.productId.emit(id);
   }
 }

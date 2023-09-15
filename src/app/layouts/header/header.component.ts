@@ -19,6 +19,11 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  navigate(route: string) {
+    if (route === 'profile') {
+      this.router.navigate([`${route}`]);
+    } else this.router.navigate([`product/${route}`]);
+  }
   navbarOpen = false;
   constructor(private router: Router) {}
   ngOnInit() {

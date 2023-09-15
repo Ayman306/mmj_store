@@ -1,0 +1,8 @@
+<div class="main">
+  <div class="newarrival d-flex flex-wrap flex-row justify-content-evenly">
+    <ng-container *ngFor="let item of product;let i=index">
+      <app-product-card [product]="item"></app-product-card>
+    </ng-container>
+  </div>
+
+</div>

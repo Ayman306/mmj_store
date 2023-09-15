@@ -10,6 +10,7 @@ import { provideRouter } from '@angular/router';
 import { App_Route } from './app/app.route';
 import { ApiServiceService } from './app/shared/api/api-service.service';
 import { CountdownConfig, CountdownGlobalConfig } from 'ngx-countdown';
+import { HttpClientModule } from '@angular/common/http';
 
 function countdownConfigFactory(): CountdownConfig {
   return { format: `mm:ss` };
@@ -18,7 +19,11 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(App_Route),
     ApiServiceService,
-    importProvidersFrom(BrowserAnimationsModule, BrowserModule, ToastrModule.forRoot({
+    importProvidersFrom(
+      BrowserAnimationsModule,
+      HttpClientModule,
+      BrowserModule,
+      ToastrModule.forRoot({
         timeOut: 10000,
         positionClass: 'toast-bottom-right',
         preventDuplicates: true,
@@ -27,11 +32,12 @@ bootstrapApplication(AppComponent, {
         newestOnTop: true,
         tapToDismiss: true,
         autoDismiss: true,
-    })),
+      })
+    ),
     provideAnimations(),
     provideToastr(),
     { provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },
-    provideAnimations()
-],
+    provideAnimations(),
+  ],
 }).catch((err) => console.error(err));
 [];

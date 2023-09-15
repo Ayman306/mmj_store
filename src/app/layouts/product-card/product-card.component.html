@@ -1,6 +1,8 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <div class="main cursor-pointer">
   <div class="img">
-    <img [src]="product.img" alt="" srcset="" class="hero">
+    <img [src]="product.img" alt="" srcset="" class="hero" (click)="productFunc(product.title)">
     <div class="icon">
       <img src="../../../assets/product/wishlistTrue.svg" alt="" *ngIf="product.wishlist">
       <!-- [ngClass]="{'wishlistTrue': !isHovered && product.wishlist, 'wishlistFalse': isHovered && product.wishlist}"
@@ -12,7 +14,7 @@
     </div>
 
   </div>
-  <div class="content">
+  <div class="content" (click)="productFunc(product.title)">
     <div class="head">
 
       <h2>
