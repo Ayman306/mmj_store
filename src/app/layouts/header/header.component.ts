@@ -23,7 +23,11 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HeaderComponent implements OnInit {
   // @ViewChild(lgModal) CartModelComponent!: ElementRef;
-  constructor(private router: Router, private modalService: BsModalService,private dialog: MatDialog) {}
+  constructor(
+    private router: Router,
+    private modalService: BsModalService,
+    private dialog: MatDialog
+  ) {}
   navbarOpen = false;
   modalRef!: BsModalRef;
 
@@ -31,6 +35,7 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(() => {
       window.scrollTo(0, 0);
     });
+    this.openCartModal();
   }
   navigate(route: string) {
     if (route === 'profile') {

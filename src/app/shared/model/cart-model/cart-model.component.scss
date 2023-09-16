@@ -1,0 +1,30 @@
+.close {
+  display: block;
+  text-align: end;
+  margin-left: auto;
+  margin-top: 1rem;
+}
+
+.main {
+  padding: 10px;
+  height: 80vh;
+  overflow-y: scroll;
+
+  .head {
+    align-self: center;
+  }
+}
+
+.checkout {
+  background-color: #005F5F;
+  color: white;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 5px;
+  width: 90%;
+  margin: auto;
+  display: block;
+}

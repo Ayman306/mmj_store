@@ -30,8 +30,13 @@
 </nav> -->
 
 <nav class="navbar navbar-expand-lg">
-
-  <img class="navbar-brand" src="../../../assets/mmj_logo.png" alt="" class="logo" [routerLink]="['/home']">
+  <!-- <mat-icon class="material-symbols-outlined">
+    menu
+  </mat-icon> -->
+  <!-- <img class="navbar-brand" src="../../../assets/mmj_logo.png" alt="" class="logo" [routerLink]="['/home']"> -->
+  <div class="  m-auto d-md-flex d-lg-block justify-content-center">
+    <img class="navbar-brand logo" src="../../../assets/mmj_logo.png" alt="Logo" [routerLink]="['/home']">
+  </div>
 
 
   <button class="navbar-toggler" type="button" (click)="toggleNavbar()">

@@ -1,5 +1,19 @@
 <div [@slideInFromRight] class="right-hidden-dialog">
-  <h1>Right-Sliding Modal</h1>
-  <p>This is a right-sliding modal.</p>
-  <button mat-button (click)="close()">Close</button>
+  <button class="btn close d-block">
+
+    <mat-icon class="mat-18" (click)="close()">close</mat-icon>
+  </button>
+  <div class="main">
+    <div class="head d-flex justify-content-center align-item-center">
+      <h3 class="m-0">Shopping Bag &nbsp; </h3>
+      <p class="m-0">( 2 items )</p>
+
+    </div>
+    <div class="main1">
+      <ng-container *ngFor="let item of products">
+        <app-cart-product-card [product]="item"></app-cart-product-card>
+      </ng-container>
+    </div>
+  </div>
+  <button mat-button (click)="close()" class="checkout p-3 mt-2 btn">Check Out - $61.00</button>
 </div>

@@ -4,13 +4,14 @@
   <div class="img">
     <img [src]="product.img" alt="" srcset="" class="hero" (click)="productFunc(product.title)">
     <div class="icon">
-      <img src="../../../assets/product/wishlistTrue.svg" alt="" *ngIf="product.wishlist">
-      <!-- [ngClass]="{'wishlistTrue': !isHovered && product.wishlist, 'wishlistFalse': isHovered && product.wishlist}"
-      (mouseenter)="addActiveClass()" (mouseleave)="removeActiveClass()" -->
-
-      <img src="../../../assets/product/wishlistFalse.svg" alt="" *ngIf="!product.wishlist">
-      <img src="../../../assets/product/bagTrue.svg" alt="" *ngIf="product.cart">
-      <img src="../../../assets/product/bagFalse.svg" alt="" *ngIf="!product.cart">
+      <div class="wishlist" (click)="wishlist(product.wishlist)">
+        <img src="../../../assets/product/wishlistTrue.svg" alt="" *ngIf="product.wishlist">
+        <img src="../../../assets/product/wishlistFalse.svg" alt="" *ngIf="!product.wishlist">
+      </div>
+      <div class="cart" (click)="cart(product.cart)">
+        <img src="../../../assets/product/bagTrue.svg" alt="" *ngIf="product.cart">
+        <img src="../../../assets/product/bagFalse.svg" alt="" *ngIf="!product.cart">
+      </div>
     </div>
 
   </div>

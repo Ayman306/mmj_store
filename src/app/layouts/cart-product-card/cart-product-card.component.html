@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="img">
+    <img class="w-100" src="../../../assets/tshirt/tshirt2.jpg" alt="tshirt" srcset="">
+  </div>
+  <div class="content pt-2">
+    <div class="desc">
+
+      <h2 class="title">{{product.title}}</h2>
+      <p class="price m-0">{{product.price | currency:'INR'}}</p>
+    </div>
+    <div class="desc1">
+      <p>Black &nbsp; / &nbsp; Xl </p>
+
+      <div class="qty">
+        <div class="qtyBtn">
+          <button class="btn less" mat-icon-button (click)="incrementValue(-_step)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <input matInput type="number" [(ngModel)]="_value" minlength="1" readonly />
+          <button class="btn add" mat-icon-button (click)="incrementValue(_step)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <div class="remove">
+          <button class="btn"><mat-icon class="material-symbols-outlined">delete_sweep</mat-icon></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+.card {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  margin: 10px auto;
+
+  .img {
+    width: 300px;
+  }
+
+  .content {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .desc {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        padding-right: 10px;
+      }
+
+      .price {
+        padding-left: 10px;
+      }
+
+    }
+
+    .desc1 {
+      .qty {
+        .qtyBtn {
+          display: flex;
+          flex-direction: row;
+          border: 0.5px solid var(--gray, #E4E4E4);
+          width: max-content;
+
+          .less {
+            border-right: 0.5px solid var(--gray, #E4E4E4);
+          }
+
+          .add {
+            border-left: 0.5px solid var(--gray, #E4E4E4);
+          }
+
+          input {
+            border: none;
+            text-align: center;
+            width: 100px;
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+.remove {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    color: red;
+  }
+}
+
+@media (max-width:1000px) {
+
+  .card {
+    width: 300px;
+    margin: auto;
+    margin-bottom: 10px;
+    flex-direction: column;
+
+
+
+    .img {
+      width: 300px;
+    }
+
+    .content {
+      padding: 10px 5px;
+      margin: auto;
+
+      .desc {
+        display: flex;
+        justify-content: space-between;
+        align-self: center;
+
+        .title {
+          font-size: 18px;
+          font-weight: bold;
+          word-break: break-all;
+        }
+
+        .price {
+          align-self: center;
+        }
+      }
+
+      // .desc1 {
+      // .qty {
+      //   .qtyBtn {
+      //     display: flex;
+      //     flex-direction: row;
+      //     border: 0.5px solid var(--gray, #E4E4E4);
+      //     width: max-content;
+
+      //     .less {
+      //       border-right: 0.5px solid var(--gray, #E4E4E4);
+      //     }
+
+      //     .add {
+      //       border-left: 0.5px solid var(--gray, #E4E4E4);
+      //     }
+
+      //     input {
+      //       border: none;
+      //       text-align: center;
+      //       width: 100px;
+      //     }
+      //   }
+
+
+      // }
+      // }
+    }
+  }
+}

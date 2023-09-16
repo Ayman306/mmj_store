@@ -26,4 +26,12 @@ export class ProductCardComponent {
   productFunc(id: any) {
     this.productId.emit(id);
   }
+  wishlist(wish: boolean) {
+    // call the wishlist api
+    this.product.wishlist = !wish;
+  }
+  cart(cart: boolean) {
+    // call the cart api
+    this.product.cart = !cart;
+  }
 }
