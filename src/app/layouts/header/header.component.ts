@@ -35,11 +35,10 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(() => {
       window.scrollTo(0, 0);
     });
-    this.openCartModal();
   }
   navigate(route: string) {
     if (route === 'profile') {
-      this.router.navigate([`${route}`]);
+      this.router.navigate([`/user/${route}`]);
     } else if (route === 'cart') {
       this.openCartModal();
     } else {

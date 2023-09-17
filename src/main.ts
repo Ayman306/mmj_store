@@ -13,6 +13,8 @@ import { CountdownConfig, CountdownGlobalConfig } from 'ngx-countdown';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MatDialogModule } from '@angular/material/dialog';
+import 'hammerjs';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 function countdownConfigFactory(): CountdownConfig {
   return { format: `mm:ss` };
@@ -27,6 +29,7 @@ bootstrapApplication(AppComponent, {
       BrowserModule,
       MatDialogModule,
       ModalModule.forRoot(),
+      TabsModule.forRoot(),
       ToastrModule.forRoot({
         timeOut: 10000,
         positionClass: 'toast-bottom-right',
