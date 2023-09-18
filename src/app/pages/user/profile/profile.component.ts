@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, MatInputModule, MatSelectModule, TabsModule],
+  imports: [CommonModule, AccordionModule],
+  // imports: [FormsModule, MatFormFieldModule, MatInputModule, MatIconModule],
+
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
@@ -21,4 +21,5 @@ export class ProfileComponent {
   sectionSelect(section = 'personal') {
     this.section = section;
   }
+  isFirstOpen = true;
 }

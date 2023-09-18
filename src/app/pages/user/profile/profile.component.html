@@ -1,41 +1,18 @@
 <div class="main">
   <h2>Welcome Ayman</h2>
-  <div class="content">
-    <div>
-      <tabset>
-        <tab heading="Account information" id="tab1" (click)="sectionSelect('personal')">
-
-          <ng-template [ngIf]="section==='personal'">
-            <h2>Your Personal Information</h2>
-            <form class="example-form">
-              <mat-form-field>
-                <mat-label>Favorite Brands</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{ food.viewValue }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="First Name">
-              </mat-form-field>
-
-              <mat-form-field class=" example-full-width">
-                <input matInput placeholder="Last Name">
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Mobile">
-              </mat-form-field>
-            </form>
-          </ng-template>
-
-
-        </tab>
-        <tab heading="Address Book" (click)="sectionSelect('address')">Address Book</tab>
-        <tab heading="Order Summary" (click)="sectionSelect('summary')">Order Summary</tab>
-      </tabset>
+  <div class="content-main">
+    <div class="content">
+      <accordion [isAnimated]="true">
+        <accordion-group heading="Account information" [isOpen]="isFirstOpen">
+          This content is straight in the template.
+        </accordion-group>
+        <accordion-group heading="Address book">
+          <p>Some content</p>
+        </accordion-group>
+        <accordion-group heading="Order Summary">
+          <p>Some content</p>
+        </accordion-group>
+      </accordion>
     </div>
     <!-- <div class="head">
       <p>Account information</p>
