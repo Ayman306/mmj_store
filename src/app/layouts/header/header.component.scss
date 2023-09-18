@@ -77,7 +77,11 @@ mat-icon {
   background: white;
   transition: transform 0.3s ease-in-out;
   /* Add a smooth transition effect */
-  width: 50vw;
+  width: 40vw;
+
+  @media (max-width:1024px) {
+    width: 50vw;
+  }
 
   @media (max-width:690px) {
     width: 100vw;

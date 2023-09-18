@@ -2,10 +2,11 @@
   width: 90%;
   display: flex;
   flex-direction: row;
-  margin: 10px auto;
+  margin: 30px auto 30px 30px;
+  border: 0;
 
   .img {
-    width: 300px;
+    width: 220px;
   }
 
   .content {
@@ -13,24 +14,33 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 400px;
 
     .desc {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      align-items: start;
 
       .title {
-        padding-right: 10px;
+        color: #000;
+
+        font-size: 24px;
+        padding-bottom: 5px;
       }
 
       .price {
         padding-left: 10px;
+        color: #005F5F;
+        font-size: 24px;
+        font-weight: 400;
       }
 
     }
 
     .desc1 {
       .qty {
+        display: flex;
+
         .qtyBtn {
           display: flex;
           flex-direction: row;
@@ -82,12 +92,13 @@
 
     .content {
       padding: 10px 5px;
-      margin: auto;
+      // margin: auto;
+      width: max-content;
 
       .desc {
         display: flex;
         justify-content: space-between;
-        align-self: center;
+        // align-self: center;
 
         .title {
           font-size: 18px;
@@ -96,7 +107,7 @@
         }
 
         .price {
-          align-self: center;
+          padding: 0;
         }
       }
 
