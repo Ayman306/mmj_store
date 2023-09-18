@@ -97,3 +97,31 @@ body {
   height: auto !important;
   width: auto !important;
 }
+
+.profil_content {
+  .nav-tabs {
+    border-bottom: none;
+    justify-content: center;
+  }
+
+  /* Override the background color of the active tab */
+  .nav-tabs .nav-item .nav-link.active {
+    /* Your desired background color */
+    color: #005F5F;
+    // border: 0.2px solid #005F5F;
+    box-shadow: 0.5px 0.5px 1px #005F5F;
+    border-top: 0;
+    border-radius: 0;
+
+    /* Text color for the active tab */
+  }
+
+  /* Override the background color of the tab headers */
+  .nav-tabs .nav-item .nav-link {
+    background-color: #ffffff;
+    /* Your desired background color */
+    color: #000;
+    margin: 0px 30px;
+    /* Text color for inactive tabs */
+  }
+}

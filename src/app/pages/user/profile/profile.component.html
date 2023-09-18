@@ -1,24 +1,46 @@
 <div class="main">
-  <h2>Welcome Ayman</h2>
+  <h2 class="head">Welcome Ayman</h2>
   <div class="content-main">
-    <div class="content">
-      <accordion [isAnimated]="true">
-        <accordion-group heading="Account information" [isOpen]="isFirstOpen">
-          This content is straight in the template.
-        </accordion-group>
-        <accordion-group heading="Address book">
-          <p>Some content</p>
-        </accordion-group>
-        <accordion-group heading="Order Summary">
-          <p>Some content</p>
-        </accordion-group>
-      </accordion>
+    <div class="profil_content">
+      <tabset>
+        <tab heading="Account information">
+          <form>
+            <div class="mt-3  d-lg-flex justify-content-start inputDiv">
+              <select id="title" class="form-select form-select-lg mb-3 w-100" aria-label=".form-select-lg example">
+                <!-- <option selected>Select Title</option> -->
+                <option selected value="1">Mr</option>
+                <option value="2">Mrs</option>
+              </select>
+            </div>
+            <div class="mt-3 mb-3">
+              <div class="mb-3 inputDiv">
+                <label for="firstname" class="form-label">First name</label>
+                <input type="text" class="form-control  " id="firstname" placeholder="...">
+              </div>
+              <div class="mb-3 inputDiv">
+                <label for="lastname" class="form-label">Last name</label>
+                <input type="text" class="form-control w-100" id="lastname" placeholder="...">
+              </div>
+            </div>
+
+            <div class="input-group mb-3 mt-3 inputDiv">
+              <!-- <label for="mobile" class="form-label">Mobile number</label> -->
+              <span class="input-group-text" id="basic-addon1">+91</span>
+              <input id="mobile" type="text" class="form-control" placeholder="111-222-0000" aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+            <button type="submit" class="btn save">Save Changes</button>
+          </form>
+
+        </tab>
+        <tab heading="Address Book">
+          Tabs component in Angular ngx bootstrap
+        </tab>
+        <tab heading="Order Summary">
+          Tabs component in Angular ngx bootstrap
+        </tab>
+      </tabset>
     </div>
-    <!-- <div class="head">
-      <p>Account information</p>
-      <p>Address Book</p>
-      <p>Order Summary</p>
-    </div> -->
 
 
   </div>
