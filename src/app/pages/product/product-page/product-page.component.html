@@ -1,1 +1,69 @@
-<p>product-page works!</p>
+<div class="main">
+  <div class="productMain row">
+    <div class="image col-lg-6">
+      <div class="headImage">
+        <img [src]="productImg[0]" alt="" srcset="" class="w-100">
+      </div>
+      <div class="other">
+        <ng-container *ngFor='let img of productImg; let first = first'>
+          <ng-container *ngIf="!first">
+            <img [src]="img" alt="" srcset="" class=" otherImage">
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="content col-lg-6">
+      <div class="head">
+
+        <h2>WAISTCOAT WITH CONTRAST PIPING</h2>
+        <p>$122.00</p>
+      </div>
+      <div class="text">
+        <div class="desc">
+          <p class="descHead">
+            Description
+          </p>
+          <p>
+            Round neck waistcoat featuring front welt pockets, contrast trims, a pleat in the back and metal appliqué
+            fastening in
+            the front.
+          </p>
+        </div>
+        <div class="desc summary">
+          <div>
+            <p class="descHead">
+              Summary
+            </p>
+            <p>Color : Navy Blue</p>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Action
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="cart">
+        <button class="btn cartBtn" (click)="addToCart()"> Add to cart <i class="fas fa-shopping-bag"></i> </button>
+        <button class="btn cartBtn ">Buy Now &nbsp; <i class="fa-regular fa-credit-card blink_me"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="new-arrival">
+  <h2 class="head">Similar Items</h2>
+  <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
+    <ng-container *ngFor="let item of product; let i=index">
+      <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
+    </ng-container>
+  </div>
+</div>

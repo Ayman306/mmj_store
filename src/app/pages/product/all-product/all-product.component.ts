@@ -52,4 +52,7 @@ export class AllProductComponent {
   navigaToProduct(index: number) {
     this.route.navigate(['product/tshirt'], { queryParams: { id: index } });
   }
+  productRoute(index: number) {
+    this.route.navigate(['/product/tshirt'], { queryParams: { id: index } });
+  }
 }

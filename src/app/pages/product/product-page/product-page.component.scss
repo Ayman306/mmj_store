@@ -1,0 +1,195 @@
+@import url('../../../shared/style/animation.scss');
+
+.main {
+  .productMain {
+    padding: 10px;
+
+    .image {
+      position: relative;
+
+      .headImage {
+        height: 80vh;
+
+        @media (max-width:500px) {
+          height: auto;
+          margin-bottom: 10px;
+        }
+
+        img {
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
+      }
+
+      .other {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 10%;
+        right: 5%;
+
+
+        @media (max-width:550px) {
+          position: static;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin: 10px auto;
+          padding: 5px;
+
+        }
+
+
+        .otherImage {
+          height: 150px;
+          object-fit: contain;
+          margin-top: 10px;
+
+          @media (max-width:550px) {
+            position: static;
+            flex-direction: row;
+            margin: auto;
+          }
+        }
+      }
+    }
+
+    .content {
+      .head {
+        h2 {
+          color: #313131;
+          font-weight: 900;
+          line-height: 150%;
+          /* 48px */
+          letter-spacing: 4.8px;
+          text-transform: uppercase;
+          word-wrap: break-word;
+        }
+
+        p {
+          color: #005F5F;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 150%;
+          /* 48px */
+          letter-spacing: 4.8px;
+          text-transform: uppercase;
+        }
+      }
+
+      .text {
+        .desc {
+          font-size: 12px;
+          width: 50%;
+
+          @media (max-width: 500px) {
+            width: 75%;
+          }
+        }
+
+        .summary {
+          display: flex;
+          justify-content: space-between;
+
+          @media (max-width: 500px) {
+            display: block;
+          }
+
+          .btn-group {
+            height: 50px;
+
+            button {
+              background-color: transparent;
+              border: 0.5px solid #000;
+              width: 200px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-radius: 0;
+            }
+          }
+        }
+
+        .descHead {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 150%;
+          /* 18px */
+          letter-spacing: 1.8px;
+          text-transform: uppercase;
+          color: rgba(49, 49, 49, 0.40);
+        }
+      }
+
+      .cart {
+        display: flex;
+        flex-direction: column;
+
+        .cartBtn {
+          background-color: #005F5F;
+          color: white;
+          border-radius: 0;
+          width: 275px;
+          height: 50px;
+          margin: 20px;
+          margin-left: 0px;
+
+          color: #FFF;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 150%;
+
+          i {
+            padding-left: 5px;
+          }
+
+          /* 21px */
+        }
+      }
+    }
+  }
+}
+
+.new-arrival {
+  .head {
+    margin-top: 5%;
+    text-align: center;
+    color: #000;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 10.8px;
+    text-transform: uppercase;
+
+    @media (max-width:480px) {
+      font-size: 24px;
+    }
+  }
+}
+
+::ng-deep .right-hidden-dialog {
+  position: fixed;
+  /* Use fixed position to align entire modal */
+  top: 0;
+  /* Adjust as needed */
+  right: 0;
+  /* Align to the right */
+  bottom: 0;
+  /* Adjust as needed */
+  left: auto;
+  /* To ensure it's fully aligned to the right */
+  background: white;
+  transition: transform 0.3s ease-in-out;
+  /* Add a smooth transition effect */
+  width: 40vw;
+
+  @media (max-width:1024px) {
+    width: 50vw;
+  }
+
+  @media (max-width:690px) {
+    width: 100vw;
+  }
+}
