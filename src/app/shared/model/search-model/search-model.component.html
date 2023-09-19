@@ -1,0 +1,31 @@
+<div [@slideInFromRight] class="searchbar">
+  <button class="btn close d-block">
+
+    <mat-icon class="mat-18" (click)="close()">close</mat-icon>
+  </button>
+  <div class="logo">
+    <img src="../../../../assets/mmj_logo.png" alt="" srcset="" class="w-100">
+  </div>
+  <div class="content">
+    <div class="search">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search...">
+        <div class="input-group-append searchBtn">
+          <button class="btn btn-outline-secondary" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="searchCon">
+
+      <h2>Popular search</h2>
+      <div class="searcher" *ngFor="let item of popular">
+        <p>{{item}}</p>
+      </div>
+    </div>
+
+  </div>
+  <p>search-model works!</p>
+
+</div>

@@ -19,7 +19,7 @@
     .desc {
       display: flex;
       flex-direction: column;
-      align-items: start;
+      align-items: flex-start;
 
       .title {
         color: #000;
@@ -29,9 +29,8 @@
       }
 
       .price {
-        padding-left: 10px;
         color: #005F5F;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 400;
       }
 

@@ -27,6 +27,14 @@
 .inputDiv {
   width: 500px;
   margin: auto;
+
+  @media (max-width:600px) {
+    width: 400px;
+  }
+
+  @media (max-width:400px) {
+    width: 100%;
+  }
 }
 
 label,

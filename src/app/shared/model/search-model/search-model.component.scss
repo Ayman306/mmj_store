@@ -1,0 +1,51 @@
+.close {
+  margin: 30px;
+  margin-left: auto;
+}
+
+.logo {
+  width: 260px;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.content {
+  width: 60vw;
+  margin: auto;
+  display: block;
+
+  @media (max-width:768px) {
+    width: 95vw;
+  }
+
+  .search {
+    .input-group {
+      input {
+        height: 50px;
+        border-radius: 0;
+      }
+
+      .searchBtn {
+        margin-left: -35px !important;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        z-index: 6;
+
+        button {
+          border: none;
+          background-color: #005F5F;
+          color: white;
+          border-radius: 0px;
+          height: 100%;
+          width: 50px;
+        }
+      }
+    }
+
+    .searchCon {
+      margin-top: 20px;
+    }
+  }
+}

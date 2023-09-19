@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartModelComponent } from '../../shared/model/cart-model/cart-model.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MatDialog } from '@angular/material/dialog';
+import { SearchModelComponent } from 'src/app/shared/model/search-model/search-model.component';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -35,20 +36,25 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(() => {
       window.scrollTo(0, 0);
     });
+    this.openSearchModal();
   }
   navigate(route: string) {
-    if (route === 'profile') {
-      this.router.navigate([`/user/${route}`]);
-    } else if (route === 'cart') {
-      this.openCartModal();
-    } else {
-      this.router.navigate([`product/${route}`]);
+    switch (route) {
+      case 'profile':
+        this.router.navigate([`/user/${route}`]);
+        break;
+      case 'cart':
+        this.openCartModal();
+        break;
+      case 'search':
+        this.openSearchModal();
+        break;
+      default:
+        this.router.navigate([`product/${route}`]);
+        break;
     }
   }
   openCartModal() {
-    // this.modalRef = this.modalService.show(CartModelComponent, {
-    //   class: 'modal-lg right-slide-modal', // You can specify modal options here
-    // });
     this.dialog.open(CartModelComponent, {
       panelClass: 'right-hidden-dialog', // Apply custom CSS class
       position: {
@@ -57,18 +63,16 @@ export class HeaderComponent implements OnInit {
       },
     });
   }
-  openModal(template: any) {
-    const initialState = {
-      // Your modal data or configuration here
-    };
-
-    const config = {
-      class: 'custom-modal-class', // Add your custom class here
-      initialState,
-    };
-
-    this.modalRef = this.modalService.show(template, config);
+  openSearchModal() {
+    this.dialog.open(SearchModelComponent, {
+      panelClass: 'searchbar',
+      position: {
+        right: '0', // Start from the right
+        top: '0',
+      },
+    });
   }
+
   // openModal(template: any) {
   //   this.modalRef = this.modalService.show(template);
   // }
