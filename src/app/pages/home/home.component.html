@@ -47,7 +47,7 @@
   <h2 class="head">Top selling</h2>
   <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
     <ng-container *ngFor="let item of product; let i=index">
-      <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
+      <app-product-card [product]="item" (productId)="productRoute($event)"></app-product-card>
     </ng-container>
   </div>
 </div>
