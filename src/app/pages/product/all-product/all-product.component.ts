@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.component';
 import { Router } from '@angular/router';
@@ -55,4 +55,32 @@ export class AllProductComponent {
   productRoute(index: number) {
     this.route.navigate(['/product/tshirt'], { queryParams: { id: index } });
   }
+  @ViewChild('targetDiv') targetDiv!: ElementRef;
+  buttonVisible = false;
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.checkVisibility();
+  }
+  ngAfterViewInit() {
+    // Initial check for visibility
+    this.checkVisibility();
+  }
+
+   checkVisibility() {
+    if (this.isElementInViewport(this.targetDiv.nativeElement)) {
+      this.buttonVisible = true;
+    } else {
+      this.buttonVisible = false;
+    }
+  }
+
+   isElementInViewport(el: HTMLElement): boolean {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top <= window.innerHeight &&
+      rect.bottom >= 0
+    );
+  }
+
 }
