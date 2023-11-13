@@ -1,22 +1,31 @@
 <div class="main">
   <div class="productMain row">
-    <div class="image col-lg-6">
+    <splide [options]="
+{
+  arrows:true
+}
+" class="col-lg-6">
+  <splide-slide *ngFor='let img of productImg; let first = first'>
+    <div class="image ">
       <div class="headImage">
-        <img [src]="productImg[0]" alt="" srcset="" class="w-100">
+        <img [src]="img" alt="" srcset="" class="w-100">
       </div>
-      <div class="other">
+      <!-- <div class="other">
         <ng-container *ngFor='let img of productImg; let first = first'>
           <ng-container *ngIf="!first">
             <img [src]="img" alt="" srcset="" class=" otherImage">
           </ng-container>
         </ng-container>
-      </div>
+      </div> -->
     </div>
+</splide-slide>
+</splide>
+
     <div class="content col-lg-6">
       <div class="head">
 
-        <h2>WAISTCOAT WITH CONTRAST PIPING</h2>
-        <p>$122.00</p>
+        <h2 class="title">WAISTCOAT WITH CONTRAST PIPING</h2>
+        <p class="price">$122.00</p>
       </div>
       <div class="text">
         <div class="desc">
@@ -36,34 +45,49 @@
             </p>
             <p>Color : Navy Blue</p>
           </div>
-          <div class="btn-group">
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Action
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Separated link</a></li>
-            </ul>
-          </div>
         </div>
+        <!-- <mat-form-field class="size">
+<mat-select placeholder="Select Size">
+ <mat-option>None</mat-option>
+ <mat-option *ngFor="let state of size" [value]="state">{{state}}</mat-option>
+</mat-select>
+</mat-form-field> -->
+<div class="size">
+  <p class="descHead">
+    Size
+  </p>
+  <div class="d-flex sizes" >
+    <ng-container *ngFor="let size of size">
+
+      <div>{{size}}</div>
+    </ng-container>
+
+    </div>
+</div>
       </div>
-      <div class="cart">
-        <button class="btn cartBtn" (click)="addToCart()"> Add to cart <i class="fas fa-shopping-bag"></i> </button>
-        <button class="btn cartBtn ">Buy Now &nbsp; <i class="fa-regular fa-credit-card blink_me"></i></button>
+      <p class="descHead">
+ Quantity
+</p>
+      <div class="qty d-flex ">
+        <button class="btn qtyBtn"><mat-icon class="mat-18 d-flex">add</mat-icon></button>
+        <input type="number" [formControl]="quantity" class="qtyText" [value]="quantity.value">
+        <button class="btn qtyBtn"><mat-icon class="mat-18 d-flex">remove</mat-icon></button>
+      </div>
+      <div class="cart d-flex">
+        <button class="btn cartBtn d-flex justify-content-center align-item-center" (click)="addToCart()"> Add to cart <ng-icon name="heroShoppingBag" class="d-flex"></ng-icon></button>
+        <button class="btn cartBtn buyNow">Buy Now &nbsp; <i class="fa-regular fa-credit-card blink_me"></i></button>
       </div>
     </div>
   </div>
 </div>
-<div class="new-arrival">
-  <h2 class="head">Similar Items</h2>
+   <div class="d-flex justify-content-between align-items-center m-b-t-50">
+        <h2 class="heading">You may also Like</h2>
+        <button class="btn view">View all <ng-icon name="heroArrowLongRight"></ng-icon></button>
+      </div>
+
+  <!-- <h2 class="head">You may also Like</h2> -->
   <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
     <ng-container *ngFor="let item of product; let i=index">
       <app-product-card [product]="item" (productId)="productRoute($event)"></app-product-card>
     </ng-container>
   </div>
-</div>

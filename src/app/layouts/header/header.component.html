@@ -26,14 +26,14 @@
   </ng-container>
    <div class="search w-100" [ngClass]="{'active': searchClicked}">
     <div class="input-group ">
-      <div class="input-group-append searchBtn">
-        <button class="btn " type="button" >
+      <div class="input-group-append searchBtn" (click)="searchClicked = !searchClicked">
+        <button class="btn " type="button" (click)="searchProduct()">
           <ng-icon name="featherSearch" class="d-flex"></ng-icon>
         </button>
       </div>
-      <input type="text" class="form-control" placeholder="Search..." formControlName="search">
-      <div class="input-group-append closeBtn">
-        <button class="btn " type="button" (click)="searchClicked = !searchClicked">
+      <input type="text" class="form-control" placeholder="Search..." [formControl]="search" (keyup.enter)="searchProduct()">
+      <div class="input-group-append closeBtn" (click)="searchClicked = !searchClicked">
+        <button class="btn " type="button"  (click)="closeSearch()">
           <mat-icon class="mat-18">close</mat-icon>
         </button>
       </div>

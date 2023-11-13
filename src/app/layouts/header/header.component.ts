@@ -9,7 +9,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MatDialog } from '@angular/material/dialog';
 import { SearchModelComponent } from 'src/app/shared/model/search-model/search-model.component';
 import { NgIcon } from '@ng-icons/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -20,7 +20,8 @@ import { FormControl } from '@angular/forms';
     MatBadgeModule,
     MatIconModule,
     CartModelComponent,
-    NgIcon
+    NgIcon,
+    ReactiveFormsModule
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
@@ -86,5 +87,12 @@ export class HeaderComponent implements OnInit {
   }
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
+  }
+  searchProduct() {
+    console.log(this.search.value);
+  }
+  closeSearch() {
+    this.search.reset()
+    this.searchClicked = false
   }
 }

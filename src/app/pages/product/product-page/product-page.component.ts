@@ -4,11 +4,16 @@ import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CartModelComponent } from 'src/app/shared/model/cart-model/cart-model.component';
+import { NgxSplideModule } from 'ngx-splide';
+import { MatSelectModule } from '@angular/material/select';
+import { NgIcon } from '@ng-icons/core';
+import { MatIconModule } from '@angular/material/icon';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent],
+  imports: [CommonModule, ProductCardComponent,NgxSplideModule,MatSelectModule,NgIcon,MatIconModule,ReactiveFormsModule],
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.scss'],
 })
@@ -23,7 +28,10 @@ export class ProductPageComponent implements OnInit {
       this.id = queryParams.get('id');
     });
   }
-  id!: any;
+  id!: unknown;
+   size = [
+    'S','M','L'
+  ];
 
   productImg = [
     '../../../../assets/productImage/productImage1.jpeg',
@@ -66,6 +74,8 @@ export class ProductPageComponent implements OnInit {
       wishlist: false,
     },
   ];
+
+  quantity=new FormControl(0)
   productRoute(index: number) {
     this.route.navigate(['/product/tshirt'], { queryParams: { id: index } });
   }

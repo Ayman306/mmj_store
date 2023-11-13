@@ -16,6 +16,12 @@
   }
 }
 
+.main1 {
+  &:last-child {
+    margin-bottom: 100px;
+  }
+}
+
 .checkout {
   background-color: #005F5F;
   color: white;
@@ -28,4 +34,8 @@
   width: 90%;
   margin: auto;
   display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2%;
 }

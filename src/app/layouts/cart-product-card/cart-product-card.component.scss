@@ -39,6 +39,9 @@
     .desc1 {
       .qty {
         display: flex;
+        width: max-content;
+        overflow: hidden;
+        height: 40px;
 
         .qtyBtn {
           display: flex;
@@ -48,16 +51,18 @@
 
           .less {
             border-right: 0.5px solid var(--gray, #E4E4E4);
+            width: 100%;
           }
 
           .add {
             border-left: 0.5px solid var(--gray, #E4E4E4);
+            width: 100%;
           }
 
           input {
             border: none;
             text-align: center;
-            width: 100px;
+            width: 40px;
           }
         }
 
@@ -79,20 +84,20 @@
 @media (max-width:1000px) {
 
   .card {
-    width: 300px;
+    width: 100%;
     margin: 10px auto;
-    flex-direction: column;
+    flex-direction: row;
 
 
 
     .img {
-      width: 300px;
+      width: 200px;
     }
 
     .content {
       padding: 10px 5px;
       // margin: auto;
-      width: max-content;
+      width: 100%;
 
       .desc {
         display: flex;

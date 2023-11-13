@@ -2,11 +2,12 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.component';
 import { Router } from '@angular/router';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-all-product',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent],
+  imports: [CommonModule, ProductCardComponent,MatSelectModule],
   templateUrl: './all-product.component.html',
   styleUrls: ['./all-product.component.scss'],
 })
@@ -45,6 +46,10 @@ export class AllProductComponent {
       cart: true,
       wishlist: false,
     },
+  ];
+
+  filter = [
+    'Best Selling','Alphabetically A-Z','Alphabetically Z-A','Price, High to Low', 'Price Low to High','Date old to new', 'Date new to old'
   ];
   filterBy(type: string) {
     console.log(type, 'filter');

@@ -64,6 +64,7 @@
   box-shadow: 2px 1px 4px 0px rgba(0, 0, 0, 0.25);
   background: #FEFEFE;
   border-radius: 10px;
+  width: max-content;
 
   @media (max-width:780px) {
     border-radius: 0px;
@@ -74,7 +75,9 @@
 
     .content {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
 
       div {
         display: flex;

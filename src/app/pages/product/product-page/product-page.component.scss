@@ -110,20 +110,40 @@
           }
         }
 
-        .descHead {
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 150%;
-          /* 18px */
-          letter-spacing: 1.8px;
-          text-transform: uppercase;
-          color: rgba(49, 49, 49, 0.40);
+
+      }
+
+      .size {
+        .sizes {
+          div {
+            border-radius: 50%;
+            margin-left: 10px;
+            border: 1px solid black;
+            padding: 10px;
+
+          }
+        }
+      }
+
+      .qty {
+        .qtyBtn {
+          background-color: #005F5F;
+          color: white;
+          font-weight: 600;
+          border-radius: 0px;
+
+        }
+
+        .qtyText {
+          border: none;
+          width: 40px;
+          text-align: center;
         }
       }
 
       .cart {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
 
         .cartBtn {
           background-color: #005F5F;
@@ -138,12 +158,19 @@
           font-size: 14px;
           font-weight: 500;
           line-height: 150%;
+          align-items: center;
+
+          gap: 20px;
 
           i {
             padding-left: 5px;
           }
 
           /* 21px */
+        }
+
+        .buyNow {
+          background-color: #BE6013;
         }
       }
     }
@@ -192,4 +219,15 @@
   @media (max-width:690px) {
     width: 100vw;
   }
+}
+
+.descHead {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  /* 18px */
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(49, 49, 49, 0.40);
+  margin-top: 10px;
 }
