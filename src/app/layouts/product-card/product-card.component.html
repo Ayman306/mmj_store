@@ -18,14 +18,13 @@
   <div class="content" (click)="productFunc(product.title)">
     <div class="head">
 
-      <h2>
+      <h2 class="title">
         {{product.title}}
       </h2>
-      <p>{{product.price | currency:'INR'}} </p>
+      <p class="desc">{{product.des}}</p>
+      <p class="price">{{product.price | currency:'INR'}} </p>
     </div>
-    <div class="desc">
-      <p>{{product.des}}</p>
-    </div>
-    <button class="btn w-100">Buy Now &nbsp; <i class="fa-regular fa-credit-card blink_me"></i></button>
+
+    <!-- <button class="btn w-100">Buy Now &nbsp; <i class="fa-regular fa-credit-card blink_me"></i></button> -->
   </div>
 </div>

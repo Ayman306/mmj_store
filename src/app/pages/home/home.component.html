@@ -4,32 +4,29 @@
 }
 ">
   <splide-slide>
-    <div class="img1">
-      <div class="w-100 h-100">
+    <div class="heroslider">
+      <div class="media">
         <div class="overlay"></div>
-        <video src="../../../assets/home/mixkit-woman-modeling-a-short-black-dress-805-medium.mp4" autoplay muted loop
-          class="vedio"></video>
+        <video src="../../../assets/home/mixkit-woman-modeling-a-short-black-dress-805-medium.mp4" autoplay muted loop class="vedio"></video>
       </div>
       <div class="content">
-
-        <p>#VOCALFORLOCAL</p>
-        <h2>Namma trendy</h2>
-        <h1>mangaluru</h1>
-        <p class="text-end">nama cool aka....</p>
-        <button class="btn shopNow " (click)="navigateTo('allProduct')">shope now <img
-            src="../../../assets/arrow-down1.svg" alt="" srcset="" class="blink_me"></button>
+        <p class="tag">atheltic wear</p>
+      </div>
+      <div class="contentMain">
+        <h1 class="contentHead"> Athletic wear that keeps up with your hustle.</h1>
+        <button class="btn shopNow"(click)="navigateTo('allProduct')">Shop Collection</button>
       </div>
     </div>
   </splide-slide>
 </splide>
 
-<div class="new-arrival">
-  <div class="vector">
-    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com-right.svg" alt="">
-    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com.svg" alt="">
 
-  </div>
-  <h2 class="head"> new arrivals</h2>
+
+<div class="new-arrival m-b-t-50">
+     <div class="d-flex justify-content-between align-items-center">
+        <h2 class="heading">Latest Arrivals</h2>
+        <button class="btn view">View all <ng-icon name="heroArrowLongRight"></ng-icon></button>
+      </div>
   <div class="newarrival d-flex flex-wrap flex-row justify-content-evenly">
     <ng-container *ngFor="let item of product;let i=index">
       <app-product-card [product]="item" (productId)="productRoute($event)"></app-product-card>
@@ -37,14 +34,45 @@
   </div>
 </div>
 
+  <div class="category mb-5 m-b-t-50">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 class="heading">shop by categories</h2>
+        <!-- <button class="btn view">View all </button> -->
+      </div>
+      <app-category-card></app-category-card>
+</div>
 
-<div class="new-arrival">
-  <div class="vector">
-    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com-right.svg" alt="">
-    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com.svg" alt="">
+<div class="slider w-100">
+  <splide [options]="
+{
+  arrows:false,
+}
+">
+    <splide-slide>
+    <div class="heroslider">
+      <div class="media">
+        <div class="overlay"></div>
+        <img class="img" src="../../../assets/home/adventureImg.jpg" alt="" srcset="">
+      </div>
+      <div class="content">
+        <p class="tag">atheltic wear</p>
+      </div>
+      <div class="contentMain">
+        <h1 class="contentHead">Adventure Bound Attire</h1>
+        <p class="subText">Adventure-ready apparel,Designed for comfort and style on the open road</p>
+        <button class="btn shopNow"(click)="navigateTo('allProduct')">Shop Collection</button>
+      </div>
+    </div>
+    </splide-slide>
+  </splide>
+</div>
 
-  </div>
-  <h2 class="head">Top selling</h2>
+<div class="top-seller m-b-t-50">
+
+  <div class="d-flex justify-content-between align-items-center">
+        <h2 class="heading">Top Sellers</h2>
+        <button class="btn view">View all <ng-icon name="heroArrowLongRight"></ng-icon> </button>
+      </div>
   <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
     <ng-container *ngFor="let item of product; let i=index">
       <app-product-card [product]="item" (productId)="productRoute($event)"></app-product-card>
@@ -52,79 +80,56 @@
   </div>
 </div>
 
-<div class="slider w-100">
-  <splide [options]="
-{
-  arrows:false,
-}
-">
-    <splide-slide>
-      <div class="w-100 sliderImg d-flex ">
-        <div class="content">
-
-          <h2>Adventure <br> Bound attire</h2>
-          <p>Adventure-ready apparel, designed for comfort and style on the open road.</p>
-          <button class="btn shopNow" (click)="navigateTo('adventure')">
-            shope now
-            <img src="../../../assets/arrow-down1.svg" alt="" srcset="">
-
-          </button>
-        </div>
-
+<div class="category">
+  <div class="main">
+    <div class="left">
+      <div class="imageMain">
+        <div class="overlay"></div>
+        <img class="image" src="../../../assets/home/wardrobe.jpg" alt="" srcset="">
       </div>
-    </splide-slide>
-  </splide>
-</div>
-
-<div class="new-arrival">
-  <div class="vector">
-    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com-right.svg" alt="">
-    <img src="../../../assets/homeScreen/lighthouse-svgrepo-com.svg" alt="">
-
-  </div>
-  <div class="category mb-5">
-    <div class="main">
-      <h2 class="head">categories</h2>
-      <app-category-card></app-category-card>
-
+      <div class="content">
+        <p class="context">new season</p>
+        <div class="text">
+          <h2 class="head">Latest Men's wear</h2>
+          <p class="subtext">Dress sharp, feel confident.</p>
+          <button class="btn shopNow">Shop Now</button>
+        </div>
+        <p class="hashtag">#mangaloremerijaan</p>
+      </div>
     </div>
-  </div>
-</div>
-<div class="slider w-100">
-  <splide [options]="
-{
-  arrows:false,
-}
-">
-    <splide-slide>
-      <div class="w-100 sliderImg1 d-flex ">
-        <div class="content">
-
-          <h2>time to upgrade your</h2>
-          <h1>wardrobe</h1>
-          <button class="btn shopNow p-3" (click)="navigateTo('wardrobe')">
-            explore collection &nbsp;
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
+    <div class="right">
+      <div class="one">
+         <div class="imageMain">
+          <div class="overlay"></div>
+        <img class="image" src="../../../assets/home/wardrobe.jpg" alt="" srcset="">
+      </div>
+      <div class="content">
+        <p class="context">new season</p>
+        <div class="text">
+          <h2 class="head">Latest Men's wear</h2>
+          <p class="subtext">Dress sharp, feel confident.</p>
+          <button class="btn shopNow">Shop Now</button>
         </div>
+                <p class="hashtag">#mangaloremerijaan</p>
 
       </div>
-    </splide-slide>
-  </splide>
-</div>
+      </div>
+      <div class="two">
+         <div class="imageMain">
+          <div class="overlay"></div>
+        <img class="image" src="../../../assets/home/wardrobe.jpg" alt="" srcset="">
+      </div>
+      <div class="content">
+        <p class="context">new season</p>
+        <div class="text">
+          <h2 class="head">Latest Men's wear</h2>
+          <p class="subtext">Dress sharp, feel confident.</p>
+          <button class="btn shopNow">Shop Now</button>
+        </div>
+                <p class="hashtag">#mangaloremerijaan</p>
 
-<div class="newarrival d-flex flex-wrap flex-row justify-content-evenly">
-  <ng-container *ngFor="let item of products;let i=index">
-    <app-product-card [product]="item" (click)="productRoute(i)"></app-product-card>
-  </ng-container>
-</div>
-
-
-<div class="gallery d-flex justify-content-spaceBetween">
-  <div class="img1 w-100 h-100"></div>
-  <div class="img2">
-
-    <div></div>
-    <p>travel in style</p>
+      </div>
+      </div>
+    </div>
   </div>
 </div>

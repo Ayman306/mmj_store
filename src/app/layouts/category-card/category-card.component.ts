@@ -15,27 +15,27 @@ export class CategoryCardComponent {
     {
       title: 'casual',
       image:
-        'https://images.unsplash.com/photo-1619042823674-4f4ad8484b08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format',
+        '../../../assets/category/casual-category.jpg',
     },
     {
-      title: 'casual',
+      title: 'Wanderlust',
       image:
-        'https://images.unsplash.com/photo-1619042823674-4f4ad8484b08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format',
+        '../../../assets/category/adventureImg.jpg',
     },
     {
-      title: 'casual',
+      title: 'college',
       image:
-        'https://images.unsplash.com/photo-1619042823674-4f4ad8484b08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format',
+        '../../../assets/category/college-outfit.jpg',
     },
     {
-      title: 'casual',
+      title: 'Party burst',
       image:
-        'https://images.unsplash.com/photo-1619042823674-4f4ad8484b08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format',
+        '../../../assets/category/party-category.jpg',
     },
     {
-      title: 'casual',
+      title: 'Gym x anime',
       image:
-        'https://images.unsplash.com/photo-1619042823674-4f4ad8484b08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format',
+        '../../../assets/category/anime-category.jpg',
     },
   ];
   navigateToCatg(type: string) {

@@ -1,198 +1,145 @@
 @import url('../../shared/style/animation.scss');
 
-.img1 {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.70) 100%), url('https://images.unsplash.com/photo-1532202193792-e95ef22f1bce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  align-items: center;
+// the hero slider start-----------------------------------------
+.heroslider {
+  border-radius: 30px;
 
-  .content {
+  .media {
+    width: 100%;
+    height: 650px;
+  }
+
+  .content,
+  .contentMain {
     margin: 50px;
     width: max-content;
     position: absolute;
     z-index: 2;
+    border-radius: inherit;
 
-    @media (max-width:480px) {
-      margin: 20px;
-    }
-
-    p {
-      color: #FFA300;
-      text-transform: uppercase;
-    }
-
-    p:last-child {
-      text-align: end;
-    }
-
-    h2,
-    h1 {
+    .tag {
+      top: 0;
+      font-size: 16px;
       color: #fff;
       text-transform: uppercase;
+      letter-spacing: 15%;
+      font-weight: bold;
     }
 
-    h2 {
-      font-size: clamp(30px, 10vw, 65px);
+    @media (max-width:480px) {
+      margin: 30px;
 
+      .tag {
+        font-size: 12px;
+      }
     }
-
-    h1 {
-      font-weight: 900;
-      font-size: clamp(40px, 10vw, 85px);
-    }
-
 
   }
-}
-
-.sliderImg {
-  width: 100vw;
-  height: 760px;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.70) 100%), url('https://images.unsplash.com/photo-1656945590230-fa5b1964cfaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&');
-  background-position: center;
-  background-size: cover;
-  align-items: center;
 
   .content {
-    width: 500px;
-    margin-left: 80px;
+    top: 0;
+  }
 
-    @media (max-width:580px) {
-      margin-left: 0px;
+  .contentMain {
+    bottom: 0;
+    width: 50%;
+
+    .contentHead {
+      color: white;
+      margin-bottom: 14px;
     }
 
-    h2 {
-      color: #FFF;
-      font-family: Poppins;
-      font-size: clamp(20px, 10vw, 50px);
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      letter-spacing: 7.5px;
-      text-transform: uppercase;
+    .subText {
+      color: white;
+      font-size: 14px;
     }
 
-    p {
-      color: #FFF;
-      font-size: clamp(14px, 10vw, 20px);
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+    .shopNow {
+      width: 50%;
+      background-color: #005F5F;
+      color: white;
+      padding: 15px 20px;
+    }
+
+    @media (max-width:780px) {
+      width: 75%;
+
+      .shopNow {
+        width: 75%;
+      }
+
+      .subText {
+        font-size: 12px;
+      }
+    }
+  }
+
+  @media (max-width:500px) {
+    .media {
+      height: 422.5px;
     }
   }
 }
 
-.sliderImg1 {
-  width: 100vw;
-  height: 760px;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.70) 100%), url('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-position: center;
-  background-size: cover;
-  align-items: center;
-
-  .content {
-    width: max-content;
-    margin-left: 10rem;
-
-    @media (max-width:580px) {
-      margin-left: 0px;
-    }
-
-    h2 {
-      color: #FFF;
-      font-family: Poppins;
-      font-size: clamp(18px, 5vw, 50px);
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      color: #FFF;
-      font-family: Poppins;
-      font-size: clamp(24px, 5vw, 90px);
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      letter-spacing: 24px;
-      text-transform: uppercase;
-    }
-  }
-
+.vedio,
+.img {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  object-fit: cover;
+  border-radius: 30px;
 }
 
-.gallery {
-  width: auto;
-  height: 780px;
-
-  .img1 {
-    background-image: url('https://images.unsplash.com/photo-1558980664-28d10ee9bb52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: inherit;
-
-    @media (max-width:768px) {
-      background-position: left;
-    }
-  }
-
-  .img2 {
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 780px;
-    margin-left: 10px;
-
-    @media (max-width:768px) {
-      background-position: left;
-    }
-
-    div {
-      background-image: url('https://images.unsplash.com/photo-1578651659403-ae9f3da3c387?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      height: 750px;
-      width: 100%;
-    }
-
-    p {
-      color: #000;
-      font-family: Roboto;
-      font-size: clamp(20px, 5vw, 64px);
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      text-transform: uppercase;
-    }
-  }
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: inherit;
+  background: rgb(0 0 0 / 57%);
+  z-index: 1;
+  border-radius: 30px;
 }
 
-.head {
-  margin-top: 10%;
-  text-align: center;
-  color: #000;
-  font-family: Roboto;
+// the hero slider end-----------------------------------------
+.category {
+  margin-top: 20px;
+}
+
+//common head start -----------------------
+.heading {
   font-size: 36px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
-  letter-spacing: 10.8px;
-  text-transform: uppercase;
+  text-transform: capitalize;
+
+  @media (max-width:780px) {
+    font-size: 30px;
+  }
 
   @media (max-width:480px) {
-    font-size: 24px;
+    font-size: 20px;
   }
+}
+
+.view {
+  font-size: 20px;
+  font-weight: 400;
+  border: 1px solid black;
+  background-color: transparent;
+  padding: 10px 18px;
+  cursor: pointer;
+  height: max-content;
+  border-radius: 0;
+
+  @media (max-width:780px) {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+}
+
+//common head end -----------------------
+.m-b-t-50 {
+  margin: 50px 0px;
 }
 
 .shopNow {
@@ -223,33 +170,213 @@
   }
 }
 
-.new-arrival {
-  position: relative;
+// end category start
+.category {
 
-  .vector {
-    position: absolute;
-    width: 100%;
-    margin-top: -10%;
+  .main {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    height: 80vh;
+    gap: 50px;
+
+
+
+    .left {
+      height: 80vh;
+      position: relative;
+      width: 50%;
+
+      .imageMain {
+        width: 45vw;
+        height: inherit;
+
+        .overlay {
+          position: absolute;
+          width: inherit;
+          height: inherit;
+          background: rgb(0 0 0 / 57%);
+          z-index: 1;
+          border-radius: 30px;
+        }
+
+        .image {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+          border-radius: 30px;
+        }
+
+        @media (max-width:768px) {
+          border-radius: 15px;
+        }
+      }
+
+    }
+
+    .right {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .one {
+        height: 50%;
+        position: relative;
+
+        .imageMain {
+          width: 45vw;
+          height: 100%;
+
+          .overlay {
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            background: rgb(0 0 0 / 57%);
+            z-index: 1;
+            border-radius: 30px;
+          }
+
+          .image {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+            border-radius: 30px;
+          }
+
+          @media (max-width:768px) {
+            border-radius: 15px;
+          }
+        }
+
+        margin-bottom: 10px;
+      }
+
+      .two {
+        height: 50%;
+        position: relative;
+        margin-top: 10px;
+
+        .imageMain {
+          width: 45vw;
+          height: 100%;
+
+          .overlay {
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            background: rgb(0 0 0 / 57%);
+            z-index: 1;
+            border-radius: 30px;
+          }
+
+          .image {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+            border-radius: 30px;
+          }
+
+          @media (max-width:768px) {
+            border-radius: 15px;
+          }
+        }
+      }
+
+      @media (max-width:768px) {
+        height: 100%;
+
+        .one {
+          margin-top: 20px;
+        }
+
+        .one,
+        .two {
+          .imageMain {
+            width: 100%;
+          }
+        }
+
+      }
+    }
+
 
     img {
-      width: 10%;
+      width: 100%;
+    }
+
+    .content {
+      height: 100%;
+      padding: 10%;
+      width: 90%;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+
+      .context {
+        z-index: 2;
+        color: white;
+        text-transform: uppercase;
+      }
+
+      .text {
+        position: absolute;
+        bottom: 20%;
+        color: white;
+      }
+
+      .hashtag {
+        color: #fff;
+        font-size: 14px;
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+      }
+    }
+
+    @media (max-width:768px) {
+      display: block;
+      width: 100%;
+
+      .left {
+        width: 100%;
+        height: 40vh;
+
+        .imageMain {
+          width: 100%;
+        }
+      }
+
+      .content {
+        .context {
+          font-size: 12px;
+        }
+
+        .text {
+          .head {
+            font-size: 17px;
+          }
+
+          .subText {
+            font-size: 8px;
+          }
+
+          .shopNow {
+            font-size: 12px;
+            padding: 5px;
+            width: 75%;
+          }
+
+        }
+
+        .hashtag {
+          font-size: 10px;
+          right: 15%;
+        }
+      }
+    }
+
+    @media (max-width:768px) {
+      height: auto;
     }
   }
-}
-
-.vedio {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background: rgb(0 0 0 / 57%);
-  z-index: 1;
 }

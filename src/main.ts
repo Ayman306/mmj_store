@@ -1,4 +1,4 @@
-import { importProvidersFrom } from '@angular/core';
+import { importProvidersFrom, inject } from '@angular/core';
 import { AppComponent } from './app/app.component';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import {
@@ -10,11 +10,11 @@ import { provideRouter } from '@angular/router';
 import { App_Route } from './app/app.route';
 import { ApiServiceService } from './app/shared/api/api-service.service';
 import { CountdownConfig, CountdownGlobalConfig } from 'ngx-countdown';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MatDialogModule } from '@angular/material/dialog';
-import 'hammerjs';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { provideNgIconLoader } from '@ng-icons/core';
 
 function countdownConfigFactory(): CountdownConfig {
   return { format: `mm:ss` };
@@ -39,8 +39,12 @@ bootstrapApplication(AppComponent, {
         newestOnTop: true,
         tapToDismiss: true,
         autoDismiss: true,
-      })
-    ),
+      }),
+      ),
+     provideNgIconLoader((name) => {
+  const http = inject(HttpClient);
+  return http.get(`/assets/icons/${name}.svg`, { responseType: 'text' });
+}),
     provideAnimations(),
     provideToastr(),
     { provide: CountdownGlobalConfig, useFactory: countdownConfigFactory },

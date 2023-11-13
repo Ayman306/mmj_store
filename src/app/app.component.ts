@@ -13,6 +13,8 @@ import { filter } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { routerAnimation } from './shared/animation/routerAnimation';
 import { FooterComponent } from './layouts/footer/footer.component';
+import { provideIcons } from '@ng-icons/core';
+import { heroArrowLongRight, heroShoppingBag } from '@ng-icons/heroicons/outline';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +23,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, CommonModule, FooterComponent],
   animations: [routerAnimation()],
+  viewProviders: [provideIcons({  heroShoppingBag  ,heroArrowLongRight})]
 })
 export class AppComponent implements OnInit {
   public getRouteAnimation(outlet: RouterOutlet) {

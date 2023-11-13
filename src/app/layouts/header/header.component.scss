@@ -1,9 +1,7 @@
 @import url('../../shared/style/animation.scss');
 
 .navbar {
-  // height: 100px;
   background-color: #fff;
-  box-shadow: 0.5px 0.5px 1px black;
 }
 
 .logo {
@@ -15,52 +13,53 @@
 
 .icons {
   &_main {
-    // div {
     margin-right: 37px;
     align-items: center;
-
-    img {
-      width: 25px;
-      margin-right: 8px;
-    }
-
     p {
       color: #000;
       text-align: center;
       font-family: Roboto;
-      font-size: clamp(15px, 5vw, 18px);
-      font-style: normal;
-      font-weight: 400;
-      line-height: 100%;
-      /* 24px */
       letter-spacing: 2.88px;
       text-transform: capitalize;
       margin: 0;
-      // }
+             text-align: center;
+             font-size: 20px;
+             padding-left: 15px;
     }
   }
 }
-
-@media (min-width: 992px) {
-  .navbar-expand-lg .navbar-collapse {
-    justify-content: end;
+@media (max-width:1024px) {
+  .link{
+    display: none;
   }
 }
-
-.collapse.navbar-collapse {
-  transition: 0.5s ease-in-out;
+@media (max-width:480px) {
+  .logo{
+    width: 150px;
+    padding:auto 0px ;
+  }
+  .account{
+    display: none !important;
+  }
+    mat-icon {
+      font-size: 25px;
+    }
+    .icons_main{
+      margin-right: 10px;
+    }
+}
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 24
 }
 
-.collapse.navbar-collapse.show {
-  margin-top: 10px;
-}
-
-.link {
-  padding-left: 18px;
-}
-
-mat-icon {
-  font-size: 30px;
+.cart{
+  ::ng-deep .mat-badge-content{
+    background-color: #005F5F;
+  }
 }
 
 ::ng-deep .right-hidden-dialog {
