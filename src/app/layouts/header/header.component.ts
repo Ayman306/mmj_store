@@ -8,6 +8,8 @@ import { CartModelComponent } from '../../shared/model/cart-model/cart-model.com
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MatDialog } from '@angular/material/dialog';
 import { SearchModelComponent } from 'src/app/shared/model/search-model/search-model.component';
+import { NgIcon } from '@ng-icons/core';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -18,6 +20,7 @@ import { SearchModelComponent } from 'src/app/shared/model/search-model/search-m
     MatBadgeModule,
     MatIconModule,
     CartModelComponent,
+    NgIcon
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
@@ -31,6 +34,8 @@ export class HeaderComponent implements OnInit {
   ) {}
   navbarOpen = false;
   modalRef!: BsModalRef;
+  searchClicked = false
+  search= new FormControl()
 
   ngOnInit() {
     this.router.events.subscribe(() => {

@@ -2,20 +2,17 @@
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 
 <nav class="navbar">
-  <div class="menu-toggle" (click)="toggleNavbar()">
-    <mat-icon class="material-symbols-outlined">
-      menu
-    </mat-icon>
-  </div>
+  <ng-container >
+
+   <div class="d-flex cursor-pointer nav-item icons_main " (click)="searchClicked = !searchClicked">
+        <mat-icon class="material-symbols-outlined">search</mat-icon>
+        <p class="link">Search</p>
+      </div>
   <div >
     <img class="logo" src="../../../assets/mmj_logo.png" alt="Logo" [routerLink]="['/home']">
   </div>
   <div>
     <div class="icons d-flex">
-      <div class="d-flex cursor-pointer nav-item icons_main " (click)="navigate('profile')">
-        <mat-icon class="material-symbols-outlined">search</mat-icon>
-        <p class="link">Search</p>
-      </div>
       <div class="d-flex cursor-pointer nav-item icons_main" (click)="openCartModal()">
         <mat-icon matBadge="3" matBadgeColor="warn" class="material-symbols-outlined cart">shopping_bag</mat-icon>
         <p class="link">Bag</p>
@@ -24,6 +21,23 @@
         <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
         <p class="link">Account</p>
       </div>
+    </div>
+  </div>
+  </ng-container>
+   <div class="search w-100" [ngClass]="{'active': searchClicked}">
+    <div class="input-group ">
+      <div class="input-group-append searchBtn">
+        <button class="btn " type="button" >
+          <ng-icon name="featherSearch" class="d-flex"></ng-icon>
+        </button>
+      </div>
+      <input type="text" class="form-control" placeholder="Search..." formControlName="search">
+      <div class="input-group-append closeBtn">
+        <button class="btn " type="button" (click)="searchClicked = !searchClicked">
+          <mat-icon class="mat-18">close</mat-icon>
+        </button>
+      </div>
+
     </div>
   </div>
 </nav>

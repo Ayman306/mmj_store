@@ -15,6 +15,7 @@ import { routerAnimation } from './shared/animation/routerAnimation';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { provideIcons } from '@ng-icons/core';
 import { heroArrowLongRight, heroShoppingBag } from '@ng-icons/heroicons/outline';
+import { featherSearch } from '@ng-icons/feather-icons';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ import { heroArrowLongRight, heroShoppingBag } from '@ng-icons/heroicons/outline
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, CommonModule, FooterComponent],
   animations: [routerAnimation()],
-  viewProviders: [provideIcons({  heroShoppingBag  ,heroArrowLongRight})]
+  viewProviders: [provideIcons({  heroShoppingBag  ,heroArrowLongRight, featherSearch})]
 })
 export class AppComponent implements OnInit {
   public getRouteAnimation(outlet: RouterOutlet) {
