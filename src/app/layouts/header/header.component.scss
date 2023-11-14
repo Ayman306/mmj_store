@@ -30,6 +30,14 @@
   }
 }
 
+.searchRight {
+  display: none !important;
+}
+
+.menu {
+  display: none;
+}
+
 @media (max-width:1024px) {
   .link {
     display: none;
@@ -44,6 +52,14 @@
 
   .account {
     display: none !important;
+  }
+
+  .searchRight {
+    display: block !important;
+  }
+
+  .menu {
+    display: block;
   }
 
   mat-icon {
@@ -169,6 +185,31 @@
   /* To ensure it's fully aligned to the right */
   background: white;
   transition: transform 0.3s ease-in-out;
+  /* Add a smooth transition effect */
+  width: 40vw;
+
+  @media (max-width:1024px) {
+    width: 50vw;
+  }
+
+  @media (max-width:690px) {
+    width: 100vw;
+  }
+}
+
+::ng-deep .left-hidden-dialog {
+  position: fixed;
+  /* Use fixed position to align entire modal */
+  top: 0;
+  /* Adjust as needed */
+  right: auto;
+  /* Align to the right */
+  bottom: 0;
+  /* Adjust as needed */
+  left: 0;
+  /* To ensure it's fully aligned to the right */
+  background: white;
+  transition: transform 0.2s ease-in-out;
   /* Add a smooth transition effect */
   width: 40vw;
 

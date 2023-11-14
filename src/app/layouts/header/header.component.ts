@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SearchModelComponent } from 'src/app/shared/model/search-model/search-model.component';
 import { NgIcon } from '@ng-icons/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MenuModelComponent } from 'src/app/shared/model/menu-model/menu-model.component';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -21,7 +22,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     CartModelComponent,
     NgIcon,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
@@ -34,9 +35,10 @@ export class HeaderComponent implements OnInit {
     private dialog: MatDialog
   ) {}
   navbarOpen = false;
+  menuClicked = false;
   modalRef!: BsModalRef;
-  searchClicked = false
-  search= new FormControl()
+  searchClicked = false;
+  search = new FormControl();
 
   ngOnInit() {
     this.router.events.subscribe(() => {
@@ -68,6 +70,15 @@ export class HeaderComponent implements OnInit {
       },
     });
   }
+  openMenuModal() {
+    this.dialog.open(MenuModelComponent, {
+      panelClass: 'left-hidden-dialog', // Apply custom CSS class
+      position: {
+        left: '0', // Start from the left
+        top: '0',
+      },
+    });
+  }
   openSearchModal() {
     this.dialog.open(SearchModelComponent, {
       panelClass: 'searchbar',
@@ -92,7 +103,7 @@ export class HeaderComponent implements OnInit {
     console.log(this.search.value);
   }
   closeSearch() {
-    this.search.reset()
-    this.searchClicked = false
+    this.search.reset();
+    this.searchClicked = false;
   }
 }

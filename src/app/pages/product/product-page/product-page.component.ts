@@ -13,7 +13,15 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent,NgxSplideModule,MatSelectModule,NgIcon,MatIconModule,ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ProductCardComponent,
+    NgxSplideModule,
+    MatSelectModule,
+    NgIcon,
+    MatIconModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.scss'],
 })
@@ -29,9 +37,7 @@ export class ProductPageComponent implements OnInit {
     });
   }
   id!: unknown;
-   size = [
-    'S','M','L'
-  ];
+  size = ['S', 'M', 'L'];
 
   productImg = [
     '../../../../assets/productImage/productImage1.jpeg',
@@ -75,7 +81,7 @@ export class ProductPageComponent implements OnInit {
     },
   ];
 
-  quantity=new FormControl(0)
+  quantity = new FormControl(0);
   productRoute(index: number) {
     this.route.navigate(['/product/tshirt'], { queryParams: { id: index } });
   }

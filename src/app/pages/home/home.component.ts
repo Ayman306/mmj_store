@@ -4,9 +4,7 @@ import { NgxSplideModule } from 'ngx-splide';
 import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.component';
 import { CategoryCardComponent } from 'src/app/layouts/category-card/category-card.component';
 import { Router } from '@angular/router';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { featherAirplay } from '@ng-icons/feather-icons';
-import { heroUsers } from '@ng-icons/heroicons/outline';
+import { NgIconComponent } from '@ng-icons/core';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -15,9 +13,8 @@ import { heroUsers } from '@ng-icons/heroicons/outline';
     NgxSplideModule,
     ProductCardComponent,
     CategoryCardComponent,
-    NgIconComponent
+    NgIconComponent,
   ],
-  viewProviders: [provideIcons({ featherAirplay, heroUsers })],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })

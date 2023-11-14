@@ -1,0 +1,25 @@
+.close {
+  margin-left: auto;
+  display: block;
+  padding: 15px 20px;
+}
+
+.dropdown {
+  .list {
+    padding: 20px 25px;
+
+    ul {
+      .item {
+        font-size: 19px;
+        font-weight: bold;
+        padding: 15px 0px;
+        color: black;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      .social {
+        border: none;
+      }
+    }
+  }
+}

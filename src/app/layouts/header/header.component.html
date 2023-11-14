@@ -4,20 +4,27 @@
 <nav class="navbar">
   <ng-container >
 
-   <div class="d-flex cursor-pointer nav-item icons_main " (click)="searchClicked = !searchClicked">
+   <div class="d-flex cursor-pointer nav-item icons_main account" (click)="searchClicked = !searchClicked">
         <mat-icon class="material-symbols-outlined">search</mat-icon>
         <p class="link">Search</p>
+      </div>
+      <div class="menu">
+        <mat-icon class="material-symbols-outlined" (click)="openMenuModal()">menu</mat-icon>
       </div>
   <div >
     <img class="logo" src="../../../assets/mmj_logo.png" alt="Logo" [routerLink]="['/home']">
   </div>
   <div>
     <div class="icons d-flex">
+      <div class="d-flex cursor-pointer nav-item icons_main searchRight " (click)="searchClicked = !searchClicked">
+        <mat-icon class="material-symbols-outlined">search</mat-icon>
+        <p class="link">Search</p>
+      </div>
       <div class="d-flex cursor-pointer nav-item icons_main" (click)="openCartModal()">
         <mat-icon matBadge="3" matBadgeColor="warn" class="material-symbols-outlined cart">shopping_bag</mat-icon>
         <p class="link">Bag</p>
       </div>
-       <div class="d-flex cursor-pointer nav-item icons_main m-0 account" (click)="navigate('profile')">
+       <div class="d-flex cursor-pointer nav-item icons_main m-0  account" (click)="navigate('profile')">
         <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
         <p class="link">Account</p>
       </div>
