@@ -7,14 +7,14 @@
     <div class="heroslider">
       <div class="media">
         <div class="overlay"></div>
-        <video src="../../../assets/home/mixkit-woman-modeling-a-short-black-dress-805-medium.mp4" autoplay muted loop class="vedio"></video>
+        <video src="../../../assets/home/mixkit-woman-modeling-a-short-black-dress-805-medium.mp4" autoplay muted loop playsinline class="vedio"></video>
       </div>
       <div class="content">
         <p class="tag">atheltic wear</p>
       </div>
       <div class="contentMain">
         <h1 class="contentHead"> Athletic wear that keeps up with your hustle.</h1>
-        <button class="btn shopNow"(click)="navigateTo('allProduct')">Shop Collection</button>
+        <button class="btn shopNow"(click)="navigateTo('allProduct')">Shop Collection <ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></button>
       </div>
     </div>
   </splide-slide>
@@ -60,7 +60,7 @@
       <div class="contentMain">
         <h1 class="contentHead">Adventure Bound Attire</h1>
         <p class="subText">Adventure-ready apparel,Designed for comfort and style on the open road</p>
-        <button class="btn shopNow"(click)="navigateTo('allProduct')">Shop Collection </button>
+        <button class="btn shopNow"(click)="navigateTo('allProduct')">Shop Collection <ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></button>
       </div>
     </div>
     </splide-slide>
@@ -92,9 +92,9 @@
         <div class="text">
           <h2 class="head">Latest Men's wear</h2>
           <p class="subtext">Dress sharp, feel confident.</p>
-          <button class="btn shopNow">Shop Now</button>
+          <button class="btn shopNow">Shop Now <ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></button>
         </div>
-        <p class="hashtag">#mangaloremerijaan</p>
+        <p class="hashtag m-0">#mangaloremerijaan</p>
       </div>
     </div>
     <div class="right">
@@ -108,9 +108,9 @@
         <div class="text">
           <h2 class="head">Latest Men's wear</h2>
           <p class="subtext">Dress sharp, feel confident.</p>
-          <button class="btn shopNow">Shop Now</button>
+          <button class="btn shopNow">Shop Now <ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></button>
         </div>
-                <p class="hashtag">#mangaloremerijaan</p>
+                <p class="hashtag m-0">#mangaloremerijaan</p>
 
       </div>
       </div>
@@ -124,12 +124,20 @@
         <div class="text">
           <h2 class="head">Latest Men's wear</h2>
           <p class="subtext">Dress sharp, feel confident.</p>
-          <button class="btn shopNow">Shop Now</button>
+          <button class="btn shopNow">Shop Now <ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></button>
         </div>
-                <p class="hashtag">#mangaloremerijaan</p>
+                <p class="hashtag m-0">#mangaloremerijaan</p>
 
       </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="review m-b-t-50">
+  <h2 class="title">Latest Buyer Reviews</h2>
+  <p class="subText">We take immense pride in the feedback we receive, and we want to share some recent reviews that showcase the satisfaction our customers have experienced.</p>
+  <div class="reviewmain">
+    <app-reviews></app-reviews>
   </div>
 </div>

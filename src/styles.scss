@@ -175,3 +175,22 @@ div.mat-mdc-select-panel {
     padding: 8px 10px;
   }
 }
+
+.reviews {
+  .splide__arrow--next {
+    right: 0 !important;
+  }
+
+  .splide__arrow--prev {
+    left: 0 !important;
+  }
+
+  .splide__arrow {
+    background-color: #005F5F !important;
+  }
+
+  .splide__arrow svg {
+    fill: white;
+
+  }
+}

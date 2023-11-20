@@ -19,6 +19,7 @@ import {
   heroShoppingBag,
 } from '@ng-icons/heroicons/outline';
 import {
+  featherEdit2,
   featherFacebook,
   featherInstagram,
   featherSearch,
@@ -38,6 +39,7 @@ import {
       featherSearch,
       featherInstagram,
       featherFacebook,
+      featherEdit2,
     }),
   ],
 })

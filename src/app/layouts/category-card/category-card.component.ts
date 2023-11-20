@@ -14,28 +14,23 @@ export class CategoryCardComponent {
   categories = [
     {
       title: 'casual',
-      image:
-        '../../../assets/category/casual-category.jpg',
+      image: '../../../assets/category/casual-category.jpg',
     },
     {
       title: 'Wanderlust',
-      image:
-        '../../../assets/category/adventureImg.jpg',
+      image: '../../../assets/category/adventureImg.jpg',
     },
     {
       title: 'college',
-      image:
-        '../../../assets/category/college-outfit.jpg',
+      image: '../../../assets/category/college-outfit.jpg',
     },
     {
       title: 'Party burst',
-      image:
-        '../../../assets/category/party-category.jpg',
+      image: '../../../assets/category/party-category.jpg',
     },
     {
       title: 'Gym x anime',
-      image:
-        '../../../assets/category/anime-category.jpg',
+      image: '../../../assets/category/anime-category.jpg',
     },
   ];
   navigateToCatg(type: string) {

@@ -11,6 +11,7 @@ import {
   animate,
 } from '@angular/animations';
 import { NgIcon } from '@ng-icons/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-model',
@@ -26,9 +27,26 @@ import { NgIcon } from '@ng-icons/core';
   ],
 })
 export class MenuModelComponent {
-  constructor(public dialogRef: MatDialogRef<CartModelComponent>) {}
+  constructor(
+    public dialogRef: MatDialogRef<CartModelComponent>,
+    private router: Router
+  ) {}
 
   close() {
     this.dialogRef.close();
+  }
+  navigate(route: string) {
+    switch (route) {
+      case 'profile':
+        this.router.navigate([`/user/${route}`]);
+        break;
+      case 'home':
+        this.router.navigate(['/home']);
+        break;
+      default:
+        this.router.navigate([`product/${route}`]);
+        break;
+    }
+    this.close();
   }
 }

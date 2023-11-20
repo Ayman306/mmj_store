@@ -1,57 +1,145 @@
-.content-main {
-  width: 85vw;
-  height: 100vh;
-  margin: auto;
-  display: block;
+.main {
+  width: 100%;
 
-  @media (max-width:600px) {
-    width: 90vw;
-  }
-}
-
-.head {
-  margin: 20px 0px;
-  color: #313131;
-  text-align: center;
-  font-size: 32px;
-  line-height: 150%;
-  letter-spacing: 4.8px;
-  text-transform: uppercase;
-}
-
-.specifi-border {
-  margin-left: 20px;
-  min-width: 300px;
-}
-
-.inputDiv {
-  width: 500px;
-  margin: auto;
-
-  @media (max-width:600px) {
-    width: 400px;
-  }
-
-  @media (max-width:400px) {
+  .header {
     width: 100%;
+    height: 20vh;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url('../../../../assets/myProfile/my-profile-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .head {
+      text-align: center;
+      color: #fff;
+      text-transform: uppercase;
+    }
   }
-}
 
-label,
-.input-group-text,
-option,
-select {
-  color: #005F5F;
-}
+  .content {
+    padding-top: 20px;
+    height: auto;
 
-.save {
-  background-color: #005F5F;
-  color: #fff;
-  margin: auto;
-  display: block;
-  margin-top: 10px;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 14px;
-  width: 200px;
+    .subHead {
+      text-align: center;
+      color: black;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.43rem;
+      letter-spacing: 0.03125rem;
+    }
+
+    hr {
+      color: #9b9b9b;
+    }
+
+    .text {
+      .head {
+        display: flex;
+        align-items: center;
+
+        .contentHead {
+          text-transform: uppercase;
+          font-weight: 400;
+          font-size: 1rem;
+          padding: 10px 0px;
+        }
+
+        .edit {
+          font-weight: 400;
+          margin-left: 20px;
+          font-size: 0.8rem;
+
+          &:hover {
+            border-bottom: 0.5px solid black;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .info {
+        padding: 10px 20px;
+
+        li {
+          display: flex;
+
+          .title,
+          .value {
+            font-weight: 500;
+            font-size: 16px;
+            text-transform: capitalize;
+            margin-right: 10px;
+            margin-bottom: 2px;
+          }
+
+          .value {
+            text-transform: none;
+          }
+        }
+
+        li.order {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          border: 0.5px solid #edededf8;
+
+          .image {
+            width: 180px;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            display: flex;
+            align-items: center;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .content {
+            .title {
+              font-size: 1.2rem;
+              font-weight: 500;
+            }
+
+            .subText {
+              font-weight: 400;
+              font-size: 0.8rem;
+            }
+
+            .price {
+              font-weight: 500;
+              font-size: 1rem;
+            }
+          }
+
+        }
+      }
+
+      .address {
+        .card {
+          border: none;
+          padding: 10px 20px;
+
+          p {
+            margin: 0;
+          }
+        }
+      }
+
+      .add {
+        text-align: center;
+        text-transform: uppercase;
+        padding: 10px 0px;
+        font-size: 0.8rem;
+        font-weight: 400;
+        text-decoration: underline;
+      }
+
+
+    }
+  }
 }

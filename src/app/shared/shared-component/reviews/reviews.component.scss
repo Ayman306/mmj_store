@@ -1,0 +1,27 @@
+app-star-rating {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  font-size: 14px;
+  width: 50%;
+  margin: auto;
+  display: block;
+  color: black;
+
+  @media (max-width:500px) {
+    width: 80%;
+  }
+}
+
+.name {
+  font-weight: 500;
+
+  color: #00000075;
+}
+
+.reviews {
+  display: flex;
+}

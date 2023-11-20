@@ -1,12 +1,14 @@
-import { Routes } from "@angular/router";
+import { Routes } from '@angular/router';
 
 export default [
   {
     path: '',
-    loadComponent: () => import('./user.component').then(c=>c.UserComponent)
+    loadComponent: () =>
+      import('./profile/profile.component').then((c) => c.ProfileComponent),
   },
   {
     path: 'profile',
-    loadComponent: () => import('./profile/profile.component').then(c=>c.ProfileComponent)
-  }
-]as Routes
+    loadComponent: () =>
+      import('./profile/profile.component').then((c) => c.ProfileComponent),
+  },
+] as Routes;

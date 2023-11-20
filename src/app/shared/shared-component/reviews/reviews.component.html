@@ -1,1 +1,30 @@
-<p>reviews works!</p>
+
+<splide [options]="
+{
+  arrows:true,
+  autoplay:true,
+  interval:'1000',
+  pauseOnHover:true,
+  rewind:false
+}
+" class="reviews">
+<ng-container *ngFor="let review of review">
+
+<splide-slide>
+<app-star-rating
+                    [rating]="review.stars"
+                    [stars]="5"
+                    [readonly]="true"
+                    class="star-rating my-2"
+                  ></app-star-rating>
+
+                                    <p class="content">
+                                      {{review.content}}
+                                    </p>
+                                    <p class="name">
+                                      {{review.name}}
+                                    </p>
+                  </splide-slide>
+
+                </ng-container>
+</splide>

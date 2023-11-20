@@ -1,0 +1,7 @@
+<section class="d-flex align-items-center" [ngClass]='{"justify-content-center":justifyContentCenter}'>
+  <section *ngFor='let star of [].constructor(stars); let i = index' [ngStyle]='{"margin":margin+"px"}'>
+    <mat-icon class="material-symbols-rounded full-star" *ngIf="i<rating && !(rating < i+1)">star</mat-icon>
+    <mat-icon class="material-symbols-outlined empty-star" *ngIf="i>=rating">star</mat-icon>
+    <mat-icon class="material-symbols-rounded half-star" *ngIf="i < rating && rating < i+1 ">star_half</mat-icon>
+  </section>
+</section>

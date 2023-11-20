@@ -144,7 +144,7 @@
   align-items: center;
 
   @media (max-width:480px) {
-    font-size: 14px;
+    font-size: 8px;
   }
 
   img {
@@ -363,6 +363,33 @@
 
     @media (max-width:768px) {
       height: auto;
+    }
+  }
+}
+
+.review {
+  margin-top: 30px;
+
+  text-align: center;
+
+  .title {
+    margin: 40px 0px;
+  }
+
+  .subText {
+    width: 50%;
+    margin: 40px auto;
+    display: block;
+
+  }
+
+  .reviewmain {
+    margin-top: 40px;
+  }
+
+  @media (max-width:780px) {
+    .subText {
+      width: 100%;
     }
   }
 }

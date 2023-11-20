@@ -5,6 +5,7 @@ import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.
 import { CategoryCardComponent } from 'src/app/layouts/category-card/category-card.component';
 import { Router } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
+import { ReviewsComponent } from 'src/app/shared/shared-component/reviews/reviews.component';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -14,6 +15,7 @@ import { NgIconComponent } from '@ng-icons/core';
     ProductCardComponent,
     CategoryCardComponent,
     NgIconComponent,
+    ReviewsComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],

@@ -1,18 +1,32 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.component';
-import { Router } from '@angular/router';
-import {MatSelectModule} from '@angular/material/select';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-all-product',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent,MatSelectModule],
+  imports: [CommonModule, ProductCardComponent, MatSelectModule],
   templateUrl: './all-product.component.html',
   styleUrls: ['./all-product.component.scss'],
 })
-export class AllProductComponent {
-  constructor(private route: Router) {}
+export class AllProductComponent implements OnInit {
+  constructor(private route: Router, private activatedRoute: ActivatedRoute) {}
+  ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((params: any) => {
+      // Access your query parameters here
+      this.type = params.type;
+    });
+  }
+  type = '';
   product = [
     {
       img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -49,7 +63,13 @@ export class AllProductComponent {
   ];
 
   filter = [
-    'Best Selling','Alphabetically A-Z','Alphabetically Z-A','Price, High to Low', 'Price Low to High','Date old to new', 'Date new to old'
+    'Best Selling',
+    'Alphabetically A-Z',
+    'Alphabetically Z-A',
+    'Price, High to Low',
+    'Price Low to High',
+    'Date old to new',
+    'Date new to old',
   ];
   filterBy(type: string) {
     console.log(type, 'filter');
@@ -67,12 +87,8 @@ export class AllProductComponent {
   onScroll() {
     this.checkVisibility();
   }
-  ngAfterViewInit() {
-    // Initial check for visibility
-    this.checkVisibility();
-  }
 
-   checkVisibility() {
+  checkVisibility() {
     if (this.isElementInViewport(this.targetDiv.nativeElement)) {
       this.buttonVisible = true;
     } else {
@@ -80,12 +96,8 @@ export class AllProductComponent {
     }
   }
 
-   isElementInViewport(el: HTMLElement): boolean {
+  isElementInViewport(el: HTMLElement): boolean {
     const rect = el.getBoundingClientRect();
-    return (
-      rect.top <= window.innerHeight &&
-      rect.bottom >= 0
-    );
+    return rect.top <= window.innerHeight && rect.bottom >= 0;
   }
-
 }
