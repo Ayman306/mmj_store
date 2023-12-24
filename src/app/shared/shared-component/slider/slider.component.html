@@ -1,1 +1,29 @@
-<p>slider works!</p>
+<splide [options]="
+{
+  arrows:false,
+  autoplay:true,
+   type    : 'loop'
+}
+">
+  <splide-slide *ngFor="let item of product">
+    <div class="heroslider">
+      <div class="media">
+        <div class="overlay"></div>
+        <ng-container *ngIf="item.media==='video'">
+
+          <video [src]="item.video" autoplay muted loop playsinline class="vedio"></video>
+        </ng-container>
+        <ng-container *ngIf="item.media === 'image'">
+          <img [src]="item.img" alt="" srcset="" class="vedio">
+        </ng-container>
+      </div>
+      <div class="content">
+        <p class="tag">{{item.tag}}</p>
+      </div>
+      <div class="contentMain">
+        <h1 class="contentHead"> {{item.contentHead}}</h1>
+        <button class="btn shopNow">{{item.btn}}<ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></button>
+      </div>
+    </div>
+  </splide-slide>
+</splide>

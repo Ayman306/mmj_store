@@ -6,6 +6,7 @@ import { CategoryCardComponent } from 'src/app/layouts/category-card/category-ca
 import { Router } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 import { ReviewsComponent } from 'src/app/shared/shared-component/reviews/reviews.component';
+import { SliderComponent } from 'src/app/shared/shared-component/slider/slider.component';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -16,12 +17,42 @@ import { ReviewsComponent } from 'src/app/shared/shared-component/reviews/review
     CategoryCardComponent,
     NgIconComponent,
     ReviewsComponent,
+    SliderComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
   constructor(private route: Router) {}
+  firstSlider = [
+    {
+      media: 'video',
+      video:
+        '../../../../assets/home/mixkit-woman-modeling-a-short-black-dress-805-medium.mp4',
+      tag: 'atheltic wear',
+      contentHead: 'Athletic wear that keeps up with your hustle.',
+      content: 'Stylish tshirts , perfect for any casual or chic ensemble.',
+      btn: 'Shop Collection',
+    },
+    {
+      media: 'image',
+      img: '../../../../assets/home/wardrobe.jpg',
+      tag: 'atheltic wear',
+      contentHead: 'Athletic wear that keeps up with your hustle.',
+      content: 'Stylish tshirts , perfect for any casual or chic ensemble.',
+      btn: 'Shop Collection',
+    },
+  ];
+  secondSlider = [
+    {
+      media: 'image',
+      img: '../../../../assets/home/adventureImg.jpg',
+      tag: 'atheltic wear',
+      contentHead: 'Athletic wear that keeps up with your hustle.',
+      content: 'Stylish tshirts , perfect for any casual or chic ensemble.',
+      btn: 'Shop Collection',
+    },
+  ];
   product = [
     {
       img: '../../../assets/tshirt/tshirt2.jpg',

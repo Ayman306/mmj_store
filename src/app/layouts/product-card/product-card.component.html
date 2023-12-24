@@ -5,12 +5,12 @@
     <img [src]="product.img" alt="" srcset="" class="hero" (click)="productFunc(product.title)">
     <div class="icon">
       <div class="wishlist" (click)="wishlist(product.wishlist)">
-        <img src="../../../assets/product/wishlistTrue.svg" alt="" *ngIf="product.wishlist">
-        <img src="../../../assets/product/wishlistFalse.svg" alt="" *ngIf="!product.wishlist">
+        <img src=" assets/product/wishlistTrue.svg" alt="" *ngIf="product.wishlist">
+        <img src=" assets/product/wishlistFalse.svg" alt="" *ngIf="!product.wishlist">
       </div>
       <div class="cart" (click)="cart(product.cart)">
-        <img src="../../../assets/product/bagTrue.svg" alt="" *ngIf="product.cart">
-        <img src="../../../assets/product/bagFalse.svg" alt="" *ngIf="!product.cart">
+        <img src="assets/product/bagTrue.svg" alt="" *ngIf="product.cart">
+        <img src=" assets/product/bagFalse.svg" alt="" *ngIf="!product.cart">
       </div>
     </div>
 
@@ -18,10 +18,10 @@
   <div class="content" (click)="productFunc(product.title)">
     <div class="head">
 
-      <h2 class="title">
+      <h2 class="title text-center">
         {{product.title}}
       </h2>
-      <p class="desc">{{product.des}}</p>
+      <!-- <p class="desc">{{product.des}}</p> -->
       <p class="price">{{product.price | currency:'INR'}} </p>
     </div>
 

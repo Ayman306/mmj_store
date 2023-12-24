@@ -1,6 +1,5 @@
-
 <!-- filter  -->
-<aside class="filter container fixed-bottom"  id="myButton" [style.display]="buttonVisible ? 'block' : 'none'">
+<aside class="filter container fixed-bottom" id="myButton" [style.display]="buttonVisible ? 'block' : 'none'">
   <div class="main">
     <div class="content ">
       <!-- <div class="size">
@@ -23,15 +22,19 @@
       </div>
       <button class="btn text-mutted">Reset all</button> -->
       <h3>Filter By</h3>
-     <mat-form-field>
-  <mat-select placeholder="Select Option">
-    <mat-option>None</mat-option>
-    <mat-option *ngFor="let state of filter" [value]="state">{{state}}</mat-option>
-  </mat-select>
-</mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Select Option">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let state of filter" [value]="state">{{state}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
 </aside>
+
+<section class="slider">
+  <app-slider [product]="sliderContent"></app-slider>
+</section>
 
 <!-- top selling products  -->
 <h2 class="head mt-5">Top selling</h2>

@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <hr>
 <div class="top">
   <div class="container d-flex">
@@ -8,7 +10,7 @@
           <div class="img m-2">
             <img [src]="item.img" alt="" srcset="" class="w-100">
           </div>
-          <div class="text pt-3">
+          <div class="text">
             <h3>{{item.head}}</h3>
             <p>{{item.text}}</p>
           </div>
@@ -19,98 +21,28 @@
 </div>
 
 <!-- footer  -->
-
-<footer id="footer" class="footer-1">
-  <div class="main-footer widgets-dark typo-light">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="widget subscribe no-box">
-            <h5 class="widget-title">About<span></span></h5>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt ipsam aut asperiores ex eum illum
-              tempore voluptates non distinctio mollitia dolores quod modi cum ad earum inventore, placeat sequi at.</p>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="widget no-box">
-            <h5 class="widget-title">Quick Links<span></span></h5>
-            <ul class="thumbnail-widget">
-              <li>
-                <div class="thumb-content">Know More About Us</div>
-              </li>
-              <li>
-                <div class="thumb-content">Lets Connect</div>
-              </li>
-              <li>
-                <div class="thumb-content">Privacy and policy</div>
-              </li>
-              <li>
-                <div class="thumb-content">Shipping Details</div>
-              </li>
-              <li>
-                <div class="thumb-content">Terms & Conditions</div>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="widget no-box">
-            <h5 class="widget-title">Need Help<span></span></h5>
-            <ul class="thumbnail-widget">
-              <li>
-                <div class="thumb-content">Track Order</div>
-              </li>
-              <li>
-                <div class="thumb-content">Returns & Refunds</div>
-              </li>
-              <li>
-                <div class="thumb-content">FAQ's</div>
-              </li>
-              <li>
-                <div class="thumb-content">My Account</div>
-              </li>
-
-            </ul>
-            <!-- <p>Get access to your full Training and Marketing Suite.</p>
-            <a class="btn" href="https://bit.ly/3m9avif" target="_blank">Subscribe Now</a> -->
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3">
-
-          <div class="widget no-box">
-            <h5 class="widget-title">Contact Us<span></span></h5>
-
-            <p><a href="mailto:#" title="glorythemes">mangaloremerijaan@gmail.com</a></p>
-            <ul class="social-footer2">
-
-              <li class=""><a href="https://www.facebook.com/" target="_blank" title="Facebook"> <i
-                    class="fa-brands fa-facebook"></i></a>
-              </li>
-              <li class=""><a href="https://twitter.com" target="_blank" title="Twitter"> <i
-                    class="fa-brands fa-x-twitter"></i></a>
-              </li>
-              <li class=""><a title="instagram" target="_blank"
-                  href="https://www.instagram.com/mangaloremerijaanofficial"><i class="fa-brands fa-instagram"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
+<footer class="footer">
+  <div class="container">
+    <h2>Dress to impress!</h2>
+    <p>Get VIP access to fresh styles and hot deals.</p>
+    <div class="input-group m-auto">
+      <input type="text" name="" id="" placeholder="Email" class="form-control">
+      <span class="input-group-text"><ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></span>
     </div>
-  </div>
+    <div class="logo">
+      <img src="assets/mmj_logo.png" alt="" srcset="" class="w-100">
+    </div>
+    <div class="main d-flex justify-content-center">
+      <ng-container *ngFor="let item of footer">
 
-  <div class="footer-copyright">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <p>Copyright Company Name © {{year}}. All rights reserved.</p>
+        <div class="quickAction">
+          <h5 class="text-center">{{item.head}}</h5>
+          <ng-container *ngFor="let catgItem of item.category">
+            <p (click)="footerNavigate(catgItem.navigate)">{{catgItem.title}}</p>
+          </ng-container>
         </div>
-      </div>
+      </ng-container>
+
     </div>
   </div>
 </footer>

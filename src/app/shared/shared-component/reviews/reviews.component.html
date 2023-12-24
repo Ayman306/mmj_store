@@ -1,30 +1,25 @@
-
 <splide [options]="
 {
-  arrows:true,
+  arrows:false,
   autoplay:true,
-  interval:'1000',
+  interval:'4000',
   pauseOnHover:true,
-  rewind:false
+  rewind:true,
+  loop:true
 }
 " class="reviews">
-<ng-container *ngFor="let review of review">
+  <ng-container *ngFor="let review of review">
 
-<splide-slide>
-<app-star-rating
-                    [rating]="review.stars"
-                    [stars]="5"
-                    [readonly]="true"
-                    class="star-rating my-2"
-                  ></app-star-rating>
+    <splide-slide>
+      <app-star-rating [rating]="review.stars" [stars]="5" [readonly]="true" class="star-rating my-2"></app-star-rating>
 
-                                    <p class="content">
-                                      {{review.content}}
-                                    </p>
-                                    <p class="name">
-                                      {{review.name}}
-                                    </p>
-                  </splide-slide>
+      <p class="content">
+        {{review.content}}
+      </p>
+      <p class="name">
+        {{review.name}}
+      </p>
+    </splide-slide>
 
-                </ng-container>
+  </ng-container>
 </splide>
