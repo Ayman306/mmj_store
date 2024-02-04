@@ -76,11 +76,16 @@ export class OtpComponent {
     } else {
       this.resendDisable = true;
     }
-    console.log('Notify', e);
+    // console.log('Notify', e);
   }
-
+  otpValid = false;
   verify() {
-    this.route.navigateByUrl('/home');
+    if (this.otp.length === 4) {
+      this.route.navigateByUrl('/home');
+    } else {
+      this.otp = '';
+      this.otpValid = true;
+    }
   }
   backTOlogin() {
     this.route.navigateByUrl('/login');

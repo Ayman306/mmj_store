@@ -6,15 +6,18 @@
           <img src="../../../assets/mmj_logo.png" alt="logo" class="w-100">
         </div>
         <h3 class="card-subtitle text-center">OTP Verification</h3>
-        <p class="card-text text-center text-dull">Enter the OTP sent to <b> +91-{{mobile}} </b></p>
+        <p class="card-text text-center text-dull">Enter the OTP sent to <br> <b> +91-{{mobile}} </b></p>
         <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
         <countdown #cd [config]="configOtp" (event)="handleResendEvent($event)">
         </countdown>
-        <p class="card-text">Didn’t you receive the OTP? &nbsp;<span> <button class="btn p-0" [disabled]="resendDisable"
-              (click)="cd.restart()">Resend OTP
+        <p class="card-text m-0">Didn’t you receive the OTP? &nbsp;<span> <button class="btn p-0"
+              [disabled]="resendDisable" (click)="cd.restart()">Resend OTP
               &nbsp;
             </button>
           </span></p>
+        <div *ngIf="otpValid" class="alert alert-danger m-0">
+          Enter Otp
+        </div>
         <button class="btn verifyBtn w-100 text-center fw-bold" (click)="verify()">Verify</button>
       </div>
       <button class="text-center back btn" (click)="backTOlogin()" routerLinkActive="router-link-active"> <i
