@@ -28,12 +28,14 @@ import { CartProductCardComponent } from 'src/app/layouts/cart-product-card/cart
 export class CartModelComponent {
   public products = [
     {
+      id: 1,
       title: 'Product 1',
       desc: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       price: 100,
       quantity: 1,
     },
     {
+      id: 1,
       title: 'Product 2',
       desc: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       price: 200,
@@ -42,12 +44,14 @@ export class CartModelComponent {
       disc: true,
     },
     {
+      id: 1,
       title: 'Product 3',
       desc: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       price: 300,
       quantity: 3,
     },
     {
+      id: 1,
       title: 'Product 4',
       desc: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       price: 400,

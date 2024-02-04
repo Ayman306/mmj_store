@@ -26,4 +26,7 @@ export class CartProductCardComponent {
   incrementValue(step = 1): void {
     this._value = this._value + step;
   }
+  remove(id: number) {
+    console.log(id);
+  }
 }
