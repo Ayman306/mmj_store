@@ -11,9 +11,12 @@
           <input type="number" name="mobile" id="" placeholder="Enter mobile number" class="p-2"
             formControlName="mobile" required>
 
-          <div *ngIf="m.mobile.touched && !loginForm.valid" class="alert alert-danger">
+          <div *ngIf="m.mobile.touched && loginForm.status !== 'VALID'" class="alert alert-danger">
             <div *ngIf="m.mobile.errors?.['required']">Please enter mobile number</div>
             <div *ngIf="m.mobile.errors?.['pattern']">Mobile number is not 10 digit</div>
+          </div>
+          <div *ngIf="validData" class="alert alert-danger">
+            Please enter mobile numbewer
           </div>
           <button type="submit" class="btn fw-bold m-auto d-block w-100">Send OTP</button>
         </form>

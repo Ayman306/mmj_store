@@ -32,6 +32,10 @@
           font-size: 40px;
           line-height: normal;
           padding-bottom: 32px;
+
+          @media (max-width:480px) {
+            font-size: 25px;
+          }
         }
 
         form {

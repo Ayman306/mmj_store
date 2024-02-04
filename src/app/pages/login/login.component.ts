@@ -18,11 +18,16 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private fb: FormBuilder, private route: Router) {}
   loginForm = this.fb.group({
-    mobile: ['', [Validators.required]],
+    mobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
   });
+  validData = false;
   login() {
     console.log(this.loginForm);
-    const mobile = this.loginForm.value.mobile;
+    const mobile = this.loginForm.value.mobile || '';
+    if (mobile.length === 10) {
+      this.validData = !this.validData;
+    }
+    this.validData = false;
     sessionStorage.setItem('mobile', mobile || '');
     this.route.navigate(['/otp']);
   }

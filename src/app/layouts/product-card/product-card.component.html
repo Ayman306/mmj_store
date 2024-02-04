@@ -18,10 +18,10 @@
   <div class="content" (click)="productFunc(product.title)">
     <div class="head">
 
-      <h2 class="title text-center">
+      <h2 class="title">
         {{product.title}}
       </h2>
-      <!-- <p class="desc">{{product.des}}</p> -->
+      <p class="desc">{{product.des}}</p>
       <p class="price">{{product.price | currency:'INR'}} </p>
     </div>
 
