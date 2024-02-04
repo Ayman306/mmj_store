@@ -29,25 +29,34 @@ export class CartModelComponent {
   public products = [
     {
       title: 'Product 1',
+      desc: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       price: 100,
       quantity: 1,
     },
     {
       title: 'Product 2',
+      desc: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       price: 200,
       quantity: 2,
+      mrp: 150,
+      disc: true,
     },
     {
       title: 'Product 3',
+      desc: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       price: 300,
       quantity: 3,
     },
     {
       title: 'Product 4',
+      desc: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       price: 400,
       quantity: 4,
+      mrp: 150,
+      disc: true,
     },
   ];
+
   modalRef!: BsModalRef;
   constructor(public dialogRef: MatDialogRef<CartModelComponent>) {}
 

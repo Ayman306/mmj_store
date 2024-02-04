@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(() => {
       window.scrollTo(0, 0);
     });
+    this.openCartModal();
   }
   navigate(route: string) {
     switch (route) {

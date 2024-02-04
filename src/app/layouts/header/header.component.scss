@@ -187,6 +187,7 @@
   transition: transform 0.3s ease-in-out;
   /* Add a smooth transition effect */
   width: 40vw;
+  height: 100vh;
 
   @media (max-width:1024px) {
     width: 50vw;

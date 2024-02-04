@@ -7,18 +7,70 @@
 
 .main {
   padding: 10px;
-  height: 80vh;
+  height: 95vh;
   overflow-y: scroll;
 
   .head {
     align-self: center;
-    padding-left: 20px;
+    // padding-left: 20px;
   }
+}
+
+.noItem {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .main1 {
   &:last-child {
     margin-bottom: 100px;
+  }
+
+  .orderSummary {
+    background-color: #fcfcfc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+    .head {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .saving {
+      .price {
+        color: #005F5F;
+      }
+    }
+
+  }
+
+  .policy {
+    padding: 20px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+
+    .head {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .desc {
+      font-size: 14px;
+    }
+
+    .readPolicy {
+      color: #005F5F;
+    }
   }
 }
 

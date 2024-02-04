@@ -21,8 +21,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu-model.component.scss'],
   animations: [
     trigger('slideInFromLeft', [
-      state('void', style({ transform: 'translateY(100%)' })),
-      transition('void => *', animate('0.3s ease-in-out')),
+      state('void', style({ transform: 'translateX(-100%)' })),
+      transition('void => *', animate('0.5s ease-in-out')),
     ]),
   ],
 })

@@ -1,16 +1,20 @@
-.card {
+.cart-product-card {
   width: 90%;
   display: flex;
   flex-direction: row;
   margin: 30px auto 30px 30px;
   border: 0;
+  background-color: #f8f8f8;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
 
   .img {
-    width: 220px;
+    width: 14.5rem;
   }
 
   .content {
-    padding-left: 10px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -20,23 +24,45 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      gap: 10px;
 
       .title {
         color: #000;
 
-        font-size: 24px;
+        font-size: 18px;
         padding-bottom: 5px;
+      }
+
+      .mrp {
+        text-decoration: line-through;
       }
 
       .price {
         color: #005F5F;
-        font-size: 18px;
-        font-weight: 400;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .descText {
+        font-size: 13px;
+      }
+
+      .colorSize {
+        display: flex;
+        align-items: center;
+
+        .color {
+          display: block;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: pink;
+        }
       }
 
     }
 
-    .desc1 {
+    .qtyButtons {
       .qty {
         display: flex;
         width: max-content;
@@ -46,8 +72,9 @@
         .qtyBtn {
           display: flex;
           flex-direction: row;
-          border: 0.5px solid var(--gray, #E4E4E4);
+          border: 0.5px solid var(--gray, #bdbdbd);
           width: max-content;
+          box-shadow: inset 0.5px 0.5px 3px #bebebe;
 
           .less {
             border-right: 0.5px solid var(--gray, #E4E4E4);
@@ -104,11 +131,11 @@
         justify-content: space-between;
         // align-self: center;
 
-        .title {
-          font-size: 18px;
-          font-weight: bold;
-          word-break: break-all;
-        }
+        // .title {
+        //   font-size: 18px;
+        //   font-weight: bold;
+        //   word-break: break-all;
+        // }
 
         .price {
           padding: 0;

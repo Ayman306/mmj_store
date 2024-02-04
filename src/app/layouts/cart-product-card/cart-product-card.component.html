@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card cart-product-card">
   <div class="img">
     <img class="w-100" src="../../../assets/tshirt/tshirt2.jpg" alt="tshirt" srcset="">
   </div>
@@ -6,10 +6,13 @@
     <div class="desc">
 
       <h2 class="title m-0">{{product.title}}</h2>
-      <p class="price m-0">{{product.price | currency:'INR'}}</p>
+      <p class="price m-0">{{product.price | currency:'INR'}} &nbsp; <span
+          class="m-0 text-muted mrp">{{product?.mrp | currency:'INR'}}</span></p>
+      <p class="descText m-0">{{product.desc}}</p>
+      <p class="colorSize"><span class="color"></span> &nbsp; / &nbsp; Xl </p>
     </div>
-    <div class="desc1">
-      <p>Black &nbsp; / &nbsp; Xl </p>
+    <div class="qtyButtons">
+
 
       <div class="qty">
         <div class="qtyBtn">
