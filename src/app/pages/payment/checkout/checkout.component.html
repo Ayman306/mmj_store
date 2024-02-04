@@ -1,0 +1,44 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<div class="main">
+  <p class="head">Delivery Address</p>
+  <p class="sub">We will deliver your order to this address</p>
+</div>
+<div class="address">
+  <div class="edit" (click)="editAddress()">
+    <ng-icon [name]="'heroPencilSquare'"></ng-icon>
+    <p class="editText">Edit</p>
+  </div>
+  <ul>
+    <li class="content name">Ayman</li>
+    <li class="content">2nd Cross opppsite to homestore</li>
+    <li class="content">Cairo</li>
+    <li class="content">Egypt</li>
+    <li class="content">Postal: 12345</li>
+    <li class="content"> Phone: <span class="number">9741025256</span> </li>
+    <li class="content">Email: <span class="number">ayman@gmail.com</span></li>
+  </ul>
+  <!-- <p class="chnageAdd">Change Address</p> -->
+</div>
+<hr>
+<div class="details">
+  <h2 class="head">Expected Delivery</h2>
+  <p class="sub">Estimated delivery dates for your order</p>
+  <div class="orderItem">
+    <ng-container *ngFor="let item of orderItem">
+      <div class="item">
+        <div class="image">
+          <img [src]="item.image" alt="" srcset="" class="w-100">
+        </div>
+        <div class="content">
+          <h4>14 Feb</h4>
+          <p class="title">{{item.title}}</p>
+          <span>Quantity : {{item.quantity}}</span><br>
+          <!-- <span>Price : {{item.price | currency:'INR'}}</span> -->
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <app-order-detail [orderDetails]="orderDetail"></app-order-detail>
+</div>
+<button (click)="order()" class="btn order w-100">Proceed to payment</button>

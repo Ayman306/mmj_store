@@ -21,40 +21,8 @@
         <img src="../../../../assets/emptycart.png" alt="" srcset="empty cart" class="w-100">
         <p>Your cart is empty</p>
       </ng-template>
-      <div class="orderSummary" *ngIf="products.length > 0">
-        <p class="head">Order Details</p>
-
-        <div class="bagTotal">
-          <p class="title">Bag Total</p>
-          <p class="price"> $61.00</p>
-        </div>
-
-        <div class="saving">
-          <p class="title">Bag Savings</p>
-          <p class="price">- $5.00</p>
-        </div>
-
-        <div class="delivery">
-          <p class="title">Delivery Fee</p>
-          <p class="price"> $56.00</p>
-        </div>
-
-        <div class="total">
-          <p class="title">Total Amount</p>
-          <p class="price"> $59.99</p>
-        </div>
-      </div>
-
-      <div class="policy" *ngIf="products.length > 0">
-        <p class="head">
-          Return/Refund policy
-        </p>
-        <p class="desc">
-          In case of return, we ensure quick refunds. Full amount will be refunded excluding Convenience Fee
-        </p>
-        <button class="readPolicy btn">Read policy</button>
-      </div>
-      <button *ngIf="products.length > 0" mat-button (click)="close()" class="checkout p-3 mt-2 btn">Check Out -
+      <app-order-detail [orderDetails]="orderDetail"></app-order-detail>
+      <button *ngIf="products.length > 0" mat-button (click)="checkout()" class="checkout p-3 mt-2 btn">Check Out -
         $61.00</button>
     </div>
   </div>

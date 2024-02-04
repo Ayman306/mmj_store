@@ -17,6 +17,7 @@ import { provideIcons } from '@ng-icons/core';
 import {
   heroArrowLongRight,
   heroShoppingBag,
+  heroPencilSquare,
 } from '@ng-icons/heroicons/outline';
 import {
   featherEdit2,
@@ -36,6 +37,7 @@ import {
     provideIcons({
       heroShoppingBag,
       heroArrowLongRight,
+      heroPencilSquare,
       featherSearch,
       featherInstagram,
       featherFacebook,

@@ -34,4 +34,11 @@ export default [
     loadChildren: () => import('./product/product.route'),
     data: { num: 5 },
   },
+  {
+    path: 'checkout',
+    loadComponent: () =>
+      import('./payment/checkout/checkout.component').then(
+        (c) => c.CheckoutComponent
+      ),
+  },
 ] as Routes;

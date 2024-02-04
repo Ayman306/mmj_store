@@ -1,0 +1,32 @@
+<div class="orderSummary">
+  <p class="head">Order Details</p>
+
+  <div class="bagTotal">
+    <p class="title">Bag Total</p>
+    <p class="price"> {{orderDetails.bagTotal | currency:'INR'}}</p>
+  </div>
+
+  <div class="saving">
+    <p class="title">Bag Savings</p>
+    <p class="price">-{{orderDetails.saving |currency:'INR'}}</p>
+  </div>
+
+  <div class="delivery">
+    <p class="title">Delivery Fee</p>
+    <p class="price">{{orderDetails.delivery |currency:'INR'}}</p>
+  </div>
+
+  <div class="total">
+    <p class="title">Total Amount</p>
+    <p class="price"> {{orderDetails.total |currency:'INR'}}</p>
+  </div>
+</div>
+<div class="policy" *ngIf="orderDetails?.policy">
+  <p class="head">
+    Return/Refund policy
+  </p>
+  <p class="desc">
+    In case of return, we ensure quick refunds. Full amount will be refunded excluding Convenience Fee
+  </p>
+  <button class="readPolicy btn">Read policy</button>
+</div>

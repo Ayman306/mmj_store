@@ -11,11 +11,18 @@ import {
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { CartProductCardComponent } from 'src/app/layouts/cart-product-card/cart-product-card.component';
+import { Router } from '@angular/router';
+import { OrderDetailComponent } from '../order-detail/order-detail.component';
 
 @Component({
   selector: 'app-cart-model',
   standalone: true,
-  imports: [CommonModule, MatIconModule, CartProductCardComponent],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    CartProductCardComponent,
+    OrderDetailComponent,
+  ],
   templateUrl: './cart-model.component.html',
   styleUrls: ['./cart-model.component.scss'],
   animations: [
@@ -61,8 +68,18 @@ export class CartModelComponent {
     },
   ];
 
+  orderDetail = {
+    total: '61.00',
+    delivery: '56.00',
+    saving: '5.00',
+    bagTotal: '59.99',
+    policy: true,
+  };
   modalRef!: BsModalRef;
-  constructor(public dialogRef: MatDialogRef<CartModelComponent>) {}
+  constructor(
+    public dialogRef: MatDialogRef<CartModelComponent>,
+    private route: Router
+  ) {}
 
   close() {
     this.dialogRef.close();
@@ -76,5 +93,7 @@ export class CartModelComponent {
   // }
   checkout() {
     console.log('Checkout');
+    this.route.navigate(['/checkout']);
+    this.close();
   }
 }

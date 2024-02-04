@@ -29,49 +29,6 @@
   &:last-child {
     margin-bottom: 100px;
   }
-
-  .orderSummary {
-    background-color: #fcfcfc;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-
-    .head {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    div {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .saving {
-      .price {
-        color: #005F5F;
-      }
-    }
-
-  }
-
-  .policy {
-    padding: 20px;
-    background-color: #fcfcfc;
-    border-radius: 10px;
-
-    .head {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .desc {
-      font-size: 14px;
-    }
-
-    .readPolicy {
-      color: #005F5F;
-    }
-  }
 }
 
 .checkout {
