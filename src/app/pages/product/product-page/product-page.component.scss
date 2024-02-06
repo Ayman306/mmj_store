@@ -114,12 +114,28 @@
       }
 
       .size {
-        .sizes {
-          div {
+        .list-inline {
+          padding-top: 0;
+          margin: 0;
+          white-space: nowrap;
+          -webkit-overflow-scrolling: touch;
+          display: inline-flex;
+
+          li {
+            min-width: 50px;
+            height: 50px;
             border-radius: 50%;
-            margin-left: 10px;
-            border: 1px solid black;
-            padding: 10px;
+            font-weight: 400;
+            color: #535766 !important;
+            vertical-align: top;
+
+            .outline {
+              border-color: #535766;
+              position: relative;
+              // border: 1px solid #eaeaec;
+              font-size: 14px;
+              border-radius: 50%;
+            }
 
           }
         }
