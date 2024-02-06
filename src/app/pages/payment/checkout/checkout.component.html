@@ -20,6 +20,7 @@
   </ul>
   <!-- <p class="chnageAdd">Change Address</p> -->
 </div>
+<button (click)="order()" class="btn order w-75 m-auto d-block">Proceed to payment</button>
 <hr>
 <div class="details">
   <h2 class="head">Expected Delivery</h2>
@@ -41,4 +42,3 @@
   </div>
   <app-order-detail [orderDetails]="orderDetail"></app-order-detail>
 </div>
-<button (click)="order()" class="btn order w-100">Proceed to payment</button>

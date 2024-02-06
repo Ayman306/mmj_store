@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgIcon } from '@ng-icons/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddressComponent } from 'src/app/shared/model/address/address.component';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +16,7 @@ import { NgIcon } from '@ng-icons/core';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
+  constructor(private dialog: MatDialog) {}
   orderinfo(index: any) {
     console.log('order index', index);
   }
@@ -26,6 +29,10 @@ export class ProfileComponent {
     {
       title: 'phone',
       value: '9741025256',
+    },
+    {
+      title: 'email',
+      value: 'ayman@gmail',
     },
   ];
   address = [
@@ -55,4 +62,28 @@ export class ProfileComponent {
       phone: '97410-25256',
     },
   ];
+  addressFunction(type = '') {
+    const update = type ? 'true' : false;
+    if (update) {
+      this.dialog.open(AddressComponent, {
+        data: {
+          name: 'Ayman',
+          street: '2nd Cross opppsite to homestore',
+          city: 'Cairo',
+          state: 'Egypt',
+          country: 'Egypt',
+          postalCode: '12345',
+          phone: '9741025256',
+          email: 'ayman@gmail.com',
+          update: update,
+        },
+      });
+    } else {
+      this.dialog.open(AddressComponent, {
+        data: {
+          update: update,
+        },
+      });
+    }
+  }
 }

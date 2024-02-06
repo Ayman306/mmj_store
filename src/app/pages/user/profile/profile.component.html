@@ -4,73 +4,73 @@
   <div class="header">
     <h2 class="head">Welcome Ayman</h2>
   </div>
-<div class="content">
-  <p class="subHead m-0">Welcome to your dashboard, your one-stop-shop for all your recent MMJ account activity.</p>
-  <hr>
-   <div class="text">
-    <div class="head">
-      <p class="contentHead">
-        Recent Orders
-      </p>
-      <p class="edit">view all orders</p>
-    </div>
-    <ul class="info">
-      <li class=" order" *ngFor="let order of order; index as i" (click)="orderinfo(i)">
-        <div class="image">
-          <img [src]="order.image" alt="">
-        </div>
-        <div class="content" >
-          <p class="title">{{order.title}}</p>
-          <p class="subText">{{order.subText}}</p>
-          <p class="price">{{order.price | currency}}</p>
-        </div>
-      </li>
-      <ng-container *ngIf="order.length ===0">
-        <p>You haven't placed any orders yet.</p>
-      </ng-container>
-
-    </ul>
-  </div>
-
-  <div class="text">
-    <div class="head">
-      <p class="contentHead">
-        Personal information
-      </p>
-      <p class="edit"><ng-icon name="featherEdit2"></ng-icon> Edit</p>
-    </div>
-    <ul class="info">
-      <li *ngFor="let i of info">
-        <p class="title ">{{i.title}} :</p>
-        <p class="value ">{{i.value}}</p>
-      </li>
-    </ul>
-  </div>
-
-  <hr>
-  <div class="text">
-  <div class="head">
-      <p class="contentHead">
-        Manage Address
-      </p>
-      <p class="edit"><ng-icon name="featherEdit2"></ng-icon> Manage Address</p>
-    </div>
-    <div class="address" >
-      <div class="card" *ngFor="let addr of address">
-        <p class="name">{{addr.name}}</p>
-        <p class="addr">{{addr.address}}</p>
-        <p class="state">{{addr.state}}  {{addr.country}}</p>
-        <p class="pin">{{addr.postalCode}}</p>
-        <p class="number">{{addr.phone}}6</p>
+  <div class="content">
+    <p class="subHead m-0">Welcome to your dashboard, your one-stop-shop for all your recent MMJ account activity.</p>
+    <hr>
+    <div class="text">
+      <div class="head">
+        <p class="contentHead">
+          Recent Orders
+        </p>
+        <p class="edit">view all orders</p>
       </div>
-      <ng-container *ngIf="address.length === 0">
-        <p>You have not yet added an address.</p>
-      </ng-container>
+      <ul class="info">
+        <li class=" order" *ngFor="let order of order; index as i" (click)="orderinfo(i)">
+          <div class="image">
+            <img [src]="order.image" alt="">
+          </div>
+          <div class="content">
+            <p class="title">{{order.title}}</p>
+            <p class="subText">{{order.subText}}</p>
+            <p class="price">{{order.price | currency}}</p>
+          </div>
+        </li>
+        <ng-container *ngIf="order.length ===0">
+          <p>You haven't placed any orders yet.</p>
+        </ng-container>
 
+      </ul>
     </div>
-    <p class="add">Add new</p>
-  </div>
 
-</div>
+    <div class="text">
+      <div class="head">
+        <p class="contentHead">
+          Personal information
+        </p>
+        <p class="edit"><ng-icon name="featherEdit2"></ng-icon> Edit</p>
+      </div>
+      <ul class="info">
+        <li *ngFor="let i of info">
+          <p class="title ">{{i.title}} :</p>
+          <p class="value ">{{i.value}}</p>
+        </li>
+      </ul>
+    </div>
+
+    <hr>
+    <div class="text">
+      <div class="head" (click)="addressFunction('update')">
+        <p class="contentHead">
+          Manage Address
+        </p>
+        <p class="edit"><ng-icon name="featherEdit2"></ng-icon> Edit</p>
+      </div>
+      <div class="address">
+        <div class="card" *ngFor="let addr of address">
+          <p class="name">{{addr.name}}</p>
+          <p class="addr">{{addr.address}}</p>
+          <p class="state">{{addr.state}} {{addr.country}}</p>
+          <p class="pin">{{addr.postalCode}}</p>
+          <p class="number">{{addr.phone}}6</p>
+        </div>
+        <ng-container *ngIf="address.length === 0">
+          <p>You have not yet added an address.</p>
+        </ng-container>
+
+      </div>
+      <p class="add" (click)="addressFunction()">Add new</p>
+    </div>
+
+  </div>
 
 </div>

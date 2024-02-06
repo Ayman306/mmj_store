@@ -1,33 +1,60 @@
-<div class="modal-header">
-  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="close()"></button>
-</div>
-<div class="content">
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name">
+<div class="main">
+  <div class="modal-header">
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="close()"></button>
+  </div>
+  <h2 mat-dialog-title class="head">{{data.update? 'Update' : 'Add'}} Address</h2>
+  <mat-dialog-content class="content">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
-    <label for="street">Street:</label>
-    <input type="text" id="street" formControlName="street">
+      <div class=" mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" formControlName="name" class="form-control">
+      </div>
+      <div class="row">
+        <div class=" mb-3 col-12 col-lg-6">
+          <label for="phone" class="form-label">Phone:</label>
+          <input type="tel" id="phone" formControlName="phone" class="form-control">
+        </div>
 
-    <label for="city">City:</label>
-    <input type="text" id="city" formControlName="city">
+        <div class=" mb-3 col-12 col-lg-6">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" formControlName="email" class="form-control">
+        </div>
+      </div>
 
-    <label for="state">State:</label>
-    <input type="text" id="state" formControlName="state">
+      <div class="row">
+        <div class=" mb-3 col-12 col-lg-6">
+          <label for="street" class="form-label">Street:</label>
+          <input type="text" id="street" formControlName="street" class="form-control">
+        </div>
 
-    <label for="country">Country:</label>
-    <input type="text" id="country" formControlName="country">
+        <div class=" mb-3 col-12  col-lg-6">
+          <label for="city" class="form-label">City:</label>
+          <input type="text" id="city" formControlName="city" class="form-control">
+        </div>
+      </div>
 
-    <label for="postalCode">Postal Code:</label>
-    <input type="text" id="postalCode" formControlName="postalCode">
+      <div class=" mb-3">
+        <label for="state" class="form-label">State:</label>
+        <input type="text" id="state" formControlName="state" class="form-control">
+      </div>
 
-    <label for="phone">Phone:</label>
-    <input type="tel" id="phone" formControlName="phone">
+      <div class=" mb-3">
+        <label for="country" class="form-label">Country:</label>
+        <input type="text" id="country" formControlName="country" class="form-control">
+      </div>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="email">
+      <div class="mb-3 ">
+        <label for="postalCode" class="form-label">Postal Code:</label>
+        <input type="text" id="postalCode" formControlName="postalCode" class="form-control">
+      </div>
 
-    <button type="submit">Submit</button>
-  </form>
 
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close class="cancel">Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="submit" type="submit">Submit</button>
+      </mat-dialog-actions>
+    </form>
+
+  </mat-dialog-content>
 </div>

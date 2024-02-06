@@ -40,23 +40,29 @@
       .head {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
 
         .contentHead {
           text-transform: uppercase;
           font-weight: 400;
           font-size: 1rem;
           padding: 10px 0px;
+          margin: 0;
         }
 
-        .edit {
-          font-weight: 400;
-          margin-left: 20px;
-          font-size: 0.8rem;
+        // .edit {
+        //   font-weight: 400;
+        //   margin-left: 20px;
+        //   font-size: 0.8rem;
 
-          &:hover {
-            border-bottom: 0.5px solid black;
-            cursor: pointer;
-          }
+        //   &:hover {
+        //     border-bottom: 0.5px solid black;
+        //     cursor: pointer;
+        //   }
+        // }
+        ng-icon {
+          --ng-icon__size: 1.3em !important
         }
       }
 
@@ -137,6 +143,8 @@
         font-size: 0.8rem;
         font-weight: 400;
         text-decoration: underline;
+        color: #058a8a;
+        cursor: pointer;
       }
 
 

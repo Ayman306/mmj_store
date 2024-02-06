@@ -1,24 +1,31 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogModule,
+} from '@angular/material/dialog';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-address',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatButtonModule,
+  ],
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.scss'],
 })
 export class AddressComponent implements OnInit {
-  onSubmit() {
-    throw new Error('Method not implemented.');
-  }
   constructor(
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -49,6 +56,9 @@ export class AddressComponent implements OnInit {
       phone: this.data.phone || '',
       email: this.data.email || '',
     });
+  }
+  onSubmit() {
+    console.log(this.myForm.value);
   }
   close() {
     this.dialog.closeAll();

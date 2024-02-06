@@ -1,0 +1,24 @@
+.main {
+  background-color: #fdfdfd;
+  box-shadow: 0.2ox 0.2px 5px black;
+  color: #373737;
+}
+
+label,
+.head {
+  color: #005F5F;
+}
+
+.modal-header {
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.submit {
+  background-color: #005F5F;
+  padding: 10px;
+}
+
+.cancel {
+  background-color: #c2c2c2;
+}

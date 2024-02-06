@@ -66,10 +66,22 @@
     .orderItem {
       background-color: #fafafa;
       border-radius: 10px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
+      // display: flex;
+      // flex-direction: row;
+      // flex-wrap: wrap;
+      // justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 20px;
+
+      @media (max-width:800px) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @media (max-width:480px) {
+        grid-template-columns: 1fr;
+
+      }
 
       .item {
         display: flex;
@@ -79,12 +91,20 @@
         gap: 20px;
 
         .image {
-          width: 8rem;
+          width: 5rem;
 
         }
 
         .content {
           width: 50%;
+
+          h4 {
+            font-size: 18px;
+          }
+
+          p {
+            font-size: 14px;
+          }
         }
       }
     }
@@ -95,7 +115,7 @@
     margin-bottom: 20px;
     background-color: #005F5F;
     color: white;
-    padding: 20px;
+    padding: 10px;
     text-transform: uppercase;
 
     &:hover {
