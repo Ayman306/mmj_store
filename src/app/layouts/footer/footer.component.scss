@@ -1,6 +1,6 @@
 .top {
   margin-top: 50px;
-  height: 50%;
+  // height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,51 +8,67 @@
 
 
   .container {
-    @media (max-width:1100px) {
-      flex-direction: row;
-      flex-shrink: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    // @media (max-width:1100px) {
+    //   flex-direction: row;
+    //   flex-shrink: 10px;
+    //   flex-wrap: wrap;
+    //   justify-content: center;
+    // }
+    @media (max-width:768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width:480px) {
+      grid-template-columns: 1fr;
+
+    }
+
+    .main {
+      .content {
+        border-radius: 6px;
+        border: 1px solid #E6E6E6;
+
+        .img {
+          padding-left: 20px;
+          display: flex;
+          align-items: center;
+          width: 5em;
+        }
+
+        .text {
+          padding: 1em;
+
+          h3 {
+            color: #222;
+            font-size: 18px;
+            line-height: 119.682%;
+            /* 22.74px */
+            letter-spacing: 0.38px;
+            text-transform: capitalize;
+          }
+
+          p {
+            color: #717171;
+            font-size: 14px;
+            line-height: 188.5%;
+            /* 28.275px */
+            letter-spacing: 0.3px;
+            text-transform: capitalize;
+          }
+        }
+      }
+
+
+
+
     }
   }
-
-  .content {
-    border-radius: 6px;
-    border: 1px solid #E6E6E6;
-  }
-
-  .img {
-    padding-left: 20px;
-    display: flex;
-    align-items: center;
-  }
-
-  .text {
-    padding: 1rem;
-  }
-
-  h3 {
-    color: #222;
-    font-size: clamp(14px, 5vw, 19px);
-    font-style: normal;
-    font-weight: 500;
-    line-height: 119.682%;
-    /* 22.74px */
-    letter-spacing: 0.38px;
-    text-transform: capitalize;
-  }
-
-  p {
-    color: #717171;
-    font-size: clamp(10px, 15vw, 15px);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 188.5%;
-    /* 28.275px */
-    letter-spacing: 0.3px;
-    text-transform: capitalize;
-  }
 }
+
+
 
 // footer
 footer {
@@ -61,8 +77,16 @@ footer {
   .container {
     color: #222;
 
+    .head {
+      font-size: 18px;
+    }
+
+    .subHead {
+      font-size: clamp(12px, 1.5vw, 16px);
+    }
+
     h2,
-    p {
+    .subHead {
       text-align: center;
     }
 
@@ -86,6 +110,13 @@ footer {
       .quickAction {
         margin-top: 20px;
 
+        h5 {
+          font-size: 15px;
+        }
+
+        p {
+          font-size: 12px;
+        }
       }
     }
   }

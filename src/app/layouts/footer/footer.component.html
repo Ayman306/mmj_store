@@ -2,7 +2,7 @@
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <hr>
 <div class="top">
-  <div class="container d-flex">
+  <div class="container ">
     <ng-container *ngFor="let item of featurContent">
 
       <div class="main ">
@@ -23,8 +23,8 @@
 <!-- footer  -->
 <footer class="footer">
   <div class="container">
-    <h2>Dress to impress!</h2>
-    <p>Get VIP access to fresh styles and hot deals.</p>
+    <h2 class="head">Dress to impress!</h2>
+    <p class="subHead">Get VIP access to fresh styles and hot deals.</p>
     <div class="input-group m-auto">
       <input type="text" name="" id="" placeholder="Email" class="form-control">
       <span class="input-group-text"><ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></span>
@@ -38,7 +38,7 @@
         <div class="quickAction">
           <h5 class="text-center">{{item.head}}</h5>
           <ng-container *ngFor="let catgItem of item.category">
-            <p (click)="footerNavigate(catgItem.navigate)">{{catgItem.title}}</p>
+            <p class="text-center" (click)="footerNavigate(catgItem.navigate)">{{catgItem.title}}</p>
           </ng-container>
         </div>
       </ng-container>
