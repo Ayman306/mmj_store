@@ -64,7 +64,8 @@
   box-shadow: 2px 1px 4px 0px rgba(0, 0, 0, 0.25);
   background: #FEFEFE;
   border-radius: 10px;
-  width: max-content;
+  width: 100%;
+  z-index: 99;
 
   @media (max-width:780px) {
     border-radius: 0px;
@@ -75,21 +76,77 @@
 
     .content {
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       gap: 20px;
 
-      div {
-        display: flex;
-        align-items: center;
-        gap: 30px;
+      // div {
+      //   display: flex;
+      //   align-items: center;
+      //   gap: 30px;
 
-        p {
-          margin: 0;
-        }
+      //   p {
+      //     margin: 0;
+      //   }
+      // }
+
+      .sortOption {
+        color: #000;
+        margin: auto;
+      }
+
+      .btn:active,
+      .btn:focus {
+        border: none;
+      }
+
+      .border {
+        height: 20px;
+        width: 2px;
+        background-color: #005F5F;
       }
     }
   }
+}
+
+::ng-deep .filterModel {
+  position: fixed;
+  /* Use fixed position to align entire modal */
+  top: 0;
+  /* Adjust as needed */
+  right: 0;
+  /* Align to the right */
+  bottom: 0;
+  /* Adjust as needed */
+  left: 0;
+  /* To ensure it's fully aligned to the right */
+  background: white;
+  transition: transform 0.5s ease-in-out;
+  /* Add a smooth transition effect */
+  width: 100vw;
+  height: 100vh;
+}
+
+::ng-deep .sortModel {
+  position: fixed;
+  /* Use fixed position to align entire modal */
+  top: auto;
+  /* Adjust as needed */
+  right: 0;
+  /* Align to the right */
+  bottom: 0;
+  /* Adjust as needed */
+  left: 0;
+  /* To ensure it's fully aligned to the right */
+  background: white;
+  transition: transform 0.5s ease-in-out;
+  /* Add a smooth transition effect */
+  width: 100vw;
+  height: max-content;
+}
+
+::ng-deep.cdk-global-scrollblock {
+  position: static !important;
 }
 
 .head {

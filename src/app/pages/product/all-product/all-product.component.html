@@ -21,13 +21,17 @@
         <button class="btn p-0" (click)="filterBy('size')">+</button>
       </div>
       <button class="btn text-mutted">Reset all</button> -->
-      <h3>Filter By</h3>
+      <!-- <h3>Filter By</h3>
       <mat-form-field>
         <mat-select placeholder="Select Option">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let state of filter" [value]="state">{{state}}</mat-option>
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
+
+      <button class="btn sortOption" (click)="filterBy('sort')">SORT</button>
+      <div class="border"></div>
+      <button class="btn sortOption" (click)="filterBy('filter')">Filter</button>
     </div>
   </div>
 </aside>
@@ -37,7 +41,7 @@
 </section>
 
 <!-- top selling products  -->
-<h2 class="head mt-5">Top selling</h2>
+<h2 class="heading text-center mt-5">Top selling</h2>
 <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
   <ng-container *ngFor="let item of product;let i=index">
     <app-product-card [product]="item" (productId)="productRoute($event)"></app-product-card>
@@ -64,11 +68,11 @@
       </div>
     </div>
   </div> -->
-  <h2 class="head ">{{type ? type : 'All Products'}}</h2>
+  <h2 class="heading text-center">{{type ? type : 'All Products'}}</h2>
 </div>
 
 <!-- trending products -->
-<!-- <h2 class="head">Trending</h2>
+<!-- <h2 class="heading">Trending</h2>
 <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
   <ng-container *ngFor="let item of product;let i=index">
     <app-product-card [product]="item" (productId)="productRoute($event)"></app-product-card>

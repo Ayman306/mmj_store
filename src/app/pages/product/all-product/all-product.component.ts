@@ -10,6 +10,8 @@ import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSelectModule } from '@angular/material/select';
 import { SliderComponent } from 'src/app/shared/shared-component/slider/slider.component';
+import { MatDialog } from '@angular/material/dialog';
+import { FilterModelComponent } from 'src/app/shared/model/filter-model/filter-model.component';
 
 @Component({
   selector: 'app-all-product',
@@ -24,7 +26,11 @@ import { SliderComponent } from 'src/app/shared/shared-component/slider/slider.c
   styleUrls: ['./all-product.component.scss'],
 })
 export class AllProductComponent implements OnInit {
-  constructor(private route: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private route: Router,
+    private activatedRoute: ActivatedRoute,
+    private dialog: MatDialog
+  ) {}
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params: any) => {
       // Access your query parameters here
@@ -96,6 +102,17 @@ export class AllProductComponent implements OnInit {
     },
   ];
   filterBy(type: string) {
+    const typeClass = type === 'filter' ? 'filterModel' : 'sortModel';
+    this.dialog.open(FilterModelComponent, {
+      panelClass: typeClass,
+      position: {
+        bottom: '0',
+        right: '100%',
+      },
+      data: {
+        filter: type,
+      },
+    });
     console.log(type, 'filter');
   }
   getslidercontent() {

@@ -22,7 +22,8 @@
       </div>
       <div class="contentMain">
         <h1 class="contentHead"> {{item.contentHead}}</h1>
-        <button class="btn shopNow">{{item.btn}}<ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></button>
+        <button class="btn shopNow" (click)="navigateTo(item.link)">{{item.btn}}<ng-icon name="heroArrowLongRight"
+            class="d-flex"></ng-icon></button>
       </div>
     </div>
   </splide-slide>

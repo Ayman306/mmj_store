@@ -1,0 +1,25 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<div [@slideInFromBottom] class="filterModel" *ngIf="data?.filter === 'filter'">
+
+  <p>filter-model works!</p>
+</div>
+<div [@slideInFromBottom] class="sortModel" *ngIf="data?.filter !== 'filter' ">
+
+  <h2 mat-dialog-title class="heading ">
+    Sort By
+  </h2>
+  <mat-dialog-content class="content">
+    <ul>
+      <ng-container *ngFor="let item of sortBy; let i = index;">
+        <li (click)="sortByOption(item)">
+          {{item}}
+        </li>
+
+      </ng-container>
+    </ul>
+
+  </mat-dialog-content>
+
+
+</div>

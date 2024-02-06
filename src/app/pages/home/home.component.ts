@@ -33,6 +33,7 @@ export class HomeComponent {
       contentHead: 'Athletic wear that keeps up with your hustle.',
       content: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       btn: 'Shop Collection',
+      link: '/product',
     },
     {
       media: 'image',
@@ -41,6 +42,7 @@ export class HomeComponent {
       contentHead: 'Athletic wear that keeps up with your hustle.',
       content: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       btn: 'Shop Collection',
+      link: '/product',
     },
   ];
   secondSlider = [
