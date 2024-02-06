@@ -23,14 +23,15 @@ export class LoginComponent {
   validData = false;
   login() {
     console.log(this.loginForm);
-    const mobile = this.loginForm.value.mobile || '';
-    if (mobile.length === 10) {
+    const mobile = this.loginForm.value.mobile + '' || '';
+    if (mobile.length !== 10) {
       this.validData = !this.validData;
+      return;
     }
-    this.validData = false;
     sessionStorage.setItem('mobile', mobile || '');
     this.route.navigate(['/otp']);
   }
+
   get m() {
     return this.loginForm.controls;
   }

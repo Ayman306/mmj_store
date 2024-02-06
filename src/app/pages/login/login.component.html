@@ -15,10 +15,8 @@
             <div *ngIf="m.mobile.errors?.['required']">Please enter mobile number</div>
             <div *ngIf="m.mobile.errors?.['pattern']">Mobile number is not 10 digit</div>
           </div>
-          <div *ngIf="validData" class="alert alert-danger">
-            Please enter mobile numbewer
-          </div>
-          <button type="submit" class="btn fw-bold m-auto d-block w-100">Send OTP</button>
+          <button type="submit" class="btn fw-bold m-auto d-block w-100" [disabled]="loginForm.status !== 'VALID'">Send
+            OTP</button>
         </form>
 
       </div>
