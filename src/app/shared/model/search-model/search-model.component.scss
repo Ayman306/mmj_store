@@ -1,5 +1,5 @@
 .close {
-  margin: 30px;
+  margin: 10px;
   margin-left: auto;
 }
 
@@ -24,6 +24,8 @@
       input {
         height: 50px;
         border-radius: 0;
+        border: none;
+        border-bottom: 1px solid #a4a4a4;
       }
 
       .searchBtn {
@@ -35,11 +37,13 @@
 
         button {
           border: none;
-          background-color: #005F5F;
-          color: white;
+          // background-color: #005F5F;
+          color: #505050;
           border-radius: 0px;
           height: 100%;
           width: 50px;
+          display: flex;
+          align-items: center;
         }
       }
     }

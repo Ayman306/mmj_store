@@ -242,15 +242,15 @@
   /* Use fixed position to align entire modal */
   top: 0;
   /* Adjust as needed */
-  right: 0;
+  right: 100%;
   /* Align to the right */
   bottom: 0;
   /* Adjust as needed */
-  left: auto;
+  left: 0;
   /* To ensure it's fully aligned to the right */
   background: white;
   transition: transform 0.3s ease-in-out;
   /* Add a smooth transition effect */
   width: 100vw;
-  height: 100vh;
+  height: max-content;
 }
