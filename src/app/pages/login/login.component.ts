@@ -7,6 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from './service/login.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private fb: FormBuilder, private route: Router) {}
+  constructor(private fb: FormBuilder, private route: Router,private loginService:LoginService, private toaster: ToastrService) {}
   loginForm = this.fb.group({
     mobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
   });
@@ -27,9 +29,26 @@ export class LoginComponent {
     if (mobile.length !== 10) {
       this.validData = !this.validData;
       return;
+    }else{
+      const mobileNumber = {
+        mobile_number:this.loginForm.value.mobile+''
+      }
+      this.loginService.login(mobileNumber).subscribe({
+        next: (data)=>{
+        if(data.status === 'OK'){
+          sessionStorage.setItem('mobile', mobile || '');
+          this.toaster.success("OTP sent successfully")
+          this.route.navigate(['/otp']);
+        } else {
+          this.validData = !this.validData;
+          this.toaster.error('Invalid number');
+        }
+      },
+      error: (err)=>{
+        this.toaster.error(err.error.message);
+      }
+      })
     }
-    sessionStorage.setItem('mobile', mobile || '');
-    this.route.navigate(['/otp']);
   }
 
   get m() {

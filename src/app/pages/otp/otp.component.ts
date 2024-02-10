@@ -14,6 +14,9 @@ import {
   CountdownEvent,
   CountdownModule,
 } from 'ngx-countdown';
+import { LoginService } from '../login/service/login.service';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/core/interceptor/service/auth.service';
 
 @Component({
   selector: 'app-otp',
@@ -31,7 +34,10 @@ export class OtpComponent {
   constructor(
     private fb: FormBuilder,
     private route: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private loginService: LoginService,
+    private toaster: ToastrService,
+    private authService:AuthService
   ) {
     this.mobile = sessionStorage.getItem('mobile');
     console.log(this.mobile);
@@ -45,7 +51,7 @@ export class OtpComponent {
   ngOtpInput!: NgOtpInputComponent;
   config: NgOtpInputConfig = {
     allowNumbersOnly: false,
-    length: 4,
+    length: 6,
     isPasswordInput: false,
     disableAutoFocus: false,
     placeholder: '1',
@@ -80,11 +86,35 @@ export class OtpComponent {
   }
   otpValid = false;
   verify() {
-    if (this.otp.length === 4) {
-      this.route.navigateByUrl('/home');
+    if (this.otp.length === 6) {
+      const otpVerify ={
+        "mobile_number":this.mobile,
+        "otp":this.otp
+      }
+      this.loginService.otpVerification(otpVerify).subscribe({
+        next: (data)=>{
+          if(data.status === 'OK'){
+            const tokens= {
+              "access_token":data.access_token,
+              "refresh_token":data.refresh_token
+            }
+            this.authService.setToken(tokens);
+            this.route.navigateByUrl('/home');
+          } else {
+            this.otp = '';
+            this.otpValid = true;
+            this.toaster.warning(data.message)
+          }
+        },
+        error: (err)=>{
+          this.otp = '';
+          this.otpValid = false;
+          this.toaster.error(err.error.message)
+        }
+      })
     } else {
       this.otp = '';
-      this.otpValid = true;
+      this.otpValid = false;
     }
   }
   backTOlogin() {
