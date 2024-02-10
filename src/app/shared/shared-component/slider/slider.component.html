@@ -14,7 +14,7 @@
           <video [src]="item.video" autoplay muted loop playsinline class="vedio"></video>
         </ng-container>
         <ng-container *ngIf="item.media === 'image'">
-          <img [src]="item.img" alt="" srcset="" class="vedio">
+          <img loading="lazy"  [src]="item.img" alt="" srcset="" class="vedio">
         </ng-container>
       </div>
       <div class="content">

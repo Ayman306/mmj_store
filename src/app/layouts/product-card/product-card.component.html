@@ -2,15 +2,15 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <div class="main cursor-pointer">
   <div class="img">
-    <img [src]="product.img" alt="" srcset="" class="hero" (click)="productFunc(product.title)">
+    <img loading="lazy"  [src]="product.img" alt="" srcset="" class="hero" (click)="productFunc(product.title)">
     <div class="icon">
       <div class="wishlist" (click)="wishlist(product.wishlist)">
-        <img src=" assets/product/wishlistTrue.svg" alt="" *ngIf="product.wishlist">
-        <img src=" assets/product/wishlistFalse.svg" alt="" *ngIf="!product.wishlist">
+        <img loading="lazy"  src=" assets/product/wishlistTrue.svg" alt="" *ngIf="product.wishlist">
+        <img loading="lazy"  src=" assets/product/wishlistFalse.svg" alt="" *ngIf="!product.wishlist">
       </div>
       <div class="cart" (click)="cart(product.cart)">
-        <img src="assets/product/bagTrue.svg" alt="" *ngIf="product.cart">
-        <img src=" assets/product/bagFalse.svg" alt="" *ngIf="!product.cart">
+        <img loading="lazy"  src="assets/product/bagTrue.svg" alt="" *ngIf="product.cart">
+        <img loading="lazy"  src=" assets/product/bagFalse.svg" alt="" *ngIf="!product.cart">
       </div>
     </div>
 

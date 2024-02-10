@@ -10,12 +10,12 @@
       <splide-slide *ngFor='let img of productImg; let first = first'>
         <div class="image ">
           <div class="headImage">
-            <img [src]="img" alt="" srcset="" class="w-100">
+            <img loading="lazy"  [src]="img" alt="" srcset="" class="w-100">
           </div>
           <!-- <div class="other">
         <ng-container *ngFor='let img of productImg; let first = first'>
           <ng-container *ngIf="!first">
-            <img [src]="img" alt="" srcset="" class=" otherImage">
+            <img loading="lazy"  [src]="img" alt="" srcset="" class=" otherImage">
           </ng-container>
         </ng-container>
       </div> -->

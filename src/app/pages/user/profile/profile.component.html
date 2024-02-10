@@ -17,7 +17,7 @@
       <ul class="info">
         <li class=" order" *ngFor="let order of order; index as i" (click)="orderinfo(i)">
           <div class="image">
-            <img [src]="order.image" alt="">
+            <img loading="lazy"  [src]="order.image" alt="">
           </div>
           <div class="content">
             <p class="title">{{order.title}}</p>
