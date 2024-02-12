@@ -5,7 +5,7 @@
         <countdown #cd [config]="configOtp" (event)="handleResendEvent($event)">
         </countdown>
         <p class="card-text m-0">Didn't you receive the OTP? &nbsp;<span> <button class="btn p-0"
-              [disabled]="resendDisable" (click)="cd.restart()">Resend OTP
+              [disabled]="resendDisable" (click)="cd.restart(); resentOtp()">Resend OTP
               &nbsp;
             </button>
           </span></p>

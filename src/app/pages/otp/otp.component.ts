@@ -113,6 +113,22 @@ private resetOtp(isValid: boolean, message: string) {
   const toastMethod = isValid ? 'warning' : 'error';
   this.toaster[toastMethod](message);
 }
+resentOtp(){
+  const otpResend = {
+    "mobile_number": this.mobile
+  };
+  this.loginService.resendOtp(otpResend).subscribe({
+    next: (data) => {
+      if (data.status === 'OK') {
+        this.toaster.success(data.message);
+      } else {
+        this.toaster.error(data.message);
+      }
+    },
+    error: (err) => this.toaster.error(err.error.message)
+  });
+
+}
   backTOlogin() {
     this.backToLogin.emit(true); // Emitting the OTP value to the parent
   }
