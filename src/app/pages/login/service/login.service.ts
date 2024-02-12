@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 
@@ -17,5 +18,7 @@ constructor(private http:HttpClient) {
   otpVerification(otp:any){
     return this.http.post<any>(`${environment.apiUrl}/user/verify-otp`,otp);
   }
-
+  resendOtp(data:any){
+    return this.http.post<any>(`${environment.apiUrl}/user/resend-otp`,data);
+  }
 }
