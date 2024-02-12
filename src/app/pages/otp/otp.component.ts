@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   NgOtpInputComponent,
   NgOtpInputConfig,
   NgOtpInputModule,
 } from 'ng-otp-input';
 import {
-  CountdownComponent,
   CountdownConfig,
   CountdownEvent,
   CountdownModule,
@@ -32,9 +31,7 @@ import { AuthService } from 'src/app/core/interceptor/service/auth.service';
 })
 export class OtpComponent {
   constructor(
-    private fb: FormBuilder,
     private route: Router,
-    private activatedRoute: ActivatedRoute,
     private loginService: LoginService,
     private toaster: ToastrService,
     private authService:AuthService
@@ -42,6 +39,7 @@ export class OtpComponent {
     this.mobile = sessionStorage.getItem('mobile');
     console.log(this.mobile);
   }
+  @Output() backToLogin: EventEmitter<boolean> = new EventEmitter<boolean>();
   mobile!: any;
   @ViewChild(NgOtpInputComponent, { static: false })
   otp!: string;
@@ -63,7 +61,6 @@ export class OtpComponent {
     notify: 0,
     demand: false,
   };
-  @ViewChild('cd', { static: false }) private countdown!: CountdownComponent;
 
   onOtpChange(otp: string) {
     this.otp = otp;
@@ -82,67 +79,41 @@ export class OtpComponent {
     } else {
       this.resendDisable = true;
     }
-    // console.log('Notify', e);
   }
   otpValid = false;
   verify() {
-    if (this.otp.length === 6) {
-      const otpVerify ={
-        "mobile_number":this.mobile,
-        "otp":this.otp
+  if (this.otp.length !== 6) {
+    this.otpValid = false;
+    this.resetOtp(false,'Enter valid OTP')
+    return;
+  }
+  const otpVerify = {
+    "mobile_number": this.mobile,
+    "otp": this.otp
+  };
+  this.loginService.otpVerification(otpVerify).subscribe({
+    next: (data) => {
+      if (data.status === 'OK') {
+        this.authService.setToken({
+          "access_token": data.access_token,
+          "refresh_token": data.refresh_token
+        });
+        this.route.navigateByUrl('/home');
+      } else {
+        this.resetOtp(true, data.message);
       }
-      this.loginService.otpVerification(otpVerify).subscribe({
-        next: (data)=>{
-          if(data.status === 'OK'){
-            const tokens= {
-              "access_token":data.access_token,
-              "refresh_token":data.refresh_token
-            }
-            this.authService.setToken(tokens);
-            this.route.navigateByUrl('/home');
-          } else {
-            this.otp = '';
-            this.otpValid = true;
-            this.toaster.warning(data.message)
-          }
-        },
-        error: (err)=>{
-          this.otp = '';
-          this.otpValid = false;
-          this.toaster.error(err.error.message)
-        }
-      })
-    } else {
-      this.otp = '';
-      this.otpValid = false;
-    }
-  }
+    },
+    error: (err) => this.resetOtp(false, err.error.message)
+  });
+}
+
+private resetOtp(isValid: boolean, message: string) {
+  // this.otp = '';
+  this.otpValid = isValid;
+  const toastMethod = isValid ? 'warning' : 'error';
+  this.toaster[toastMethod](message);
+}
   backTOlogin() {
-    this.route.navigateByUrl('/login');
+    this.backToLogin.emit(true); // Emitting the OTP value to the parent
   }
-  // setVal(val: any) {
-  //   this.ngOtpInput.setValue(val);
-  //   if (this.focusToFirstElementAfterValueUpdate) {
-  //     const eleId = this.ngOtpInput.getBoxId(0);
-  //     this.ngOtpInput.focusTo(eleId);
-  //   }
-  // }
-
-  // toggleDisable() {
-  //   if (this.ngOtpInput.otpForm) {
-  //     if (this.ngOtpInput.otpForm.disabled) {
-  //       this.ngOtpInput.otpForm.enable();
-  //     } else {
-  //       this.ngOtpInput.otpForm.disable();
-  //     }
-  //   }
-  // }
-
-  // onConfigChange() {
-  //   this.showOtpComponent = false;
-  //   this.otp = '';
-  //   setTimeout(() => {
-  //     this.showOtpComponent = true;
-  //   }, 0);
-  // }
 }
