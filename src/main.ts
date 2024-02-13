@@ -8,7 +8,6 @@ import {
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { provideRouter } from '@angular/router';
 import { App_Route } from './app/app.route';
-import { ApiServiceService } from './app/shared/api/api-service.service';
 import { CountdownConfig, CountdownGlobalConfig } from 'ngx-countdown';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -22,7 +21,6 @@ function countdownConfigFactory(): CountdownConfig {
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(App_Route),
-    ApiServiceService,
     importProvidersFrom(
       BrowserAnimationsModule,
       HttpClientModule,
