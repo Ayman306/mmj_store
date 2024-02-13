@@ -13,7 +13,7 @@ import {
   CountdownEvent,
   CountdownModule,
 } from 'ngx-countdown';
-import { LoginService } from '../login/service/login.service';
+import { LoginService } from '../service/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/interceptor/service/auth.service';
 

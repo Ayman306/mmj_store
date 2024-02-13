@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { LoginService } from './service/login.service';
 import { ToastrService } from 'ngx-toastr';
-import { OtpComponent } from '../otp/otp.component';
+import { OtpComponent } from './otp/otp.component';
 import { LazyLoadImagesDirective } from 'src/app/utils/directive/lazy-load-images.directive';
 
 @Component({
