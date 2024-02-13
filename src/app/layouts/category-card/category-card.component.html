@@ -1,19 +1,21 @@
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <div class="category">
-  <ng-container *ngFor="let catg of categories">
+  <ng-container *ngIf="categories$ |async as categories">
 
+  <ng-container *ngFor="let catg of  categories.data || categories">
 
     <div class="main" (click)="navigateToCatg(catg.title)">
       <div class="content">
         <div class="img">
 
-          <img loading="lazy"  [src]="catg.image" alt="" srcset="" class="w-100">
+          <img [src]="catg.category_image" alt="" srcset="" class="w-100" appLazyLoadImages>
           <div class="overlay"></div>
-          <button class="btn w-100">{{catg.title}} </button>
+          <button class="btn w-100">{{catg.category_name}} </button>
         </div>
       </div>
     </div>
   </ng-container>
+</ng-container>
 
 </div>

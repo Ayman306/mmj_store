@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { OtpComponent } from './otp/otp.component';
+import { OtpComponent } from './login/otp/otp.component';
 
 export default [
   {

@@ -1,38 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { LazyLoadImagesDirective } from 'src/app/utils/directive/lazy-load-images.directive';
+import { ProductapiService } from '../../pages/product/service/productapi.service';
+import { ProductService } from 'src/app/pages/product/service/product.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-category-card',
   standalone: true,
-  imports: [CommonModule],
+
+  imports: [CommonModule,LazyLoadImagesDirective],
   templateUrl: './category-card.component.html',
   styleUrls: ['./category-card.component.scss'],
 })
-export class CategoryCardComponent {
-  constructor(private route: Router) {}
-  categories = [
-    {
-      title: 'casual',
-      image: '../../../assets/category/casual-category.jpg',
-    },
-    {
-      title: 'Wanderlust',
-      image: '../../../assets/category/adventureImg.jpg',
-    },
-    {
-      title: 'college',
-      image: '../../../assets/category/college-outfit.jpg',
-    },
-    {
-      title: 'Party burst',
-      image: '../../../assets/category/party-category.jpg',
-    },
-    {
-      title: 'Gym x anime',
-      image: '../../../assets/category/anime-category.jpg',
-    },
-  ];
+export class CategoryCardComponent implements OnInit {
+  constructor(private route: Router,private productService:ProductService,private productapi:ProductapiService) {}
+  categories$!: Observable<any>;
+  ngOnInit() {
+    this.categories$ = this.productService.getData('categories', () => this.productapi.getCategory());
+  }
+
   navigateToCatg(type: string) {
     this.route.navigate(['/product'], {
       queryParams: { type: type },
