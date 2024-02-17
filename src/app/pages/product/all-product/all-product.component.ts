@@ -47,18 +47,6 @@ export class AllProductComponent implements OnInit {
     this.getProducts()
     this.getLatest()
   }
-  // getProducts(){
-  //    let params = new HttpParams()
-  //    params = params.append('category_id',this.type)
-  //   this.products$ = this.productApi.getProducts(this.type ? params : undefined);
-  // }
-  // getLatest(){
-  //   let params = new HttpParams()
-  //   params = params.append('page',1)
-  //   params = params.append('page_size',4)
-  //   params = params.append('category_id',this.type)
-  //   this.latest$ = this.productApi.getProducts(params)
-  // }
   private getProductsParams(extraParams?: {[key: string]: any}): HttpParams {
   let params = new HttpParams();
     // Always include category_id if it's not undefined or an empty string
