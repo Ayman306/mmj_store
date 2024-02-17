@@ -18,7 +18,9 @@ import {
   heroArrowLongRight,
   heroShoppingBag,
   heroPencilSquare,
+  heroHeart,
 } from '@ng-icons/heroicons/outline';
+import {heroHeartSolid} from '@ng-icons/heroicons/solid';
 import {
   featherEdit2,
   featherFacebook,
@@ -42,6 +44,8 @@ import {
       featherInstagram,
       featherFacebook,
       featherEdit2,
+      heroHeart,
+      heroHeartSolid
     }),
   ],
 })

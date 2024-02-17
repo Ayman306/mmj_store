@@ -4,13 +4,12 @@
   <div class="img">
     <img loading="lazy"  [src]="product.img" alt="" srcset="" class="hero" (click)="productFunc(product.title)">
     <div class="icon">
-      <div class="wishlist" (click)="wishlist(product.wishlist)">
-        <img loading="lazy"  src=" assets/product/wishlistTrue.svg" alt="" *ngIf="product.wishlist">
-        <img loading="lazy"  src=" assets/product/wishlistFalse.svg" alt="" *ngIf="!product.wishlist">
+
+      <div class="wishlist" [ngClass]="{'active':product.wishlist}" (click)="wishlist(product.wishlist)">
+        <ng-icon name="heroHeart" class="d-flex"></ng-icon>
       </div>
-      <div class="cart" (click)="cart(product.cart)">
-        <img loading="lazy"  src="assets/product/bagTrue.svg" alt="" *ngIf="product.cart">
-        <img loading="lazy"  src=" assets/product/bagFalse.svg" alt="" *ngIf="!product.cart">
+      <div class="cart" [ngClass]="{'active':product.cart}" (click)="cart(product.cart)">
+        <ng-icon name="heroShoppingBag" class="d-flex"></ng-icon>
       </div>
     </div>
 
