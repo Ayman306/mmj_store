@@ -23,21 +23,21 @@ export class ProfileComponent {
   itemStringsLeft = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
   info = [
     {
-      title: 'name',
+      product_title: 'name',
       value: 'Ayman',
     },
     {
-      title: 'phone',
+      product_title: 'phone',
       value: '9741025256',
     },
     {
-      title: 'email',
+      product_title: 'email',
       value: 'ayman@gmail',
     },
   ];
   address = [
     {
-      title: 'address',
+      product_title: 'address',
       name: 'Ayman',
       address: '2nd Cross',
       state: 'Cairo, Egypt',
@@ -49,7 +49,7 @@ export class ProfileComponent {
   ];
   order = [
     {
-      title: 'Jacket',
+      product_title: 'Jacket',
       subText: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       price: 122.0,
       image: '../../../assets/home/wardrobe.jpg',

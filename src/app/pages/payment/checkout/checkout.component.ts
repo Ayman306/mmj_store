@@ -25,25 +25,25 @@ export class CheckoutComponent {
   orderItem = [
     {
       image: '../../../../assets/productImage/productImage1.jpeg',
-      title: 'WAISTCOAT WITH CONTRAST PIPING',
+      product_title: 'WAISTCOAT WITH CONTRAST PIPING',
       price: '$24.99',
       quantity: 3,
     },
     {
       image: '../../../../assets/productImage/productImage1.jpeg',
-      title: 'WAISTCOAT WITH CONTRAST PIPING',
+      product_title: 'WAISTCOAT WITH CONTRAST PIPING',
       price: '$24.99',
       quantity: 3,
     },
     {
       image: '../../../../assets/productImage/productImage1.jpeg',
-      title: 'WAISTCOAT WITH CONTRAST PIPING',
+      product_title: 'WAISTCOAT WITH CONTRAST PIPING',
       price: '$24.99',
       quantity: 3,
     },
     {
       image: '../../../../assets/productImage/productImage1.jpeg',
-      title: 'WAISTCOAT WITH CONTRAST PIPING',
+      product_title: 'WAISTCOAT WITH CONTRAST PIPING',
       price: '$24.99',
       quantity: 3,
     },

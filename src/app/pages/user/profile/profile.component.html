@@ -20,7 +20,7 @@
             <img loading="lazy"  [src]="order.image" alt="">
           </div>
           <div class="content">
-            <p class="title">{{order.title}}</p>
+            <p class="title">{{order.product_title}}</p>
             <p class="subText">{{order.subText}}</p>
             <p class="price">{{order.price | currency}}</p>
           </div>
@@ -41,7 +41,7 @@
       </div>
       <ul class="info">
         <li *ngFor="let i of info">
-          <p class="title ">{{i.title}} :</p>
+          <p class="title ">{{i.product_title}} :</p>
           <p class="value ">{{i.value}}</p>
         </li>
       </ul>

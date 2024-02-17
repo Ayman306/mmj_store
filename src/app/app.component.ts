@@ -26,6 +26,7 @@ import {
   featherFacebook,
   featherInstagram,
   featherSearch,
+  featherTrash
 } from '@ng-icons/feather-icons';
 
 @Component({
@@ -44,6 +45,7 @@ import {
       featherInstagram,
       featherFacebook,
       featherEdit2,
+      featherTrash,
       heroHeart,
       heroHeartSolid
     }),
@@ -58,7 +60,7 @@ export class AppComponent implements OnInit {
 
     return res;
   }
-  title = 'mmj_store';
+  product_title = 'mmj_store';
   isDisplay = true;
   loader = false;
   constructor(

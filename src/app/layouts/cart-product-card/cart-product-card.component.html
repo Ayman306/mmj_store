@@ -5,10 +5,10 @@
   <div class="content pt-2">
     <div class="desc">
 
-      <h2 class="title m-0">{{product.title}}</h2>
+      <h2 class="title m-0">{{product.product_title}}</h2>
       <p class="price m-0">{{product.price | currency:'INR'}} &nbsp; <span
           class="m-0 text-muted mrp">{{product?.mrp | currency:'INR'}}</span></p>
-      <p class="descText m-0">{{product.desc}}</p>
+      <p class="descText m-0">{{product.product_description}}</p>
       <p class="colorSize"><span class="color"></span> &nbsp; / &nbsp; Xl </p>
     </div>
     <div class="qtyButtons">
@@ -19,7 +19,7 @@
           <button class="btn less" mat-icon-button (click)="incrementValue(-_step)">
             <mat-icon>remove</mat-icon>
           </button>
-          <input matInput type="number" [(ngModel)]="_value" minlength="1" readonly />
+          <input matInput type="number" [value]="_value" minlength="1" readonly />
           <button class="btn add" mat-icon-button (click)="incrementValue(_step)">
             <mat-icon>add</mat-icon>
           </button>

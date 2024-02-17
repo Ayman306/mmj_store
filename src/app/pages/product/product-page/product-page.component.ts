@@ -49,7 +49,7 @@ export class ProductPageComponent implements OnInit {
   product = [
     {
       img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      title: 'RoadWays Tshirts',
+      product_title: 'RoadWays Tshirts',
       price: 1400,
       des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       cart: true,
@@ -57,7 +57,7 @@ export class ProductPageComponent implements OnInit {
     },
     {
       img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      title: 'RoadWays Tshirts',
+      product_title: 'RoadWays Tshirts',
       price: 1500,
       des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       cart: false,
@@ -65,7 +65,7 @@ export class ProductPageComponent implements OnInit {
     },
     {
       img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      title: 'RoadWays Tshirts',
+      product_title: 'RoadWays Tshirts',
       price: 1500,
       des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       cart: false,
@@ -73,7 +73,7 @@ export class ProductPageComponent implements OnInit {
     },
     {
       img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      title: 'RoadWays Tshirts',
+      product_title: 'RoadWays Tshirts',
       price: 1500,
       des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       cart: true,
