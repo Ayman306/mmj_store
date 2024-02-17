@@ -1,7 +1,31 @@
 @import url('../../shared/style/animation.scss');
-
-.navbar {
-  background-color: #fff;
+.firstNav{
+  padding: 10px 0px;
+  border-top:2px solid #005F5F ;
+  .firstnavContent{
+    .secondSearch.firstsearch{
+      display: none;
+    }
+    .firstsearch{
+      width: 75%;
+      background-color: aliceblue;
+      border-radius: 30px;
+      color:  #4b4b4b;
+      padding: 1em 2em;
+    }
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      // flex-flow: column;
+      .firstsearch{
+        display: none !important;
+      }
+      .firsticons > .secondSearch{
+        width: 100%;
+        display: flex !important;
+        padding: 0.5em 1em;
+      }
+    }
+  }
 }
 
 .logo {
@@ -9,33 +33,34 @@
   margin: auto;
   cursor: pointer;
   padding: 10px 20px;
+  @media (max-width:768px) {
+    width: 150px;
+  }
 }
 
 .icons {
   &_main {
     margin-right: 37px;
     align-items: center;
-
     p {
       color: #000;
       text-align: center;
-      font-family: Roboto;
-      letter-spacing: 2.88px;
       text-transform: capitalize;
       margin: 0;
       text-align: center;
       font-size: 20px;
-      padding-left: 15px;
+      padding-left: 5px;
+    }
+    @media (max-width:768px) {
+      background-color: #005F5F;
+    padding: 5px;
+    color:  #f0f0f0;
+    border-radius: 50%;
+    :hover, :focus {
+      box-shadow: 0.5px 0.5px 5px 0.5px #f0f0f0;
+    }
     }
   }
-}
-
-.searchRight {
-  display: none !important;
-}
-
-.menu {
-  display: none;
 }
 
 @media (max-width:1024px) {
@@ -44,7 +69,7 @@
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:768px) {
   .logo {
     width: 150px;
     padding: auto 0px;
@@ -54,9 +79,6 @@
     display: none !important;
   }
 
-  .searchRight {
-    display: block !important;
-  }
 
   .menu {
     display: block;
@@ -64,6 +86,8 @@
 
   mat-icon {
     font-size: 25px;
+    display: flex;
+    justify-content: center;
   }
 
   .icons_main {
@@ -77,99 +101,6 @@
     'wght' 600,
     'GRAD' 0,
     'opsz' 24
-}
-
-.cart {
-  ::ng-deep .mat-badge-content {
-    background-color: #005F5F;
-  }
-}
-
-// .search {
-//   position: relative;
-//   top: -100%;
-//   left: 0;
-//   right: 0;
-//   transition: top 0.5s ease;
-//   /* Smooth transition effect */
-
-//   &.searchClicked {
-//     top: 0;
-//   }
-// }
-.search {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-
-  .input-group {
-    input {
-      height: 50px;
-      border-radius: 0;
-      padding-left: 50px;
-    }
-
-    // .searchBtn {
-    //   margin-left: -35px !important;
-    //   height: 50px;
-    //   position: absolute;
-    //   right: 0;
-    //   z-index: 6;
-
-    //   button {
-    //     border: none;
-    //     background-color: #005F5F;
-    //     color: white;
-    //     border-radius: 0px;
-    //     height: 100%;
-    //     width: 50px;
-    //   }
-    // }
-    .closeBtn,
-    .searchBtn {
-      height: 50px;
-      position: absolute;
-      z-index: 6;
-
-      button {
-        border: none;
-        border-radius: 0px;
-        height: 100%;
-        width: 50px;
-        background-color: transparent;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-
-    .searchBtn {
-      right: 0;
-      margin-left: -35px !important;
-      background-color: #005F5F;
-    }
-
-    .closeBtn {
-      margin: 0;
-      left: 0;
-      background-color: transparent;
-      border: none;
-
-      button {
-        color: #000;
-
-      }
-    }
-
-  }
-
-  .searchCon {
-    margin-top: 20px;
-  }
-}
-
-.search.active {
-  opacity: 1;
 }
 
 ::ng-deep .right-hidden-dialog {
