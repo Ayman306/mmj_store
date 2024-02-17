@@ -11,6 +11,7 @@ import { SearchModelComponent } from 'src/app/shared/model/search-model/search-m
 import { NgIcon } from '@ng-icons/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MenuModelComponent } from 'src/app/shared/model/menu-model/menu-model.component';
+import { LazyLoadImagesDirective } from 'src/app/utils/directive/lazy-load-images.directive';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -23,6 +24,7 @@ import { MenuModelComponent } from 'src/app/shared/model/menu-model/menu-model.c
     CartModelComponent,
     NgIcon,
     ReactiveFormsModule,
+    LazyLoadImagesDirective
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
@@ -55,6 +57,9 @@ export class HeaderComponent implements OnInit {
         break;
       case 'search':
         this.openSearchModal();
+        break;
+      case 'wishlist':
+        this.router.navigate([`/wishlist`]);
         break;
       default:
         this.router.navigate([`product/${route}`]);
