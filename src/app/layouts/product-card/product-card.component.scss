@@ -7,6 +7,7 @@
     // box-shadow: 0.2px 0.2px 5px rgb(0 0 0 / 23%);
     // border-radius: 10px;
     margin-bottom: 15px;
+    box-shadow: 0px 0px 1px #00000057;
 
     @media (max-width: 780px) {
       width: 150px;
@@ -76,15 +77,15 @@
         }
 
         .title {
-          color: #000;
-          font-size: 20px;
+          color: #005454;
+          font-size: 16px;
           line-height: normal;
           max-inline-size: -webkit-fill-available;
-          font-weight: 600;
+          font-weight: 500;
         }
 
         .desc {
-          color: #000;
+          color: #474747;
           font-size: 14px;
           font-weight: 300;
           line-height: normal;
@@ -92,8 +93,9 @@
         }
 
         .price {
-          font-size: 20px;
+          font-size: 14px;
           font-weight: 700;
+          color: #005454;
         }
 
         @media (max-width:780px) {
@@ -126,10 +128,11 @@
         border-radius: 0px;
       }
     }
+    padding: 0.6em;
 
     &:hover {
       box-shadow: 0px 0px 5px #FFA300;
-      padding: 0.6em;
+      padding: 0.5em;
     }
   }
 
