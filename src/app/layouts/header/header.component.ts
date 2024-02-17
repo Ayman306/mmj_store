@@ -40,12 +40,14 @@ export class HeaderComponent implements OnInit {
   menuClicked = false;
   modalRef!: BsModalRef;
   searchClicked = false;
+  user:any
   search = new FormControl();
 
   ngOnInit() {
     this.router.events.subscribe(() => {
       window.scrollTo(0, 0);
     });
+     this.user=sessionStorage.getItem('user');
   }
   navigate(route: string) {
     switch (route) {
@@ -61,6 +63,9 @@ export class HeaderComponent implements OnInit {
       case 'wishlist':
         this.router.navigate([`/user/wishlist`]);
         break;
+        case 'login':
+          this.router.navigate([`/login`]);
+          break
       default:
         this.router.navigate([`product/${route}`]);
         break;

@@ -13,6 +13,13 @@
       color:  #4b4b4b;
       padding: 1em 2em;
     }
+    .firsticons{
+      .login{
+        padding: 0.5em 0.8em;
+        background-color: #005F5F;
+        color: white;
+      }
+    }
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
       // flex-flow: column;
