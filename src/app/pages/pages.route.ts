@@ -5,7 +5,8 @@ import { OtpComponent } from './login/otp/otp.component';
 export default [
   {
     path: '',
-    component: LoginComponent,
+    loadComponent: () =>
+    import('./home/home.component').then((c) => c.HomeComponent),
     data: { num: -1 },
   },
   {
