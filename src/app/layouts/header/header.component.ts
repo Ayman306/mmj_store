@@ -59,7 +59,7 @@ export class HeaderComponent implements OnInit {
         this.openSearchModal();
         break;
       case 'wishlist':
-        this.router.navigate([`/wishlist`]);
+        this.router.navigate([`/user/wishlist`]);
         break;
       default:
         this.router.navigate([`product/${route}`]);

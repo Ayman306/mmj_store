@@ -25,6 +25,18 @@
         padding: 0.5em 1em;
       }
     }
+    @media screen and (max-width:480px) {
+    .firsticons>  .secondSearch{
+        width: auto;
+    display: block !important;
+    border-radius: 50%;
+    padding: 0.5em;
+    margin: 0 !important;
+        .searchText{
+          display: none;
+        }
+      }
+    }
   }
 }
 
