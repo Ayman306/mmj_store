@@ -58,40 +58,6 @@ export class HomeComponent implements OnInit{
       btn: 'Shop Collection',
     },
   ];
-  product = [
-    {
-      img: '../../../assets/tshirt/tshirt2.jpg',
-      product_title: 'Mangaluru Tshirts',
-      price: 1400,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: true,
-      wishlist: true,
-    },
-    {
-      img: '../../../assets/tshirt/tshirt3.png',
-      product_title: 'IYI Tshirts',
-      price: 1500,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: false,
-      wishlist: false,
-    },
-    {
-      img: '../../../assets/tshirt/tshirt4.png',
-      product_title: 'Rose Tshirts',
-      price: 1500,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: false,
-      wishlist: true,
-    },
-    {
-      img: '../../../assets/tshirt/tshirt5.png',
-      product_title: 'Basics Tshirts',
-      price: 1500,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: true,
-      wishlist: false,
-    },
-  ];
   latest$!: Observable<any>;
   topSeller$!: Observable<any>;
 
