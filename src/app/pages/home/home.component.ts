@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxSplideModule } from 'ngx-splide';
 import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.component';
@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { NgIconComponent } from '@ng-icons/core';
 import { ReviewsComponent } from 'src/app/shared/shared-component/reviews/reviews.component';
 import { SliderComponent } from 'src/app/shared/shared-component/slider/slider.component';
+import { Observable } from 'rxjs';
+import { ProductapiService } from '../product/service/productapi.service';
+import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -22,8 +25,8 @@ import { SliderComponent } from 'src/app/shared/shared-component/slider/slider.c
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-  constructor(private route: Router) {}
+export class HomeComponent implements OnInit{
+  constructor(private route: Router,private productApi:ProductapiService) {}
   firstSlider = [
     {
       media: 'video',
@@ -58,7 +61,7 @@ export class HomeComponent {
   product = [
     {
       img: '../../../assets/tshirt/tshirt2.jpg',
-      title: 'Mangaluru Tshirts',
+      product_title: 'Mangaluru Tshirts',
       price: 1400,
       des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       cart: true,
@@ -66,7 +69,7 @@ export class HomeComponent {
     },
     {
       img: '../../../assets/tshirt/tshirt3.png',
-      title: 'IYI Tshirts',
+      product_title: 'IYI Tshirts',
       price: 1500,
       des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       cart: false,
@@ -74,7 +77,7 @@ export class HomeComponent {
     },
     {
       img: '../../../assets/tshirt/tshirt4.png',
-      title: 'Rose Tshirts',
+      product_title: 'Rose Tshirts',
       price: 1500,
       des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       cart: false,
@@ -82,21 +85,32 @@ export class HomeComponent {
     },
     {
       img: '../../../assets/tshirt/tshirt5.png',
-      title: 'Basics Tshirts',
+      product_title: 'Basics Tshirts',
       price: 1500,
       des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
       cart: true,
       wishlist: false,
     },
   ];
-  navigateTo(type: string) {
-    // if (type === 'allProduct') {
-    this.route.navigate(['/product']);
-    console.log(type);
+  latest$!: Observable<any>;
+  topSeller$!: Observable<any>;
 
-    // }
-  }
-  productRoute(index: number) {
-    this.route.navigate(['/product/tshirt'], { queryParams: { id: index } });
-  }
+ngOnInit(): void {
+    this.getLatest()
+    this.getTopSeller()
+}
+getLatest(){
+  let param= new HttpParams()
+  param = param.append('page', '1')
+  param = param.append('page_size', '4')
+  this.latest$ = this.productApi.getProducts(param)
+}
+getTopSeller(){
+  let param= new HttpParams()
+  param = param.append('page', '1')
+  param = param.append('page_size', '4')
+  // param = param.append('top_seller', 'true')
+  this.topSeller$ = this.productApi.getProducts(param)
+}
+
 }

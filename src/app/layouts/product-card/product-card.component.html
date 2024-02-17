@@ -1,26 +1,29 @@
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
-<div class="main cursor-pointer">
+<div class="main cursor-pointer" (click)="productFunc(product.product_id)">
   <div class="img">
-    <img loading="lazy"  [src]="product.img" alt="" srcset="" class="hero" (click)="productFunc(product.title)">
+    <img loading="lazy"  [src]="getImage()" alt="" srcset="" class="hero" >
     <div class="icon">
 
-      <div class="wishlist" [ngClass]="{'active':product.wishlist}" (click)="wishlist(product.wishlist)">
+      <div class="remove" (click)="remove(product.product_id)" *ngIf="wishlistPage">
+        <ng-icon name="featherTrash" class="d-flex"></ng-icon>
+      </div>
+      <div class="wishlist" [ngClass]="{'active':product.wishlist}" (click)="wishlist(product.product_id,product.wishlist)" *ngIf="!wishlistPage">
         <ng-icon name="heroHeart" class="d-flex"></ng-icon>
       </div>
-      <div class="cart" [ngClass]="{'active':product.cart}" (click)="cart(product.cart)">
+      <div class="cart" [ngClass]="{'active':product.cart}" (click)="cart(product.product_id,product.cart)">
         <ng-icon name="heroShoppingBag" class="d-flex"></ng-icon>
       </div>
     </div>
 
   </div>
-  <div class="content" (click)="productFunc(product.title)">
+  <div class="content">
     <div class="head">
 
       <h2 class="title">
-        {{product.title}}
+        {{product.product_title}}
       </h2>
-      <p class="desc">{{product.des}}</p>
+      <p class="desc">{{product.product_description}}</p>
       <p class="price">{{product.price | currency:'INR'}} </p>
     </div>
 

@@ -12,6 +12,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { SliderComponent } from 'src/app/shared/shared-component/slider/slider.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FilterModelComponent } from 'src/app/shared/model/filter-model/filter-model.component';
+import { Observable } from 'rxjs';
+import { ProductapiService } from '../service/productapi.service';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-all-product',
@@ -26,53 +29,65 @@ import { FilterModelComponent } from 'src/app/shared/model/filter-model/filter-m
   styleUrls: ['./all-product.component.scss'],
 })
 export class AllProductComponent implements OnInit {
+  type = '';
+
   constructor(
     private route: Router,
     private activatedRoute: ActivatedRoute,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private productApi:ProductapiService
   ) {}
+  products$!: Observable<any>;
+  latest$!: Observable<any>;
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params: any) => {
       // Access your query parameters here
-      this.type = params.type;
+      this.type = params.category;
     });
+    this.getProducts()
+    this.getLatest()
   }
-  type = '';
-  product = [
-    {
-      img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      title: 'RoadWays Tshirts',
-      price: 1400,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: true,
-      wishlist: true,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      title: 'RoadWays Tshirts',
-      price: 1500,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: false,
-      wishlist: false,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      title: 'RoadWays Tshirts',
-      price: 1500,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: false,
-      wishlist: true,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      title: 'RoadWays Tshirts',
-      price: 1500,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: true,
-      wishlist: false,
-    },
-  ];
+  // getProducts(){
+  //    let params = new HttpParams()
+  //    params = params.append('category_id',this.type)
+  //   this.products$ = this.productApi.getProducts(this.type ? params : undefined);
+  // }
+  // getLatest(){
+  //   let params = new HttpParams()
+  //   params = params.append('page',1)
+  //   params = params.append('page_size',4)
+  //   params = params.append('category_id',this.type)
+  //   this.latest$ = this.productApi.getProducts(params)
+  // }
+  private getProductsParams(extraParams?: {[key: string]: any}): HttpParams {
+  let params = new HttpParams();
+    // Always include category_id if it's not undefined or an empty string
+    if (this.type) {
+      params = params.append('category_id', this.type);
+    }
+    // Include additional parameters if provided
+    if (extraParams) {
+      Object.keys(extraParams).forEach(key => {
+        // This ensures that even if extraParams contains category_id, it won't override
+        // the existing value as it's already set if this.type is truthy.
+        if (!params.has(key)) {
+          params = params.append(key, extraParams[key]);
+        }
+      });
+    }
+    return params;
+  }
 
+  getProducts() {
+    const params = this.getProductsParams();
+    this.products$ = this.productApi.getProducts(params);
+  }
+
+  getLatest() {
+    const extraParams = { page: 1, page_size: 4 };
+    const params = this.getProductsParams(extraParams);
+    this.latest$ = this.productApi.getProducts(params);
+  }
   filter = [
     'Best Selling',
     'Alphabetically A-Z',

@@ -23,8 +23,8 @@ export class CategoryCardComponent implements OnInit {
 
   navigateToCatg(type: string) {
     this.route.navigate(['/product'], {
-      queryParams: { type: type },
+      queryParams: { category: type },
     });
-    console.log('navigated');
+    console.log('navigated',type);
   }
 }

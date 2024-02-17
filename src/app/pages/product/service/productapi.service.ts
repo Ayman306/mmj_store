@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,17 +10,14 @@ export class ProductapiService {
 
   constructor(private http:HttpClient) { }
   apiUrl =environment.apiUrl
-  getProducts(){
-    return this.http.get<any>(`${this.apiUrl}/product`);
+  getProducts(params?: HttpParams):Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/product`,{params});
   }
   getProductById(id:any){
     return this.http.get<any>(`${this.apiUrl}/product/${id}`);
   }
   getCategory(){
     return this.http.get<any>(`${this.apiUrl}/categories`);
-  }
-  getAllProductByCategory(params: HttpParams){
-    return this.http.get<any>(`${this.apiUrl}/product/category`,{params});
   }
 
   getAllWishList(){

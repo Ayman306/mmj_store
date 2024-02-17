@@ -1,24 +1,3 @@
-<!-- <splide [options]="
-{
-  arrows:false
-}
-">
-  <splide-slide>
-    <div class="heroslider">
-      <div class="media">
-        <div class="overlay"></div>
-        <video src="../../../assets/home/mixkit-woman-modeling-a-short-black-dress-805-medium.mp4" autoplay muted loop playsinline class="vedio"></video>
-      </div>
-      <div class="content">
-        <p class="tag">atheltic wear</p>
-      </div>
-      <div class="contentMain">
-        <h1 class="contentHead"> Athletic wear that keeps up with your hustle.</h1>
-        <button class="btn shopNow"(click)="navigateTo('allProduct')">Shop Collection <ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></button>
-      </div>
-    </div>
-  </splide-slide>
-</splide> -->
 <app-slider [product]="firstSlider"></app-slider>
 
 
@@ -28,8 +7,10 @@
     <button class="btn view">View all <ng-icon name="heroArrowLongRight"></ng-icon></button>
   </div>
   <div class="newarrival d-flex flex-wrap flex-row justify-content-evenly">
-    <ng-container *ngFor="let item of product;let i=index">
-      <app-product-card [product]="item" (productId)="productRoute($event)"></app-product-card>
+    <ng-container *ngIf="latest$ | async as latest">
+    <ng-container *ngFor="let item of latest.data;let i=index">
+      <app-product-card [product]="item"></app-product-card>
+    </ng-container>
     </ng-container>
   </div>
 </div>
@@ -43,29 +24,6 @@
 </div>
 
 <div class="slider w-100">
-  <!-- <splide [options]="
-{
-  arrows:false,
-}
-">
-    <splide-slide>
-      <div class="heroslider">
-        <div class="media">
-          <div class="overlay"></div>
-          <img loading="lazy"  class="img" src="../../../assets/home/adventureImg.jpg" alt="" srcset="">
-        </div>
-        <div class="content">
-          <p class="tag">atheltic wear</p>
-        </div>
-        <div class="contentMain">
-          <h1 class="contentHead">Adventure Bound Attire</h1>
-          <p class="subText">Adventure-ready apparel,Designed for comfort and style on the open road</p>
-          <button class="btn shopNow" (click)="navigateTo('allProduct')">Shop Collection <ng-icon
-              name="heroArrowLongRight" class="d-flex"></ng-icon></button>
-        </div>
-      </div>
-    </splide-slide>
-  </splide> -->
   <app-slider [product]="secondSlider"></app-slider>
 
 </div>
@@ -77,8 +35,10 @@
     <button class="btn view">View all <ng-icon name="heroArrowLongRight"></ng-icon> </button>
   </div>
   <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
-    <ng-container *ngFor="let item of product; let i=index">
-      <app-product-card [product]="item" (productId)="productRoute($event)"></app-product-card>
+    <ng-container *ngIf="topSeller$ | async as topSeller">
+    <ng-container *ngFor="let item of topSeller.data; let i=index">
+      <app-product-card [product]="item"></app-product-card>
+    </ng-container>
     </ng-container>
   </div>
 </div>
