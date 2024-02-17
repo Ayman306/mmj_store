@@ -26,6 +26,9 @@
       }
     }
     @media screen and (max-width:480px) {
+      .firsticons{
+        justify-content: center !important;
+      }
     .firsticons>  .secondSearch{
         width: auto;
     display: block !important;
