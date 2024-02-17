@@ -1,3 +1,4 @@
+<ng-container *ngIf="product$ | async as product">
 <div class="main">
   <div class="productMain row">
     <splide [options]="
@@ -26,7 +27,7 @@
     <div class="content col-lg-6">
       <div class="head">
 
-        <h2 class="title">WAISTCOAT WITH CONTRAST PIPING</h2>
+        <h2 class="title">{{product.data.product_title}}</h2>
         <p class="price">$122.00</p>
       </div>
       <div class="text">
@@ -35,9 +36,7 @@
             Description
           </p>
           <p>
-            Round neck waistcoat featuring front welt pockets, contrast trims, a pleat in the back and metal appliqué
-            fastening in
-            the front.
+            {{product.data.product_description}}
           </p>
         </div>
         <div class="desc summary">
@@ -60,12 +59,9 @@
           </p>
           <ul class="list-inline">
 
-            <ng-container *ngFor="let size of size">
-
-              <li><button class="btn outline ">
+              <li  *ngFor="let size of size"><button class="btn outline ">
                   {{size}}
                 </button></li>
-            </ng-container>
           </ul>
 
         </div>
@@ -86,14 +82,17 @@
     </div>
   </div>
 </div>
-<div class="d-flex justify-content-between align-items-center mb-5">
+<div class="d-flex justify-content-between align-items-center m-2">
   <h2 class="heading">You may also Like</h2>
   <button class="btn view">View all <ng-icon name="heroArrowLongRight"></ng-icon></button>
 </div>
 
 <!-- <h2 class="head">You may also Like</h2> -->
 <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
-  <ng-container *ngFor="let item of product; let i=index">
+  <ng-container *ngIf="latest$ | async as products">
+  <ng-container *ngFor="let item of products.data; let i=index">
     <app-product-card [product]="item" (productId)="productRoute($event)"></app-product-card>
+    </ng-container>
   </ng-container>
 </div>
+</ng-container>

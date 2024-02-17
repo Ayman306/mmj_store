@@ -9,6 +9,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { NgIcon } from '@ng-icons/core';
 import { MatIconModule } from '@angular/material/icon';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { ProductapiService } from '../service/productapi.service';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-page',
@@ -29,15 +32,45 @@ export class ProductPageComponent implements OnInit {
   constructor(
     private route: Router,
     private activatedRoute: ActivatedRoute,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private productApi:ProductapiService
   ) {}
+  latest$!: Observable<any>;
+  product$!: Observable<any>;
+  size!: any;
+
   ngOnInit(): void {
     this.activatedRoute.queryParamMap.subscribe((queryParams: ParamMap) => {
       this.id = queryParams.get('id');
     });
+    this.getOtherProduct()
+    this.getProduct()
+    this.getSizes()
   }
+  getOtherProduct(){
+    let params = new HttpParams();
+    params = params.append('page', '1');
+    params = params.append('page_size', '4');
+    this.latest$=this.productApi.getProducts(params)
+  }
+  getProduct(){
+   this.product$ =this.productApi.getProductById(this.id)
+  }
+  getSizes() {
+    this.product$.subscribe((res) => {
+      // this.size = res.data.size;
+      if(res.data.size.includes(',')){
+        this.size = res.data.size.split(',')
+      }else{
+        this.size = [res.data.size]
+      }
+      console.log(res);
+
+    });
+
+  }
+
   id!: unknown;
-  size = ['S', 'M', 'L'];
 
   productImg = [
     '../../../../assets/productImage/productImage1.jpeg',
@@ -45,40 +78,6 @@ export class ProductPageComponent implements OnInit {
     '../../../assets/productImage/productImage3.jpeg',
     '../../../../assets/productImage/productImage4.jpeg',
     '../../../assets/productImage/productImage5.jpeg',
-  ];
-  product = [
-    {
-      img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      product_title: 'RoadWays Tshirts',
-      price: 1400,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: true,
-      wishlist: true,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      product_title: 'RoadWays Tshirts',
-      price: 1500,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: false,
-      wishlist: false,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      product_title: 'RoadWays Tshirts',
-      price: 1500,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: false,
-      wishlist: true,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      product_title: 'RoadWays Tshirts',
-      price: 1500,
-      des: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      cart: true,
-      wishlist: false,
-    },
   ];
 
   quantity = new FormControl(0);
