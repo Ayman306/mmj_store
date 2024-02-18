@@ -1,21 +1,35 @@
+<ng-container *ngIf="product$ | async as product">
+  <ng-container *ngIf="product.data.length !== 0 || !userDetail">
 <h3 class="heading text-center">My Wishlist</h3>
-
+</ng-container>
+</ng-container>
 <div class="wishlist">
 
-  <!-- <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="heading">Top Sellers</h2>
-    <button class="btn view">View all <ng-icon name="heroArrowLongRight"></ng-icon> </button>
-  </div> -->
-  <div class="trending d-flex flex-wrap flex-row justify-content-evenly">
-    <ng-container *ngIf="product$ | async as product else empty" >
+  <div class="trending d-flex flex-wrap flex-row justify-content-evenly gap-3">
+    <ng-container *ngIf="product$ | async as product " >
 
-    <ng-container *ngFor="let item of product; let i=index">
-      <app-product-card [product]="item" (removeWishList)="removeWishList($event)"></app-product-card>
+    <ng-container *ngFor="let item of product.data let i=index">
+      <app-product-card [product]="item.product" (removeWishList)="removeWishList($event)"></app-product-card>
     </ng-container>
     </ng-container>
-   <ng-template #empty>
-     <p class="text-center">No Data Found</p>
-   </ng-template>
-
   </div>
+
+</div>
+<div class="noData">
+
+   <ng-container *ngIf="!userDetail">
+   <h2 class="heading">
+     PLEASE LOG IN
+   </h2>
+   <p class="subtitle">Login to view items in your wishlist.</p>
+   <button class="btn login">Login</button>
+ </ng-container>
+
+ <ng-container *ngIf="product$ | async as product">
+ <ng-container *ngIf="product.data.length === 0 && userDetail">
+  <div class="empty">
+    <p>Wishlist is empty</p>
+  </div>
+ </ng-container>
+</ng-container>
 </div>

@@ -8,7 +8,7 @@ export class ProductService {
 
 
   //behaviour subject for categories
-  categories = new BehaviorSubject<any>('');
+  // categories = new BehaviorSubject<any>('');
 
  getData<T>(key: string, fetchFunction: () => Observable<T>): Observable<T> {
     const cachedData: string | null = sessionStorage.getItem(key);
