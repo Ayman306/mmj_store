@@ -9,7 +9,6 @@ import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -33,32 +32,21 @@ export class AddressComponent implements OnInit {
   ) {}
   myForm!: FormGroup;
   ngOnInit(): void {
-    // Creating the form structure
-    this.myForm = this.fb.group({
-      name: ['', Validators.required],
-      street: ['', Validators.required],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      country: ['', Validators.required],
-      postalCode: ['', Validators.required],
-      phone: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-    });
+    this.myForm = this.fb.group({});
 
-    // Patching values from the provided data
-    this.myForm.patchValue({
-      name: this.data.name || '',
-      street: this.data.street || '',
-      city: this.data.city || '',
-      state: this.data.state || '',
-      country: this.data.country || '',
-      postalCode: this.data.postalCode || '',
-      phone: this.data.phone || '',
-      email: this.data.email || '',
-    });
+this.data.forEach((field: any) => {
+  this.myForm.addControl(field.key, this.fb.control('', field.validators));
+});
+this.data.forEach((field:any) => {
+  if (this.myForm.controls[field.key]) {
+    this.myForm.controls[field.key].setValue(field.value || '');
   }
-  onSubmit() {
+});
+  }
+
+  onSubmit(){
     console.log(this.myForm.value);
+
   }
   close() {
     this.dialog.closeAll();

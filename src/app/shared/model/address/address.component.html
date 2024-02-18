@@ -2,9 +2,9 @@
   <div class="modal-header">
     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="close()"></button>
   </div>
-  <h2 mat-dialog-title class="head">{{data.update? 'Update' : 'Add'}} Address</h2>
+  <h2 mat-dialog-title class="head">{{data[0].update? 'Update' : 'Add'}} Address</h2>
   <mat-dialog-content class="content">
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <!-- <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
       <div class=" mb-3">
         <label for="name" class="form-label">Name:</label>
@@ -54,7 +54,22 @@
         <button mat-button mat-dialog-close class="cancel">Cancel</button>
         <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="submit" type="submit">Submit</button>
       </mat-dialog-actions>
-    </form>
+    </form> -->
 
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<ng-container *ngFor="let field of data">
+
+      <div class="mb-3 ">
+        <label [for]="field.key" class="form-label">{{field.key | uppercase}}</label>
+        <input [type]="field.type" [id]="field.key" [formControlName]="field.key" class="form-control">
+      </div>
+      </ng-container>
+
+
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close class="cancel">Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="submit" type="submit">Submit</button>
+      </mat-dialog-actions>
+    </form>
   </mat-dialog-content>
 </div>

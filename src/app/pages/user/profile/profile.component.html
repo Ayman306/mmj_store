@@ -37,7 +37,7 @@
         <p class="contentHead">
           Personal information
         </p>
-        <p class="edit"><ng-icon name="featherEdit2"></ng-icon> Edit</p>
+        <p class="edit" (click)="userDataUpdate()"><ng-icon name="featherEdit2"></ng-icon> Edit</p>
       </div>
       <ul class="info">
         <li *ngFor="let i of info">
@@ -49,7 +49,7 @@
 
     <hr>
     <div class="text">
-      <div class="head" (click)="addressFunction('update')">
+      <div class="head" (click)="addressFunction()">
         <p class="contentHead">
           Manage Address
         </p>

@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgIcon } from '@ng-icons/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddressComponent } from 'src/app/shared/model/address/address.component';
+import { Validators } from '@angular/forms';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,11 +17,15 @@ import { AddressComponent } from 'src/app/shared/model/address/address.component
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent {
-  constructor(private dialog: MatDialog) {}
+export class ProfileComponent implements OnInit {
+  constructor(private dialog: MatDialog,private userService:UserService) {}
+  ngOnInit(): void {
+    this.user = this.userService.getUserSession();
+  }
   orderinfo(index: any) {
     console.log('order index', index);
   }
+  user:any
   itemStringsLeft = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
   info = [
     {
@@ -62,28 +68,25 @@ export class ProfileComponent {
       phone: '97410-25256',
     },
   ];
-  addressFunction(type = '') {
-    const update = type ? 'true' : false;
-    if (update) {
+  userDataUpdate(){
+    this.dialog.open(AddressComponent, {
+      data:this.userService.userdata
+    })
+  }
+  addressFunction() {
       this.dialog.open(AddressComponent, {
-        data: {
-          name: 'Ayman',
-          street: '2nd Cross opppsite to homestore',
-          city: 'Cairo',
-          state: 'Egypt',
-          country: 'Egypt',
-          postalCode: '12345',
-          phone: '9741025256',
-          email: 'ayman@gmail.com',
-          update: update,
-        },
+        // data: {
+        //   name: 'Ayman',
+        //   street: '2nd Cross opppsite to homestore',
+        //   city: 'Cairo',
+        //   state: 'Egypt',
+        //   country: 'Egypt',
+        //   postalCode: '12345',
+        //   phone: '9741025256',
+        //   email: 'ayman@gmail.com',
+        //   update: update,
+        // },
+        data:this.userService.userProfile
       });
-    } else {
-      this.dialog.open(AddressComponent, {
-        data: {
-          update: update,
-        },
-      });
-    }
   }
 }
