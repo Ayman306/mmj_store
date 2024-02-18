@@ -16,6 +16,7 @@ import {
 import { LoginService } from '../service/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/interceptor/service/auth.service';
+import { UserService } from '../../user/service/user.service';
 
 @Component({
   selector: 'app-otp',
@@ -34,7 +35,8 @@ export class OtpComponent {
     private route: Router,
     private loginService: LoginService,
     private toaster: ToastrService,
-    private authService:AuthService
+    private authService:AuthService,
+    private userService:UserService
   ) {
     this.mobile = sessionStorage.getItem('mobile');
     console.log(this.mobile);
@@ -98,6 +100,7 @@ export class OtpComponent {
           "access_token": data.access_token,
           "refresh_token": data.refresh_token
         });
+        this.userService.setUserSession(JSON.stringify(data.data))
         this.route.navigateByUrl('/home');
       } else {
         this.resetOtp(true, data.message);

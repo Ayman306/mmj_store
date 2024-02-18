@@ -5,13 +5,14 @@ import { Router, RouterModule } from '@angular/router';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { CartModelComponent } from '../../shared/model/cart-model/cart-model.component';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { MatDialog } from '@angular/material/dialog';
 import { SearchModelComponent } from 'src/app/shared/model/search-model/search-model.component';
 import { NgIcon } from '@ng-icons/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MenuModelComponent } from 'src/app/shared/model/menu-model/menu-model.component';
 import { LazyLoadImagesDirective } from 'src/app/utils/directive/lazy-load-images.directive';
+import { UserService } from 'src/app/pages/user/service/user.service';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -33,8 +34,8 @@ export class HeaderComponent implements OnInit {
   // @ViewChild(lgModal) CartModelComponent!: ElementRef;
   constructor(
     private router: Router,
-    private modalService: BsModalService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private userService:UserService
   ) {}
   navbarOpen = false;
   menuClicked = false;
@@ -47,7 +48,7 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(() => {
       window.scrollTo(0, 0);
     });
-     this.user=sessionStorage.getItem('user');
+     this.user=this.userService.getUserSession();
   }
   navigate(route: string) {
     switch (route) {
@@ -61,7 +62,7 @@ export class HeaderComponent implements OnInit {
         this.openSearchModal();
         break;
       case 'wishlist':
-        this.router.navigate([`/user/wishlist`]);
+        this.router.navigate([`/product/wishlist`]);
         break;
         case 'login':
           this.router.navigate([`/login`]);
