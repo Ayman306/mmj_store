@@ -20,8 +20,11 @@ export class ProductapiService {
     return this.http.get<any>(`${this.apiUrl}/categories`);
   }
 
-  getAllWishList(){
-    return this.http.get<any>(`${this.apiUrl}/wish-list`);
+  getAllWishList(userId:any){
+    const auth:any = localStorage.getItem('Token')
+
+    const headers = { 'Authorization': auth ? JSON.parse(auth).access_token : '' };
+    return this.http.post<any>(`${this.apiUrl}/wish-list`,{ headers },userId);
   }
   addWishList(data:any){
     return this.http.post<any>(`${this.apiUrl}/wish-list`,data);
