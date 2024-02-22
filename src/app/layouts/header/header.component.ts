@@ -13,6 +13,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MenuModelComponent } from 'src/app/shared/model/menu-model/menu-model.component';
 import { LazyLoadImagesDirective } from 'src/app/utils/directive/lazy-load-images.directive';
 import { UserService } from 'src/app/pages/user/service/user.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -35,7 +36,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private dialog: MatDialog,
-    private userService:UserService
+    private userService:UserService,
+    private toaster:ToastrService
   ) {}
   navbarOpen = false;
   menuClicked = false;
@@ -48,7 +50,9 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(() => {
       window.scrollTo(0, 0);
     });
-     this.user=this.userService.getUserSession();
+     this.user=this.userService.getUserSession() || '';
+     console.log(this.user,'userrr');
+
   }
   navigate(route: string) {
     switch (route) {
@@ -116,5 +120,9 @@ export class HeaderComponent implements OnInit {
   closeSearch() {
     this.search.reset();
     this.searchClicked = false;
+  }
+  logout(){
+    this.userService.removeUserSession()
+    this.toaster.success("You've been logged out")
   }
 }

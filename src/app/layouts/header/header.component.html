@@ -1,6 +1,10 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <nav class="firstNav">
+  <button class="btn logout" *ngIf="user.mobile_number">
+    Logout
+    <span class="material-symbols-outlined" (click)="logout()">logout</span>
+  </button>
   <div class="firstnavContent d-flex justify-content-between align-items-center">
     <div class="firstsearch d-flex align-items-center justify-content-between  m-2 gap-4" (click)="navigate('search')">
       <p class="searchText">Search</p>
@@ -16,13 +20,13 @@
         <p class="searchText">Search</p>
         <mat-icon class="material-symbols-outlined">search</mat-icon>
       </div>
-      <div class="d-flex cursor-pointer  icons_main m-0 " (click)="navigate('profile')" *ngIf="user">
+      <div class="d-flex cursor-pointer  icons_main m-0 " (click)="navigate('profile')" *ngIf="user.mobile_number">
         <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
         <p class="link">Account</p>
       </div>
       <!-- <div class="d-flex cursor-pointer  icons_main m-0 " > -->
         <!-- <mat-icon class="material-symbols-outlined">account_circle</mat-icon> -->
-        <button class="btn login" (click)="navigate('login')" *ngIf="!user">Login</button>
+        <button class="btn login" (click)="navigate('login')" *ngIf="!user.mobile_number">Login / Register</button>
       <!-- </div> -->
 
       <div class="d-flex cursor-pointer  icons_main m-0 " (click)="navigate('wishlist')">
