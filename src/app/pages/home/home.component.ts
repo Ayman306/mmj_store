@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit{
     {
       media: 'video',
       video:
-        '../../../../assets/home/mixkit-woman-modeling-a-short-black-dress-805-medium.mp4',
+        'https://res.cloudinary.com/dosuseofq/video/upload/v1708564314/slider%20image/rkccgllyr5fziknk5irp.mp4',
       tag: 'atheltic wear',
       contentHead: 'Athletic wear that keeps up with your hustle.',
       content: 'Stylish tshirts , perfect for any casual or chic ensemble.',
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit{
     },
     {
       media: 'image',
-      img: '../../../../assets/home/wardrobe.jpg',
+      img: 'https://res.cloudinary.com/dosuseofq/image/upload/v1708564304/slider%20image/qouaqufawujmbqwssreg.jpg',
       tag: 'atheltic wear',
       contentHead: 'Athletic wear that keeps up with your hustle.',
       content: 'Stylish tshirts , perfect for any casual or chic ensemble.',
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit{
   secondSlider = [
     {
       media: 'image',
-      img: '../../../../assets/home/adventureImg.jpg',
+      img: 'https://res.cloudinary.com/dosuseofq/image/upload/v1708564303/slider%20image/u7uiumdqjzee28wopkhj.jpg',
       tag: 'atheltic wear',
       contentHead: 'Athletic wear that keeps up with your hustle.',
       content: 'Stylish tshirts , perfect for any casual or chic ensemble.',
