@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import {
@@ -13,6 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartProductCardComponent } from 'src/app/layouts/cart-product-card/cart-product-card.component';
 import { Router } from '@angular/router';
 import { OrderDetailComponent } from '../order-detail/order-detail.component';
+import { SharedService } from '../../shared-service/shared.service';
+import { UserService } from 'src/app/pages/user/service/user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cart-model',
@@ -32,7 +35,19 @@ import { OrderDetailComponent } from '../order-detail/order-detail.component';
     ]),
   ],
 })
-export class CartModelComponent {
+export class CartModelComponent implements OnInit{
+  modalRef!: BsModalRef;
+  constructor(
+    public dialogRef: MatDialogRef<CartModelComponent>,
+    private route: Router,
+    private sharedService:SharedService,
+    private userService:UserService
+  ) {}
+  ngOnInit(): void {
+
+    this.cartItems$= this.sharedService.getCartItem( this.userService.getUserSession().customer_id);
+  }
+  cartItems$!:Observable<any>
   public products = [
     {
       id: 1,
@@ -75,11 +90,7 @@ export class CartModelComponent {
     bagTotal: '59.99',
     policy: true,
   };
-  modalRef!: BsModalRef;
-  constructor(
-    public dialogRef: MatDialogRef<CartModelComponent>,
-    private route: Router
-  ) {}
+
 
   close() {
     this.dialogRef.close();

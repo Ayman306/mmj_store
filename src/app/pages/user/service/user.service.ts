@@ -10,10 +10,11 @@ export class UserService {
     return JSON.parse(sessionStorage.getItem('user') || '{}');
   }
   setUserSession(user:any){
-    return sessionStorage.setItem('user',JSON.stringify(user))
+    return sessionStorage.setItem('user',JSON.parse(JSON.stringify(user)) )
   }
   removeUserSession(){
   sessionStorage.removeItem('user')
+  localStorage.removeItem('Token')
   }
   userProfile =[
     {

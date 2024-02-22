@@ -74,7 +74,6 @@ export class ProductCardComponent implements OnInit {
   }
   cart(id: any, cart: boolean) {
     this.loginCheck()
-    this.product.in_cart = !cart;
     if (cart) {
       const data = {
         customer_id: this.userService.getUserSession().customer_id,
@@ -85,6 +84,7 @@ export class ProductCardComponent implements OnInit {
         .deleteSingleCart(data.customer_id, data.product_id)
         .subscribe({
           next: (res) => {
+            this.product.in_cart = !cart;
             console.log(res);
           },
           error: (err) => {
@@ -99,10 +99,12 @@ export class ProductCardComponent implements OnInit {
       };
       this.productApiService.addCart(data).subscribe({
         next: (res) => {
+          this.product.in_cart = !cart;
           console.log(res);
         },
         error: (err) => {
           console.log(err);
+          this.router.navigateByUrl('/login');
         },
       });
     }
