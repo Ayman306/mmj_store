@@ -1,9 +1,10 @@
 .top {
-  margin-top: 50px;
+  padding: 50px;
   // height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #E6EFEF;
 
 
 
@@ -72,10 +73,12 @@
 
 // footer
 footer {
-  margin-top: 20px;
+  // margin-top: 20px;
+  background-color: #538484;
 
   .container {
-    color: #222;
+    padding: 30px 0px ;
+    color: white;
 
     .head {
       font-size: 18px;
@@ -110,14 +113,18 @@ footer {
       .quickAction {
         margin-top: 20px;
 
-        h5 {
-          font-size: 15px;
-        }
+
 
         p {
-          font-size: 12px;
+          font-size: 18px;
+          padding: 5px;
         }
       }
     }
+  }
+  .copywrite{
+    padding:  10px;
+    color: #bcbcbc;
+    font-size: 12px;
   }
 }

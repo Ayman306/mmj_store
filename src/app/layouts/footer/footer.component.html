@@ -24,25 +24,30 @@
 <footer class="footer">
   <div class="container">
     <h2 class="head">Dress to impress!</h2>
-    <p class="subHead">Get VIP access to fresh styles and hot deals.</p>
-    <div class="input-group m-auto">
+    <!-- <p class="subHead">Get VIP access to fresh styles and hot deals.</p> -->
+    <!-- <div class="input-group m-auto">
       <input type="text" name="" id="" placeholder="Email" class="form-control">
       <span class="input-group-text"><ng-icon name="heroArrowLongRight" class="d-flex"></ng-icon></span>
-    </div>
-    <div class="logo">
-      <img loading="lazy"  src="assets/mmj_logo.png" alt="" srcset="" class="w-100">
-    </div>
+    </div> -->
+
     <div class="main d-flex justify-content-center">
       <ng-container *ngFor="let item of footer">
 
         <div class="quickAction">
-          <h5 class="text-center">{{item.head}}</h5>
+          <h4 >{{item.head}}</h4>
           <ng-container *ngFor="let catgItem of item.category">
-            <p class="text-center" (click)="footerNavigate(catgItem.navigate)">{{catgItem.title}}</p>
+            <p  (click)="footerNavigate(catgItem.navigate)">{{catgItem.title}}</p>
           </ng-container>
         </div>
       </ng-container>
 
     </div>
+    <div class="logo">
+      <img loading="lazy"  src="assets/mmj_logo.png" alt="" srcset="" class="w-100">
+    </div>
   </div>
+  <p class="text-center copywrite">
+    © 2022 MMJ Fashion Co., Ltd. All rights reserved.<br/>
+    The information on this website is for general purposes only, and does not constitute professional advice
+  </p>
 </footer>
