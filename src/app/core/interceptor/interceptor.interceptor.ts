@@ -4,29 +4,44 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { AuthService } from './service/auth.service';
 
 @Injectable()
 export class InterceptorInterceptor implements HttpInterceptor {
+  constructor(private authService:AuthService){}
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    // Retrieve your JWT token from where it's stored (e.g., localStorage)
-    const jwtToken = localStorage.getItem('JWT_TOKEN') || '';
+    const jwtToken:any = localStorage.getItem('Token') || '';
+    let refreshToken = '';
 
-    // Check if the token exists
     if (jwtToken) {
-      // Clone the request to add the new header.
+      refreshToken = jwtToken.refresh_token
       const clonedRequest = request.clone({
         setHeaders: {
           Authorization: `Bearer ${jwtToken}`
         }
       });
-      // Pass the cloned request instead of the original request to the next handle
-      return next.handle(clonedRequest);
+
+      return next.handle(clonedRequest).pipe(
+        catchError((error) => {
+          if (error.status === 403 && refreshToken) {
+            // Call the refresh token API with the refresh token
+            // Implement your refresh token logic here
+            this.authService.refreshToken({refresh_token:refreshToken}).subscribe((res)=>{
+              this.authService.setToken(res);
+            })
+          }
+          return throwError(error);
+        })
+      );
     }
+
     return next.handle(request);
   }
 }
