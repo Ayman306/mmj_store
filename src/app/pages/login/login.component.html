@@ -9,8 +9,8 @@
           <ng-container *ngSwitchCase="'LOGIN_VIEW'">
             <h1 class="card-subtitle">Welcome back!</h1>
             <form class="d-flex flex-column" [formGroup]="loginForm" (ngSubmit)="login()">
-              <label class="card-text" for="Mobile">Mobile Number</label>
-              <input type="number" name="mobile" id="" placeholder="Enter mobile number" class="p-2"
+              <label class="card-text" for="mobile">Mobile Number</label>
+              <input type="number" name="mobile" id="mobile" placeholder="Enter mobile number" class="p-2"
                 formControlName="mobile" required>
 
               <div *ngIf="m.mobile.touched && loginForm.status !== 'VALID'" class="alert alert-danger">
