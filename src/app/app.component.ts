@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   NavigationEnd,
   RouteConfigLoadEnd,
@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
 import { HeaderComponent } from './layouts/header/header.component';
 import { filter } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { routerAnimation } from './shared/animation/routerAnimation';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { provideIcons } from '@ng-icons/core';
 import {
@@ -35,7 +34,6 @@ import {
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, CommonModule, FooterComponent],
-  animations: [routerAnimation()],
   viewProviders: [
     provideIcons({
       heroShoppingBag,
@@ -52,22 +50,12 @@ import {
   ],
 })
 export class AppComponent implements OnInit {
-  public getRouteAnimation(outlet: RouterOutlet) {
-    const res =
-      outlet.activatedRouteData['num'] === undefined
-        ? -1
-        : outlet.activatedRouteData['num'];
-
-    return res;
-  }
   product_title = 'mmj_store';
   isDisplay = true;
   loader = false;
   constructor(
     private toaster: ToastrService,
-    private router: Router,
-    private el: ElementRef
-  ) {
+    private router: Router) {
     setTheme('bs5');
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))

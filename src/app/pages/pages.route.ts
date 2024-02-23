@@ -6,34 +6,28 @@ export default [
   {
     path: '',
     loadComponent: () =>
-    import('./home/home.component').then((c) => c.HomeComponent),
-    data: { num: -1 },
+    import('./home/home.component').then((c) => c.HomeComponent)
   },
   {
     path: 'login',
-    component: LoginComponent,
-    data: { num: 1 },
+    component: LoginComponent
   },
   {
     path: 'otp',
-    component: OtpComponent,
-    data: { num: 2 },
+    component: OtpComponent
   },
   {
     path: 'home',
     loadComponent: () =>
-      import('./home/home.component').then((c) => c.HomeComponent),
-    data: { num: 3 },
+      import('./home/home.component').then((c) => c.HomeComponent)
   },
   {
     path: 'user',
-    loadChildren: () => import('./user/user.route'),
-    data: { num: 4 },
+    loadChildren: () => import('./user/user.route')
   },
   {
     path: 'product',
-    loadChildren: () => import('./product/product.route'),
-    data: { num: 5 },
+    loadChildren: () => import('./product/product.route')
   },
   {
     path: 'checkout',
