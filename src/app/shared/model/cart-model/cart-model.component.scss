@@ -48,3 +48,19 @@
   right: 0;
   bottom: 2%;
 }
+.empty{
+  width: 12rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+ .shop{
+  background-color: #005F5F;
+  color: white;
+  width: auto;
+  border-radius: 10px;
+  margin: auto;
+  padding: 10px 15px;
+ }
+}

@@ -10,20 +10,31 @@
 
     </div>
     <hr>
-    <div [ngClass]=" products.length >0 ? 'main1' : 'noItem'" class="main1">
-      <ng-container *ngIf="products.length > 0; else emptyBlock">
+    <div class="main1">
+      <ng-container *ngIf="cartItems$ | async as cartItems">
 
-        <ng-container *ngFor="let item of products">
-          <app-cart-product-card [product]="item"></app-cart-product-card>
+
+      <ng-container *ngIf="cartItems.data.length > 0; else emptyBlock">
+
+        <ng-container *ngFor="let item of cartItems.data">
+          <app-cart-product-card [categoryItem]="item" (removedFromCart)="getCartItem()" (closeModel)="close()"></app-cart-product-card>
         </ng-container>
       </ng-container>
       <ng-template #emptyBlock>
-        <img loading="lazy"  src="../../../../assets/emptycart.png" alt="" srcset="empty cart" class="w-100">
+        <div class="empty">
+        <img loading="lazy"  src="../../../../assets/empty-cart-svgrepo-com.svg" alt="" srcset="empty cart" class="w-100">
         <p>Your cart is empty</p>
+        <button class="shop btn" (click)="shop()">Continue Shopping</button>
+      </div>
       </ng-template>
-      <app-order-detail [orderDetails]="orderDetail"></app-order-detail>
-      <button *ngIf="products.length > 0" mat-button (click)="checkout()" class="checkout p-3 mt-2 btn">Check Out -
+
+
+
+      <app-order-detail  [orderDetails]="orderDetail"></app-order-detail>
+      <button *ngIf="cartItems.data.length > 0" mat-button (click)="checkout()" class="checkout p-3 mt-2 btn">Check Out -
         $61.00</button>
+      </ng-container>
+
     </div>
   </div>
 </div>

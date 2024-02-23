@@ -44,8 +44,11 @@ export class CartModelComponent implements OnInit{
     private userService:UserService
   ) {}
   ngOnInit(): void {
-
+this.getCartItem()
+  }
+  getCartItem(){
     this.cartItems$= this.sharedService.getCartItem( this.userService.getUserSession().customer_id);
+
   }
   cartItems$!:Observable<any>
   public products = [
@@ -106,5 +109,8 @@ export class CartModelComponent implements OnInit{
     console.log('Checkout');
     this.route.navigate(['/checkout']);
     this.close();
+  }
+  shop(){
+    this.route.navigate(['/all-products']);
   }
 }

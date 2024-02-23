@@ -1,35 +1,36 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <div class="card cart-product-card">
-  <div class="img">
-    <img loading="lazy"  class="w-100" src="../../../assets/tshirt/tshirt2.jpg" alt="tshirt" srcset="">
+  <div class="img" (click)="goToProduct()">
+    <img loading="lazy"  class="w-100" src="../../../assets/productImage/productImage1.jpeg" alt="tshirt" srcset="">
   </div>
   <div class="content pt-2">
     <div class="desc">
-
-      <h2 class="title m-0">{{product.product_title}}</h2>
-      <p class="price m-0">{{product.price | currency:'INR'}} &nbsp; <span
-          class="m-0 text-muted mrp">{{product?.mrp | currency:'INR'}}</span></p>
-      <p class="descText m-0">{{product.product_description}}</p>
-      <p class="colorSize"><span class="color"></span> &nbsp; / &nbsp; Xl </p>
-    </div>
-    <div class="qtyButtons">
-
-
-      <div class="qty">
-        <div class="qtyBtn">
-          <button class="btn less" mat-icon-button (click)="incrementValue(-_step)">
-            <mat-icon>remove</mat-icon>
-          </button>
-          <input matInput type="number" [value]="_value" minlength="1" readonly />
-          <button class="btn add" mat-icon-button (click)="incrementValue(_step)">
-            <mat-icon>add</mat-icon>
-          </button>
-        </div>
-        <div class="remove">
-          <button class="btn"><mat-icon class="material-symbols-outlined"
-              (click)="remove(product.id)">delete_sweep</mat-icon></button>
-        </div>
+      <div class="content">
+        <h2 class="title m-0" (click)="goToProduct()">{{categoryItem.product.product_title}}</h2>
+        <p class="descText m-0">{{categoryItem.product.product_description}}</p>
       </div>
-
+      <div class="sizeQty" (click)="openSize()">
+        <button class="btn sizeBtn">
+          Size <span class="value">{{categoryItem.product.size}}</span>
+          <mat-icon class="mat-18">keyboard_arrow_down</mat-icon>
+        </button>
+        <button class="btn qty">
+          Qty <span class="value">{{categoryItem.quantity}}</span>
+          <mat-icon class="mat-18">keyboard_arrow_down</mat-icon>
+        </button>
+      </div>
+      <div class="content">
+        <p class="price m-0" *ngIf="categoryItem.product.offer_price">{{categoryItem.product.offer_price | currency:'INR'}} &nbsp; <span
+            class="m-0 text-muted mrp">{{categoryItem.product?.price   | currency:'INR'}}</span></p>
+        <p class="price m-0" *ngIf="!categoryItem.product.offer_price">
+          {{categoryItem.product?.price   | currency:'INR'}}</p>
+      </div>
     </div>
   </div>
+  <hr>
 </div>
+<div class="remove">
+  <button class="btn remove" (click)="removeFromCart(categoryItem.product.product_id)">Remove</button>
+</div>
+

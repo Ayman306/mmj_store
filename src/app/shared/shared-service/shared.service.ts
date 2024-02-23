@@ -9,6 +9,6 @@ export class SharedService {
   constructor(private http:HttpClient) {}
   apiUrl =environment.apiUrl
   getCartItem(id:any){
-    return this.http.get<any>(`${this.apiUrl}/cart`,)
+    return this.http.get<any>(`${this.apiUrl}/cart/${id}`,)
   }
 }

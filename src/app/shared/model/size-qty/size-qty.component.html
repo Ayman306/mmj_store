@@ -1,0 +1,32 @@
+<div class="close">
+  <button mat-icon-button (click)="onNoClick()" class="btn">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="dialog">
+  <div class="main">
+<p class="head">Select Size</p>
+
+  <div class="sizeBtn">
+    <ng-container *ngFor="let item of sizes">
+      <button class="btn" (click)="selectSize(item.size)" [class.active]="item.size === activeSize">
+        {{item.size}}
+      </button>
+    </ng-container>
+</div>
+</div>
+<div class="main">
+<p class="head">Select Quantity</p>
+<div class="qtyBtn">
+
+      <button class=" less" mat-icon-button (click)="incrementValue(-_step)" [disabled]="_value === 1">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <input class="qtyInput" matInput type="number" [value]="_value" minlength="1" readonly />
+      <button class=" add" mat-icon-button (click)="incrementValue(_step)">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+    <button (click)="sizeUpdate()" class="btn submit">Done</button>
+</div>

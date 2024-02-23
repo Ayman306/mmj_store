@@ -51,8 +51,6 @@ export class HeaderComponent implements OnInit {
       window.scrollTo(0, 0);
     });
      this.user=this.userService.getUserSession() || '';
-     console.log(this.user,'userrr');
-
   }
   navigate(route: string) {
     switch (route) {
