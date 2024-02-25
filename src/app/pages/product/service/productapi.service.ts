@@ -42,7 +42,7 @@ export class ProductapiService {
   }
 
   addCart(data:any){
-    return this.http.post<any>(`${this.apiUrl}/cart`,data,{ headers:this.headers });
+    return this.http.post<any>(`${this.apiUrl}/cart`,data);
   }
 
   deleteSingleCart(userId:any,productId:any){

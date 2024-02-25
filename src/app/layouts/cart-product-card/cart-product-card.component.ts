@@ -24,39 +24,55 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart-product-card.component.scss'],
 })
 export class CartProductCardComponent {
-  constructor(private dialog: MatDialog,private productApi:ProductapiService, private userService:UserService,private router:Router){}
+  constructor(
+    private dialog: MatDialog,
+    private productApi: ProductapiService,
+    private userService: UserService,
+    private router: Router
+  ) {}
   @Input() categoryItem!: any;
   @Output() removedFromCart = new EventEmitter<number>();
   @Output() closeModel = new EventEmitter<any>();
-
-  _value = 0;
-  _step = 1;
-  incrementValue(step = 1): void {
-    this._value = this._value + step;
-  }
-  remove(id: number) {
-    console.log(id);
-  }
-  openSize(){
-    this.dialog.open(SizeQtyComponent,{
-      panelClass:'popUp',
+openSize() {
+this.dialog.open(SizeQtyComponent, {
+      panelClass: 'popUp',
       data: {
-        product: this.categoryItem
+        size: this.categoryItem.product.size,
+        quantity: this.categoryItem.quantity,
+      },
+    }).afterClosed().subscribe((res: any) => {
+      if (res) {
+        this.productApi.addCart({
+          customer_id: this.userService.getUserSession().customer_id,
+          product_id: this.categoryItem.product.product_id,
+          size: res.size,
+          quantity: res.quantity,
+        }).subscribe((data: any) =>{
+          this.categoryItem.product.size = res.size;
+          this.categoryItem.quantity = res.quantity;
+        }
+        );
+
       }
-    })
-  }
-  removeFromCart(productId:any){
-    const userId =this.userService.getUserSession().customer_id
-    this.productApi.deleteSingleCart(userId,productId).subscribe((res: any) => {
-      console.log(res);
-      this.removedFromCart.emit(productId);
-      window.scrollTo(0, 0);
-    }, (err) => {
-      console.error("Error in delete", err);
     });
   }
-  goToProduct(){
-    this.router.navigateByUrl(`product/tshirt?id=${this.categoryItem.product.product_id}`)
+  removeFromCart(productId: any) {
+    const userId = this.userService.getUserSession().customer_id;
+    this.productApi.deleteSingleCart(userId, productId).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.removedFromCart.emit(productId);
+        window.scrollTo(0, 0);
+      },
+      (err) => {
+        console.error('Error in delete', err);
+      }
+    );
+  }
+  goToProduct() {
+    this.router.navigateByUrl(
+      `product/tshirt?id=${this.categoryItem.product.product_id}`
+    );
     this.closeModel.emit(true);
   }
 }

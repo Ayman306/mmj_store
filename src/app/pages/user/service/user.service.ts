@@ -15,6 +15,9 @@ export class UserService {
   removeUserSession(){
   sessionStorage.removeItem('user')
   localStorage.removeItem('Token')
+  console.log('logout');
+
+  window.location.reload()
   }
   userProfile =[
     {

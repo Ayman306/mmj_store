@@ -45,7 +45,6 @@ export class ProductCardComponent implements OnInit {
   }
   wishlist(id: any, wish: boolean) {
    this.loginCheck()
-    this.product.in_wishlist = !wish;
     const data = {
       customer_id: this.user.customer_id,
       product_id: id,
@@ -55,6 +54,7 @@ export class ProductCardComponent implements OnInit {
         .deleteWishList(data.customer_id, data.product_id)
         .subscribe({
           next: (res) => {
+            this.product.in_wishlist = !wish;
             console.log(res);
           },
           error: (err) => {
@@ -64,6 +64,7 @@ export class ProductCardComponent implements OnInit {
     } else {
       this.productApiService.addWishList(data).subscribe({
         next: (res) => {
+          this.product.in_wishlist = !wish;
           console.log(res);
         },
         error: (err) => {
@@ -113,10 +114,8 @@ export class ProductCardComponent implements OnInit {
     this.removeWishList.emit(id);
   }
   loginCheck(){
-    if(!this.user){
-      this.router.navigateByUrl('/login')
-    }else{
-      return
+    if (Object.keys(this.user).length === 0) {
+      this.router.navigateByUrl('/login');
     }
   }
 }
