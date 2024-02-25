@@ -4,7 +4,6 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpResponse,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -17,16 +16,15 @@ export class InterceptorInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const jwtTokenObj:any =  localStorage.getItem('Token') || '';
-    const jwtToken= JSON.parse(jwtTokenObj) ;
-    const accessToken = jwtToken.access_token
+    const jwtTokenObj:any =  localStorage.getItem('Token');
+    const jwtToken = jwtTokenObj ? JSON.parse(jwtTokenObj) : null;
     let refreshToken = '';
 
-    if (accessToken) {
+    if (jwtToken?.access_token) {
       refreshToken = jwtToken.refresh_token
       let clonedRequest = request.clone({
         setHeaders: {
-          Authorization: `${accessToken}`
+          Authorization: `${jwtToken.access_token}`
         }
       });
 
