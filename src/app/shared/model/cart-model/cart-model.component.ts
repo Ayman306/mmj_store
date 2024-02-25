@@ -111,6 +111,7 @@ this.getCartItem()
     this.close();
   }
   shop(){
-    this.route.navigate(['/all-products']);
+    this.route.navigate(['/product']);
+    this.close()
   }
 }
