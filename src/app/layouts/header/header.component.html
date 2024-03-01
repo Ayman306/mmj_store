@@ -1,9 +1,9 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <nav class="firstNav">
-  <button class="btn logout" *ngIf="user.mobile_number">
+  <button class="btn logout" *ngIf="user.mobile_number" (click)="logout()">
     Logout
-    <span class="material-symbols-outlined" (click)="logout()">logout</span>
+    <span class="material-symbols-outlined" >logout</span>
   </button>
   <div class="firstnavContent d-flex justify-content-between align-items-center">
     <div class="firstsearch d-flex align-items-center justify-content-between  m-2 gap-4" (click)="navigate('search')">

@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit {
         this.router.navigate([`/user/${route}`]);
         break;
       case 'cart':
-        if(this.user.length >0){
+        if(this.user){
           this.openCartModal();
         }else{
           this.toaster.success("Please login first")
@@ -69,7 +69,7 @@ export class HeaderComponent implements OnInit {
         this.openSearchModal();
         break;
       case 'wishlist':
-        if(this.user.length >0){
+        if(this.user){
           this.router.navigate([`/product/wishlist`]);
         }else{
           this.toaster.success("Please login first")
@@ -131,6 +131,8 @@ export class HeaderComponent implements OnInit {
     this.searchClicked = false;
   }
   logout(){
+    console.log("logoout");
+
     this.userService.removeUserSession()
     this.toaster.success("You've been logged out")
   }
