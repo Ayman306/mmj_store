@@ -7,13 +7,13 @@ import { Validators } from '@angular/forms';
 export class UserService {
 
   getUserSession(){
-    return JSON.parse(sessionStorage.getItem('user') || '{}');
+    return JSON.parse(localStorage.getItem('user') || '{}');
   }
   setUserSession(user:any){
-    return sessionStorage.setItem('user',JSON.parse(JSON.stringify(user)) )
+    return localStorage.setItem('user',JSON.parse(JSON.stringify(user)) )
   }
   removeUserSession(){
-  sessionStorage.removeItem('user')
+  localStorage.removeItem('user')
   localStorage.removeItem('Token')
   console.log('logout');
 
