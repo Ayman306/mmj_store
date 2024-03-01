@@ -58,13 +58,24 @@ export class HeaderComponent implements OnInit {
         this.router.navigate([`/user/${route}`]);
         break;
       case 'cart':
-        this.openCartModal();
+        if(this.user.length >0){
+          this.openCartModal();
+        }else{
+          this.toaster.success("Please login first")
+          this.router.navigate([`/login`]);
+        }
         break;
       case 'search':
         this.openSearchModal();
         break;
       case 'wishlist':
-        this.router.navigate([`/product/wishlist`]);
+        if(this.user.length >0){
+          this.router.navigate([`/product/wishlist`]);
+        }else{
+          this.toaster.success("Please login first")
+          this.router.navigate([`/login`]);
+        }
+
         break;
         case 'login':
           this.router.navigate([`/login`]);
