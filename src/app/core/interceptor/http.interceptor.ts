@@ -8,16 +8,14 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from './service/auth.service';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable()
 export class InterceptorInterceptor implements HttpInterceptor {
-  constructor(private authService:AuthService,  private spinner: NgxSpinnerService){}
+  constructor(private authService:AuthService){}
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    this.spinner.show()
     const jwtTokenObj:any =  localStorage.getItem('Token');
     const jwtToken = jwtTokenObj ? JSON.parse(jwtTokenObj) : null;
     let refreshToken = '';
@@ -47,16 +45,13 @@ export class InterceptorInterceptor implements HttpInterceptor {
                   Authorization: `${res.data}`,
                 },
               });
-              this.spinner.hide();
               return next.handle(request);
             })
           }
-          this.spinner.hide();
           return throwError(error);
         })
       );
     }
-    this.spinner.hide();
     return next.handle(request);
   }
 }
