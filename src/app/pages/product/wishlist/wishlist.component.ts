@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from 'src/app/layouts/product-card/product-card.component';
-import { Observable } from 'rxjs';
 import { ProductapiService } from '../service/productapi.service';
 import { UserService } from '../../user/service/user.service';
 
@@ -12,14 +11,15 @@ import { UserService } from '../../user/service/user.service';
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.scss'],
 })
-export class WishlistComponent implements OnInit {
+export class WishlistComponent implements OnInit, OnDestroy {
   constructor(
     private productApi: ProductapiService,
     private userService: UserService
   ) {}
-  product$!: Observable<any>;
+  subscribedData!: any;
+  product: any = [];
   empty = false;
-  userDetail:any
+  userDetail: any;
   ngOnInit(): void {
     this.getProduct();
     this.userDetail = this.userService.getUserSession();
@@ -27,7 +27,11 @@ export class WishlistComponent implements OnInit {
   getProduct() {
     const user: any = this.userService.getUserSession();
     if (user) {
-      this.product$ = this.productApi.getAllWishList(user.customer_id);
+      this.subscribedData = this.productApi
+        .getAllWishList(user.customer_id)
+        .subscribe((data) => {
+          this.product = data.data;
+        });
     } else {
       this.empty = true;
     }
@@ -44,5 +48,8 @@ export class WishlistComponent implements OnInit {
           console.log(err);
         },
       });
+  }
+  ngOnDestroy(): void {
+    this.subscribedData.unsubscribe();
   }
 }
