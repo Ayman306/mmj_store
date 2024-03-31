@@ -123,7 +123,7 @@ resentOtp(){
   this.loginService.resendOtp(otpResend).subscribe({
     next: (data) => {
       if (data.status === 'OK') {
-        this.userService.setUserSession(data.data)
+        this.userService.setUserSession(JSON.stringify(data.data))
         this.toaster.success(data.message);
       } else {
         this.toaster.error(data.message);
