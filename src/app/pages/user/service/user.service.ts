@@ -1,11 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+constructor(private http:HttpClient){}
+apiUrl =environment.apiUrl
   getUserSession(){
     return JSON.parse(localStorage.getItem('user') || '{}');
   }
@@ -28,7 +31,7 @@ export class UserService {
       update:true
     },
     {
-      key:'street',
+      key:'add_one',
       type:'text',
       validators: [Validators.required]
     },
@@ -43,27 +46,22 @@ export class UserService {
       validators: [Validators.required]
     },
     {
-      key:'country',
-      type:'text',
-      validators: [Validators.required]
-    },
-    {
-      key:'postalCode',
-      type:'text',
+      key:'pincode',
+      type:'number',
       validators: [Validators.required]
     },
     {
       key:'phone',
-      type:'text',
+      type:'number',
       validators: [Validators.required]
     }
   ]
   userdata =[
     {
-      key:'name',
+      key:'first_name',
       type:'text',
       validators: [Validators.required],
-      value:this.getUserSession().name,
+      value:this.getUserSession().first_name,
       update:true
     },
     {
@@ -75,4 +73,23 @@ export class UserService {
     }
 
   ]
+
+  getAllUsersOrder(userId:any){
+    return this.http.get<any>(`${this.apiUrl}/order/`+userId,);
+  }
+
+  getUserInfo(){
+    return this.http.get<any>(`${this.apiUrl}/user/`+this.getUserSession().customer_id);
+  }
+
+  getAllUserAddress(){
+    return this.http.get<any>(`${this.apiUrl}/address/`+this.getUserSession().customer_id);
+  }
+  addNewUserAddress(data:any){
+    return this.http.post<any>(`${this.apiUrl}/address/`,data);
+  }
+  updateUserInfo(data:any){
+    return this.http.put<any>(`${this.apiUrl}/user/`+this.getUserSession().customer_id,data)
+  }
+
 }

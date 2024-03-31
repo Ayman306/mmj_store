@@ -4,59 +4,8 @@
   </div>
   <h2 mat-dialog-title class="head">{{data[0].update? 'Update' : 'Add'}} Address</h2>
   <mat-dialog-content class="content">
-    <!-- <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-
-      <div class=" mb-3">
-        <label for="name" class="form-label">Name:</label>
-        <input type="text" id="name" formControlName="name" class="form-control">
-      </div>
-      <div class="row">
-        <div class=" mb-3 col-12 col-lg-6">
-          <label for="phone" class="form-label">Phone:</label>
-          <input type="tel" id="phone" formControlName="phone" class="form-control">
-        </div>
-
-        <div class=" mb-3 col-12 col-lg-6">
-          <label for="email" class="form-label">Email:</label>
-          <input type="email" id="email" formControlName="email" class="form-control">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class=" mb-3 col-12 col-lg-6">
-          <label for="street" class="form-label">Street:</label>
-          <input type="text" id="street" formControlName="street" class="form-control">
-        </div>
-
-        <div class=" mb-3 col-12  col-lg-6">
-          <label for="city" class="form-label">City:</label>
-          <input type="text" id="city" formControlName="city" class="form-control">
-        </div>
-      </div>
-
-      <div class=" mb-3">
-        <label for="state" class="form-label">State:</label>
-        <input type="text" id="state" formControlName="state" class="form-control">
-      </div>
-
-      <div class=" mb-3">
-        <label for="country" class="form-label">Country:</label>
-        <input type="text" id="country" formControlName="country" class="form-control">
-      </div>
-
-      <div class="mb-3 ">
-        <label for="postalCode" class="form-label">Postal Code:</label>
-        <input type="text" id="postalCode" formControlName="postalCode" class="form-control">
-      </div>
-
-
-      <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close class="cancel">Cancel</button>
-        <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="submit" type="submit">Submit</button>
-      </mat-dialog-actions>
-    </form> -->
-
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="formMain">
 <ng-container *ngFor="let field of data">
 
       <div class="mb-3 ">
@@ -64,9 +13,9 @@
         <input [type]="field.type" [id]="field.key" [formControlName]="field.key" class="form-control">
       </div>
       </ng-container>
+    </div>
 
-
-      <mat-dialog-actions align="end">
+      <mat-dialog-actions align="center">
         <button mat-button mat-dialog-close class="cancel">Cancel</button>
         <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="submit" type="submit">Submit</button>
       </mat-dialog-actions>

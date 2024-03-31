@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MAT_DIALOG_DATA,
@@ -43,10 +43,11 @@ this.data.forEach((field:any) => {
   }
 });
   }
-
+onAdd = new EventEmitter()
   onSubmit(){
     console.log(this.myForm.value);
-
+    this.onAdd.emit(this.myForm.value)
+    this.close()
   }
   close() {
     this.dialog.closeAll();

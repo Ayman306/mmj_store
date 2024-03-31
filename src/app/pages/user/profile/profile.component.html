@@ -12,9 +12,9 @@
         <p class="contentHead">
           Recent Orders
         </p>
-        <p class="edit">view all orders</p>
+        <p class="edit" *ngIf="allOrder.length > 0">view all orders</p>
       </div>
-      <ul class="info">
+      <ul class="info" *ngIf="allOrder.length > 0 ; else noOrder">
         <li class=" order" *ngFor="let order of order; index as i" (click)="orderinfo(i)">
           <div class="image">
             <img loading="lazy"  [src]="order.image" alt="">
@@ -30,6 +30,12 @@
         </ng-container>
 
       </ul>
+      <ng-template #noOrder>
+        <div class="info">
+          <p class="text-muted empty">No orderes yet</p>
+        </div>
+      </ng-template>
+
     </div>
 
     <div class="text">
@@ -37,25 +43,44 @@
         <p class="contentHead">
           Personal information
         </p>
-        <p class="edit" (click)="userDataUpdate()"><ng-icon name="featherEdit2"></ng-icon> Edit</p>
+        <p class="edit" (click)="updateDetails('userData')"><ng-icon name="featherEdit2"></ng-icon> Edit</p>
       </div>
       <ul class="info">
-        <li *ngFor="let i of info">
-          <p class="title ">{{i.product_title}} :</p>
-          <p class="value ">{{i.value}}</p>
+        <li>
+          <p class="title ">Name:</p>
+          <p class="value ">{{ user.first_name && user.last_name ? user.first_name + ' ' +  user.last_name :
+            user.first_name && !user.last_name ? user.first_name :
+            !user.first_name && user.last_name ? user.last_name :
+             '-' }}</p>
+        </li>
+        <li>
+          <p class="title">
+            Phone :
+          </p>
+          <p class="value">
+            {{ user.mobile_number ? user.mobile_number : '-'}}
+          </p>
+        </li>
+        <li>
+          <p class="title">
+Email :
+          </p>
+          <p class="value">
+            {{ user.email ? user.email : '-'}}
+          </p>
         </li>
       </ul>
     </div>
 
     <hr>
     <div class="text">
-      <div class="head" (click)="addressFunction()">
+      <div class="head">
         <p class="contentHead">
           Manage Address
         </p>
-        <p class="edit"><ng-icon name="featherEdit2"></ng-icon> Edit</p>
+        <p class="edit" (click)="updateDetails('address')" *ngIf="address.length !==0"><ng-icon name="featherEdit2"></ng-icon> Edit</p>
       </div>
-      <div class="address">
+      <div class="address" *ngIf="address.length > 0">
         <div class="card" *ngFor="let addr of address">
           <p class="name">{{addr.name}}</p>
           <p class="addr">{{addr.address}}</p>
@@ -63,12 +88,14 @@
           <p class="pin">{{addr.postalCode}}</p>
           <p class="number">{{addr.phone}}6</p>
         </div>
-        <ng-container *ngIf="address.length === 0">
-          <p>You have not yet added an address.</p>
-        </ng-container>
 
       </div>
-      <p class="add" (click)="addressFunction()">Add new</p>
+      <ng-container *ngIf="address.length === 0">
+        <div class="info">
+          <p class="text-muted empty">You have not yet added an address.</p>
+        </div>
+      </ng-container>
+      <p class="add" (click)="updateDetails('address')">Add new</p>
     </div>
 
   </div>

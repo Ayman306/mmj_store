@@ -3,6 +3,17 @@
   box-shadow: 0.2ox 0.2px 5px black;
   color: #373737;
 }
+form{
+  .formMain{
+  display: grid;
+ grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+    gap: 0px;
+  }
+  }
+}
 
 label,
 .head {
@@ -22,3 +33,9 @@ label,
 .cancel {
   background-color: #c2c2c2;
 }
+ @media (max-width: 768px) {
+  label, input{
+    font-size: 12px;
+  }
+
+ }

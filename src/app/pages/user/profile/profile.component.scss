@@ -62,7 +62,7 @@
         //   }
         // }
         ng-icon {
-          --ng-icon__size: 1.3em !important
+          --ng-icon__size: 1.3em;
         }
       }
 
@@ -149,5 +149,14 @@
 
 
     }
+  }
+  @media (max-width:768px) {
+    .subHead , .contentHead , .edit , .info , .address , .empty ,.value ,.title{
+      font-size: 12px !important;
+    }
+    ng-icon {
+      --ng-icon__size: 0.8em !important
+    }
+
   }
 }

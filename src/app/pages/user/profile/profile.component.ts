@@ -5,9 +5,15 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgIcon } from '@ng-icons/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddressComponent } from 'src/app/shared/model/address/address.component';
-import { Validators } from '@angular/forms';
 import { UserService } from '../service/user.service';
 
+interface userData{
+  customer_id:string
+  email:string,
+  first_name:string,
+  last_name:string,
+  mobile_number:string
+}
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -19,40 +25,8 @@ import { UserService } from '../service/user.service';
 })
 export class ProfileComponent implements OnInit {
   constructor(private dialog: MatDialog,private userService:UserService) {}
-  ngOnInit(): void {
-    this.user = this.userService.getUserSession();
-  }
-  orderinfo(index: any) {
-    console.log('order index', index);
-  }
-  user:any
-  itemStringsLeft = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
-  info = [
-    {
-      product_title: 'name',
-      value: 'Ayman',
-    },
-    {
-      product_title: 'phone',
-      value: '9741025256',
-    },
-    {
-      product_title: 'email',
-      value: 'ayman@gmail',
-    },
-  ];
-  address = [
-    {
-      product_title: 'address',
-      name: 'Ayman',
-      address: '2nd Cross',
-      state: 'Cairo, Egypt',
-      city: 'Cairo',
-      country: 'Egypt',
-      postalCode: '12345',
-      phone: '97410-25256',
-    },
-  ];
+  user!:userData
+  address:any=[]
   order = [
     {
       product_title: 'Jacket',
@@ -68,25 +42,62 @@ export class ProfileComponent implements OnInit {
       phone: '97410-25256',
     },
   ];
-  userDataUpdate(){
-    this.dialog.open(AddressComponent, {
-      data:this.userService.userdata
+
+
+  smapleaddress ={
+    "customer_id": "4a7e25f0-cd90-11ee-a2a0-75db8c97f2ea",
+     "add_type": "delivery",
+     "add_one": "majoor",
+     "add_two": "mallar",
+     "state": "karnataka",
+     "city": "kaup",
+     "pincode": 574106
+}
+
+allOrder:any=[]
+userData:any
+
+ngOnInit(): void {
+  this.user = this.userService.getUserSession();
+}
+orderinfo(index: any) {
+  console.log('order index', index);
+}
+  updateDetails(dataOf:string){
+    let updatedData:any
+    const dialogRef =  this.dialog.open(AddressComponent, {
+        data: dataOf == 'address' ? this.userService.userProfile : this.userService.userdata,
+        hasBackdrop:true
+      })
+      const sub = dialogRef.componentInstance.onAdd.subscribe((res) => {
+        updatedData = res
+        console.log(res ,'sssuubbbb parent')
+      });
+      dialogRef.afterClosed().subscribe(() => {
+
+        if(updatedData){
+          updatedData.customer_id = this.user.customer_id
+          dataOf == 'address' ? this.userService.addNewUserAddress(updatedData).subscribe( () => this.getUserAddress() ) :
+          this.userService.updateUserInfo(updatedData).subscribe( res => {
+            this.userService.setUserSession(JSON.stringify(res.data))
+            this.getUserInfo()
+            console.log(res,'pppp');
+
+          } )
+        }
+        sub.unsubscribe()
+      })
+  }
+  getAllUserOrder(){
+    this.userService.getAllUsersOrder(this.user.customer_id).subscribe( res => this.allOrder = res.data )
+  }
+  getUserInfo(){
+    this.userService.getUserInfo().subscribe( res =>{
+      this.user=res.data
     })
   }
-  addressFunction() {
-      this.dialog.open(AddressComponent, {
-        // data: {
-        //   name: 'Ayman',
-        //   street: '2nd Cross opppsite to homestore',
-        //   city: 'Cairo',
-        //   state: 'Egypt',
-        //   country: 'Egypt',
-        //   postalCode: '12345',
-        //   phone: '9741025256',
-        //   email: 'ayman@gmail.com',
-        //   update: update,
-        // },
-        data:this.userService.userProfile
-      });
+  getUserAddress(){
+    this.userService.getAllUserAddress().subscribe( res => this.address=res )
   }
+
 }
