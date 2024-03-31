@@ -44,7 +44,8 @@ export class ProductCardComponent implements OnInit {
     this.router.navigate(['/product/tshirt'], { queryParams: { id: index } });
   }
   wishlist(id: any, wish: boolean) {
-   this.loginCheck()
+    const userData= this.loginCheck()
+    if(userData){
     const data = {
       customer_id: this.user.customer_id,
       product_id: id,
@@ -72,6 +73,7 @@ export class ProductCardComponent implements OnInit {
         },
       });
     }
+  }
   }
   cart(id: any, cart: boolean) {
     this.loginCheck()
@@ -116,6 +118,9 @@ export class ProductCardComponent implements OnInit {
   loginCheck(){
     if (Object.keys(this.user).length === 0) {
       this.router.navigateByUrl('/login');
+      return false
+    }else{
+      return true
     }
   }
 }
