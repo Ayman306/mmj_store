@@ -50,36 +50,33 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(() => {
       window.scrollTo(0, 0);
     });
-     this.user=this.userService.getUserSession() || '';
+     this.user=this.userService.getUserSession() || null;
   }
   navigate(route: string) {
+    if (route === 'profile' || route === 'cart' || route === 'wishlist') {
+      if (this.user !== null) {
+        this.toaster.success("Please login first");
+        this.router.navigate(['/login']);
+        return;
+      }
+    }
+
     switch (route) {
       case 'profile':
         this.router.navigate([`/user/${route}`]);
         break;
       case 'cart':
-        if(this.user){
-          this.openCartModal();
-        }else{
-          this.toaster.success("Please login first")
-          this.router.navigate([`/login`]);
-        }
+        this.openCartModal();
         break;
       case 'search':
         this.openSearchModal();
         break;
       case 'wishlist':
-        if(this.user){
-          this.router.navigate([`/product/wishlist`]);
-        }else{
-          this.toaster.success("Please login first")
-          this.router.navigate([`/login`]);
-        }
-
+        this.router.navigate([`/product/wishlist`]);
         break;
-        case 'login':
-          this.router.navigate([`/login`]);
-          break
+      case 'login':
+        this.router.navigate(['/login']);
+        break;
       default:
         this.router.navigate([`product/${route}`]);
         break;
