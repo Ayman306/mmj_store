@@ -24,12 +24,12 @@ import { HttpParams } from '@angular/common/http';
     ProductCardComponent,
     MatSelectModule,
     SliderComponent,
-  ],
+      ],
   templateUrl: './all-product.component.html',
   styleUrls: ['./all-product.component.scss'],
 })
 export class AllProductComponent implements OnInit {
-  type = '';
+  categoryType = '';
 
   constructor(
     private route: Router,
@@ -42,16 +42,16 @@ export class AllProductComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params: any) => {
       // Access your query parameters here
-      this.type = params.category;
+      this.categoryType = params.category;
     });
-    this.getProducts()
+    this.getProducts(this.pageSize)
     this.getLatest()
   }
   private getProductsParams(extraParams?: {[key: string]: any}): HttpParams {
   let params = new HttpParams();
     // Always include category_id if it's not undefined or an empty string
-    if (this.type) {
-      params = params.append('category_id', this.type);
+    if (this.categoryType) {
+      params = params.append('category_id', this.categoryType);
     }
     // Include additional parameters if provided
     if (extraParams) {
@@ -66,8 +66,8 @@ export class AllProductComponent implements OnInit {
     return params;
   }
 
-  getProducts() {
-    const params = this.getProductsParams();
+  getProducts(pageSize:any) {
+    const params = this.getProductsParams(pageSize);
     this.products$ = this.productApi.getProducts(params);
   }
 
@@ -75,6 +75,19 @@ export class AllProductComponent implements OnInit {
     const extraParams = { page: 1, page_size: 4 };
     const params = this.getProductsParams(extraParams);
     this.latest$ = this.productApi.getProducts(params);
+  }
+  pageSize={
+    page:1,
+    page_size:10,
+    type:'',
+    sort_by:''
+  }
+
+  onScrollDown(){
+    console.log('scroled');
+    this.pageSize.page +=1;
+    this.getProducts(this.pageSize)
+
   }
   filter = [
     'Best Selling',
