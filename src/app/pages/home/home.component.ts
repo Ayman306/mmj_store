@@ -78,5 +78,8 @@ getTopSeller(){
   // param = param.append('top_seller', 'true')
   this.topSeller$ = this.productApi.getProducts(param)
 }
+viewAll(){
+  this.route.navigate(['/product'])
+}
 
 }
