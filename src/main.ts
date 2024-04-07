@@ -15,7 +15,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { provideNgIconLoader } from '@ng-icons/core';
 import { InterceptorInterceptor } from './app/core/interceptor/http.interceptor';
-import { NgxSpinnerModule } from 'ngx-spinner';
 
 function countdownConfigFactory(): CountdownConfig {
   return { format: `mm:ss` };
@@ -40,7 +39,6 @@ bootstrapApplication(AppComponent, {
         tapToDismiss: true,
         autoDismiss: true,
       }),
-      NgxSpinnerModule
       ),
      provideNgIconLoader((name) => {
   const http = inject(HttpClient);
