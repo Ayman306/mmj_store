@@ -54,7 +54,7 @@ export class HeaderComponent implements OnInit {
   }
   navigate(route: string) {
     if (route === 'profile' || route === 'cart' || route === 'wishlist') {
-      if (this.user == null) {
+      if (!this.user?.customer_id) {
         this.toaster.success("Please login first");
         this.router.navigate(['/login']);
         return;
