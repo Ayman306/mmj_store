@@ -25,13 +25,13 @@ export class ProductapiService {
 
   getAllWishList(userId:any){
 
-    return this.http.get<any>(`${this.apiUrl}/wish-list/${userId}`,{ headers:this.headers });
+    return this.http.get<any>(`${this.apiUrl}/wish-list/${userId}` );
   }
   addWishList(data:any){
-    return this.http.post<any>(`${this.apiUrl}/wish-list/`,data,{ headers:this.headers });
+    return this.http.post<any>(`${this.apiUrl}/wish-list/`,data );
   }
   deleteWishList(userId:any,productId:any){
-    return this.http.delete<any>(`${this.apiUrl}/wish-list/${userId}/${productId}`,{ headers:this.headers });
+    return this.http.delete<any>(`${this.apiUrl}/wish-list/${userId}/${productId}` );
   }
 
   getAllCartList(){
@@ -45,7 +45,7 @@ export class ProductapiService {
     return this.http.post<any>(`${this.apiUrl}/cart`,data);
   }
 
-  deleteSingleCart(userId:any,productId:any){
-    return this.http.delete<any>(`${this.apiUrl}/cart/${userId}/${productId}`,{ headers:this.headers });
+  deleteSingleCart(data:any){
+    return this.http.delete<any>(`${this.apiUrl}/cart/${data.customer_id}/${data.product_id}/${data.size}` );
   }
 }

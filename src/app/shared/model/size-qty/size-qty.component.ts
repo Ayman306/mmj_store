@@ -19,32 +19,12 @@ export class SizeQtyComponent implements OnInit{
 _step: any =1;
 _value: any=1;
 
-sizes=[
-  {
-    id:1,
-    size:'S'
-  },
-  {
-    id:2,
-    size:'M'
-  },
-  {
-    id:3,
-    size:'L'
-  },
-  {
-    id:4,
-    size:'XL'
-  },
-  {
-    id:5,
-    size:'XXL'
-  }
-]
+sizes=[]
 activeSize=''
   ngOnInit(): void {
     this._value=this.data.quantity
-    this.activeSize = this.data.size
+    this.activeSize = this.data.selectedSize
+    this.sizes= this.data.allSize.split(",")
   }
 
   onNoClick(): void {

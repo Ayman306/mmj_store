@@ -47,54 +47,42 @@ export class CartModelComponent implements OnInit{
 this.getCartItem()
   }
   getCartItem(){
-    this.cartItems$= this.sharedService.getCartItem( this.userService.getUserSession().customer_id);
+    // this.cartItems$= this.sharedService.getCartItem( this.userService.getUserSession().customer_id);
+    this.sharedService.getCartItem( this.userService.getUserSession().customer_id).subscribe((res)=>{
+      this.cartItems = res.data
+    },(err)=>{
+      console.log(err);
+
+    },()=>{
+      this.setOrderDetail()
+    });
 
   }
-  cartItems$!:Observable<any>
-  public products = [
-    {
-      id: 1,
-      product_title: 'Product 1',
-      product_description: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      price: 100,
-      quantity: 1,
-    },
-    {
-      id: 1,
-      product_title: 'Product 2',
-      product_description: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      price: 200,
-      quantity: 2,
-      mrp: 150,
-      disc: true,
-    },
-    {
-      id: 1,
-      product_title: 'Product 3',
-      product_description: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      price: 300,
-      quantity: 3,
-    },
-    {
-      id: 1,
-      product_title: 'Product 4',
-      product_description: 'Stylish tshirts , perfect for any casual or chic ensemble.',
-      price: 400,
-      quantity: 4,
-      mrp: 150,
-      disc: true,
-    },
-  ];
+  cartItems:any=[]
+  // cartItems$!:Observable<any>
 
-  orderDetail = {
-    total: '61.00',
-    delivery: '56.00',
-    saving: '5.00',
-    bagTotal: '59.99',
-    policy: true,
-  };
+  orderDetail:any = {};
+  setOrderDetail(){
+    this.orderDetail={
+      total:0,
+    delivery: 56.00,
+    saving: 0,
+    bagTotal: 0,
+    }
+    console.log(this.cartItems);
+    // console.log(this.cartItems?.product.offer_price ?( this.cartItems.product.offer_price * this.cartItems.quantity) + this.orderDetail.total : (this.cartItems.product.price * this.cartItems.quantity) + this.orderDetail.total);
 
+    this.cartItems.map((res:any)=>{
+      this.orderDetail={
+        bagTotal: (res.product.price * res.quantity) + this.orderDetail.bagTotal,
+        delivery: 56.00,
+        saving: res?.product.offer_price ? (res.product.price * res.quantity) - (res.product.offer_price * res.quantity) : this.orderDetail.saving,
+        total: 0,
+      }
 
+    })
+    this.orderDetail.total = this.orderDetail.bagTotal - this.orderDetail.saving + this.orderDetail.delivery
+  }
   close() {
     this.dialogRef.close();
   }

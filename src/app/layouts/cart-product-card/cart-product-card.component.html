@@ -12,7 +12,7 @@
       </div>
       <div class="sizeQty" (click)="openSize()">
         <button class="btn sizeBtn">
-          Size <span class="value">{{categoryItem.product.size}}</span>
+          Size <span class="value">{{categoryItem.size}}</span>
           <mat-icon class="mat-18">keyboard_arrow_down</mat-icon>
         </button>
         <button class="btn qty">
@@ -31,6 +31,6 @@
   <hr>
 </div>
 <div class="remove">
-  <button class="btn remove" (click)="removeFromCart(categoryItem.product.product_id)">Remove</button>
+  <button class="btn remove" (click)="removeFromCart(categoryItem)">Remove</button>
 </div>
 

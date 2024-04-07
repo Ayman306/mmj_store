@@ -31,14 +31,16 @@ export class CartProductCardComponent {
     private router: Router
   ) {}
   @Input() categoryItem!: any;
-  @Output() removedFromCart = new EventEmitter<number>();
+  @Output() removedFromCart = new EventEmitter<any>();
   @Output() closeModel = new EventEmitter<any>();
 openSize() {
+  this.categoryItem.product.size
 this.dialog.open(SizeQtyComponent, {
       panelClass: 'popUp',
       data: {
-        size: this.categoryItem.product.size,
+        allSize: this.categoryItem.product.size,
         quantity: this.categoryItem.quantity,
+        selectedSize:this.categoryItem.size
       },
     }).afterClosed().subscribe((res: any) => {
       if (res) {
@@ -47,21 +49,30 @@ this.dialog.open(SizeQtyComponent, {
           product_id: this.categoryItem.product.product_id,
           size: res.size,
           quantity: res.quantity,
+          status: 'add',
         }).subscribe((data: any) =>{
-          this.categoryItem.product.size = res.size;
-          this.categoryItem.quantity = res.quantity;
+          // this.categoryItem.product.size = res.size;
+          // this.categoryItem.quantity = res.quantity;
+          this.removedFromCart.emit(data);
         }
         );
 
       }
     });
   }
-  removeFromCart(productId: any) {
-    const userId = this.userService.getUserSession().customer_id;
-    this.productApi.deleteSingleCart(userId, productId).subscribe(
+  removeFromCart(data:any) {
+    data.customer_id = this.userService.getUserSession().customer_id;
+    console.log(data);
+    const productData ={
+      customer_id: data.customer_id,
+      product_id: data.product.product_id,
+      size: data.size,
+      status:'remove'
+    }
+    this.productApi.deleteSingleCart(productData).subscribe(
       (res: any) => {
         console.log(res);
-        this.removedFromCart.emit(productId);
+        this.removedFromCart.emit(productData);
         window.scrollTo(0, 0);
       },
       (err) => {

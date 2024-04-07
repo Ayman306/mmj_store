@@ -5,6 +5,8 @@ import { NgIconComponent } from '@ng-icons/core';
 import { Router } from '@angular/router';
 import { ProductapiService } from 'src/app/pages/product/service/productapi.service';
 import { UserService } from 'src/app/pages/user/service/user.service';
+import { ToastrService } from 'ngx-toastr';import { SizeQtyComponent } from 'src/app/shared/model/size-qty/size-qty.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-card',
@@ -24,7 +26,9 @@ export class ProductCardComponent implements OnInit {
   constructor(
     private router: Router,
     private productApiService: ProductapiService,
-    private userService: UserService
+    private userService: UserService,
+    private toaster:ToastrService,
+    public dialog: MatDialog
   ) {}
   ngOnInit(): void {
     if (this.router.url === '/product/wishlist') {
@@ -75,43 +79,66 @@ export class ProductCardComponent implements OnInit {
     }
   }
   }
-  cart(id: any, cart: boolean) {
+  sizeQty:any={}
+  cart(product:any) {
     this.loginCheck()
-    if (cart) {
-      const data = {
-        customer_id: this.userService.getUserSession().customer_id,
-        product_id: id,
-        quantity: 1,
-      };
-      this.productApiService
-        .deleteSingleCart(data.customer_id, data.product_id)
-        .subscribe({
+   this.openSize(product)
+  }
+
+  addOrRemoveFromCart(product:any){
+    const data = {
+      customer_id: this.userService.getUserSession().customer_id,
+      product_id: product.product_id,
+      quantity: this.sizeQty.quantity,
+      size:this.sizeQty.size,
+      status: product.in_cart ? 'remove' : 'add'
+    };
+      if (product.in_cart) {
+        this.productApiService
+          .deleteSingleCart(data)
+          .subscribe({
+            next: (res) => {
+              this.product.in_cart = !product.in_cart;
+              console.log(res);
+            },
+            error: (err) => {
+              console.log(err);
+            },
+          });
+      } else {
+        this.productApiService.addCart(data).subscribe({
           next: (res) => {
-            this.product.in_cart = !cart;
+            this.product.in_cart = !product.in_cart;
             console.log(res);
           },
           error: (err) => {
             console.log(err);
+            this.toaster.error(err.message)
           },
         });
-    } else {
-      const data = {
-        customer_id: this.userService.getUserSession().customer_id,
-        product_id: id,
-        quantity: 1,
-      };
-      this.productApiService.addCart(data).subscribe({
-        next: (res) => {
-          this.product.in_cart = !cart;
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-          this.router.navigateByUrl('/login');
-        },
-      });
-    }
+      }
   }
+
+  openSize(productData:any) {
+    console.log(productData);
+
+  this.dialog.open(SizeQtyComponent, {
+        panelClass: 'popUp',
+        data: {
+          allSize: productData.size,
+          quantity: productData.quantity || 1,
+          selectedSize:productData.size || ''
+        },
+      }).afterClosed().subscribe((res: any) => {
+        this.sizeQty= res
+        this.addOrRemoveFromCart(productData)
+        return
+          }
+          );
+
+        }
+
+
   remove(id: any) {
     this.removeWishList.emit(id);
   }

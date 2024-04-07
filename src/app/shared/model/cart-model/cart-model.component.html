@@ -6,17 +6,17 @@
   <div class="main">
     <div class="head d-flex justify-content-flex-start align-item-center">
       <h3 class="m-0">Shopping Bag &nbsp; </h3>
-      <p class="m-0 align-self-center">( 2 items )</p>
+      <p class="m-0 align-self-center">( {{cartItems.length}} items )</p>
 
     </div>
     <hr>
     <div class="main1">
-      <ng-container *ngIf="cartItems$ | async as cartItems">
+      <!-- <ng-container *ngIf="cartItems$ | async as cartItems"> -->
 
 
-      <ng-container *ngIf="cartItems.data.length > 0; else emptyBlock">
+      <ng-container *ngIf="cartItems.length > 0; else emptyBlock">
 
-        <ng-container *ngFor="let item of cartItems.data">
+        <ng-container *ngFor="let item of cartItems">
           <app-cart-product-card [categoryItem]="item" (removedFromCart)="getCartItem()" (closeModel)="close()"></app-cart-product-card>
         </ng-container>
       </ng-container>
@@ -30,10 +30,10 @@
 
 
 
-      <app-order-detail  [orderDetails]="orderDetail"></app-order-detail>
-      <button *ngIf="cartItems.data.length > 0" mat-button (click)="checkout()" class="checkout p-3 mt-2 btn">Check Out -
-        $61.00</button>
-      </ng-container>
+      <app-order-detail  [orderDetails]="orderDetail" *ngIf="cartItems.length > 0"></app-order-detail>
+      <button *ngIf="cartItems.length > 0" mat-button (click)="checkout()" class="checkout p-3 mt-2 btn">Check Out -
+        {{orderDetail.total | currency :'INR'}}</button>
+      <!-- </ng-container> -->
 
     </div>
   </div>

@@ -9,8 +9,8 @@
 
   <div class="sizeBtn">
     <ng-container *ngFor="let item of sizes">
-      <button class="btn" (click)="selectSize(item.size)" [class.active]="item.size === activeSize">
-        {{item.size}}
+      <button class="btn" (click)="selectSize(item)" [class.active]="item === activeSize">
+        {{item}}
       </button>
     </ng-container>
 </div>
