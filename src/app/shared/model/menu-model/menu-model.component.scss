@@ -1,3 +1,5 @@
+@import '../../../../assets/style/variable.scss';
+
 .close {
   margin-left: auto;
   display: block;
@@ -13,7 +15,7 @@
         font-size: 19px;
         font-weight: bold;
         padding: 15px 0px;
-        color: black;
+        color: $primary-black;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
       }
 

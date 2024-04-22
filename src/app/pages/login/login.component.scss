@@ -1,3 +1,4 @@
+@import '../../../assets/style/variable.scss';
 .login {
   width: 100vw;
   height: 100vh;
@@ -27,7 +28,7 @@
         }
 
         .card-subtitle {
-          color: #333;
+          color: $description-black;
           text-align: center;
           font-size: 40px;
           line-height: normal;
@@ -40,7 +41,7 @@
 
         form {
           label {
-            color: #666;
+            color: $description-black;
             font-size: 16px;
             font-weight: 400;
             line-height: normal;
@@ -69,9 +70,9 @@
 
           button {
             padding: 12.5px 0px;
-            background-color: #005F5F;
+            background-color: $primary-green;
             border-radius: 32px;
-            color: white;
+            color: $primary-white;
           }
         }
 

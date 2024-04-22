@@ -1,12 +1,14 @@
+@import '../../../../assets/style/variable.scss';
+
 .heading {
-  color: #005F5F;
+  color: $primary-green;
 
 }
 
 .content {
   ul {
     li {
-      color: black;
+      color: $primary-black;
       padding: 10px;
       margin: 10px;
       font-size: 14px;

@@ -1,7 +1,8 @@
+@import '../../../../assets/style/variable.scss';
 .main {
-  background-color: #fdfdfd;
-  box-shadow: 0.2ox 0.2px 5px black;
-  color: #373737;
+  background-color: $light-white-shadow;
+  box-shadow: 0.2ox 0.2px 5px $primary-black;
+  color: $description-black;
 }
 form{
   .formMain{
@@ -17,7 +18,7 @@ form{
 
 label,
 .head {
-  color: #005F5F;
+  color: $primary-green;
 }
 
 .modal-header {
@@ -26,12 +27,12 @@ label,
 }
 
 .submit {
-  background-color: #005F5F;
+  background-color: $primary-green;
   padding: 10px;
 }
 
 .cancel {
-  background-color: #c2c2c2;
+  background-color: $black-overlay-2;
 }
  @media (max-width: 768px) {
   label, input{

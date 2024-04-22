@@ -1,5 +1,5 @@
 @import url('../../../shared/style/animation.scss');
-
+@import '../../../../assets/style/variable.scss';
 .main {
   .productMain {
     padding: 10px;
@@ -57,7 +57,7 @@
     .content {
       .head {
         h2 {
-          color: #313131;
+          color: $title-black;
           font-weight: 900;
           line-height: 150%;
           /* 48px */
@@ -67,7 +67,7 @@
         }
 
         p {
-          color: #005F5F;
+          color: $primary-green;
           font-size: 20px;
           font-weight: 600;
           line-height: 150%;
@@ -100,7 +100,7 @@
 
             button {
               background-color: transparent;
-              border: 0.5px solid #000;
+              border: 0.5px solid $primary-black;
               width: 200px;
               display: flex;
               justify-content: space-between;
@@ -130,11 +130,11 @@
             height: 50px;
             border-radius: 50%;
             font-weight: 400;
-            color: #535766 !important;
+            color: $description-black !important;
             vertical-align: top;
 
             .outline {
-              border-color: #535766;
+              border-color: $description-black;
               position: relative;
               // border: 1px solid #eaeaec;
               font-size: 14px;
@@ -147,8 +147,8 @@
 
       .qty {
         .qtyBtn {
-          background-color: #005F5F;
-          color: white;
+          background-color: $primary-green;
+          color: $primary-white;
           font-weight: 600;
           border-radius: 0px;
 
@@ -166,15 +166,15 @@
         flex-direction: row;
 
         .cartBtn {
-          background-color: #005F5F;
-          color: white;
+          background-color: $primary-green;
+          color: $primary-white;
           border-radius: 0;
           width: 275px;
           height: 50px;
           margin: 20px;
           margin-left: 0px;
 
-          color: #FFF;
+          color: $primary-white;
           font-size: 14px;
           font-weight: 500;
           line-height: 150%;
@@ -190,7 +190,7 @@
         }
 
         .buyNow {
-          background-color: #BE6013;
+          background-color: $primary-orange;
         }
       }
     }
@@ -201,7 +201,7 @@
   .head {
     margin-top: 5%;
     text-align: center;
-    color: #000;
+    color: $primary-black;
     font-family: Roboto;
     font-size: 36px;
     font-style: normal;
@@ -227,7 +227,7 @@
   /* Adjust as needed */
   left: auto;
   /* To ensure it's fully aligned to the right */
-  background: white;
+  background: $primary-white;
   transition: transform 0.3s ease-in-out;
   /* Add a smooth transition effect */
   width: 40vw;

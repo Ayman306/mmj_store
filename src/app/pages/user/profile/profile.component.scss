@@ -1,3 +1,4 @@
+@import '../../../../assets/style/variable.scss';
 .main {
   width: 100%;
 
@@ -14,7 +15,7 @@
 
     .head {
       text-align: center;
-      color: #fff;
+      color: $primary-white;
       text-transform: uppercase;
     }
   }
@@ -25,7 +26,7 @@
 
     .subHead {
       text-align: center;
-      color: black;
+      color: $primary-black;
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.43rem;
@@ -33,7 +34,7 @@
     }
 
     hr {
-      color: #9b9b9b;
+      color: $description-black;
     }
 
     .text {
@@ -57,7 +58,7 @@
         //   font-size: 0.8rem;
 
         //   &:hover {
-        //     border-bottom: 0.5px solid black;
+        //     border-bottom: 0.5px solid $primary-black;
         //     cursor: pointer;
         //   }
         // }
@@ -90,7 +91,7 @@
           display: flex;
           flex-direction: row;
           gap: 20px;
-          border: 0.5px solid #edededf8;
+          border: 0.5px solid $med-white;
 
           .image {
             width: 180px;
@@ -143,7 +144,7 @@
         font-size: 0.8rem;
         font-weight: 400;
         text-decoration: underline;
-        color: #058a8a;
+        color: $primary-green;
         cursor: pointer;
       }
 

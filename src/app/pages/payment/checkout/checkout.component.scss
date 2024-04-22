@@ -1,3 +1,4 @@
+@import '../../../../assets/style/variable.scss';
   .head {
     font-size: 1.5rem;
     font-weight: 600;
@@ -6,12 +7,12 @@
 
   .sub {
     font-size: 1rem;
-    color: #333333;
+    color: $description-black;
   }
 
   .address {
     padding: 10px;
-    background-color: #fafafa;
+    background-color: $med-white;
     border-radius: 20px;
     position: relative;
     margin: 10px 0px;
@@ -46,7 +47,7 @@
 
     ul {
       .content {
-        color: #444444;
+        color: $description-black;
       }
 
       .content.name {
@@ -64,7 +65,7 @@
 
 
     .orderItem {
-      background-color: #fafafa;
+      background-color: $med-white;
       border-radius: 10px;
       // display: flex;
       // flex-direction: row;
@@ -113,14 +114,14 @@
   .order {
     cursor: pointer;
     margin-bottom: 20px;
-    background-color: #005F5F;
-    color: white;
+    background-color: $primary-green;
+    color: $primary-white;
     padding: 10px;
     text-transform: uppercase;
 
     &:hover {
-      color: #ffffff;
-      background-color: #003535;
+      color: $primary-white;
+      background-color: $dark-primary-green;
     }
 
 

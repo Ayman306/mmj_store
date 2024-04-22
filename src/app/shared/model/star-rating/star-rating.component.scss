@@ -1,13 +1,15 @@
+@import '../../../../assets/style/variable.scss';
+
 .mat-icon {
   font-size: 28px;
 }
 
 .full-star {
-  color: #005F5F !important;
+  color: $primary-green !important;
 }
 
 .half-star {
-  color: #005F5F !important;
+  color: $primary-green !important;
 }
 
 .empty-star {

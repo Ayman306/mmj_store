@@ -1,12 +1,13 @@
+@import '../../../../assets/style/variable.scss';
 .close{
-  background-color: white;
+  background-color: $primary-white;
 button{
   margin-left: auto;
   display: block;
 }
 }
 .dialog{
-  background-color: white;
+  background-color: $primary-white;
   padding: 20px;
   display: flex;
   gap: 30px;
@@ -22,7 +23,7 @@ button{
     align-items: center;
 }
   .head{
-    color: #005F5F;
+    color: $primary-green;
     font-weight: 500;
     padding: 5px;
     text-align: left;
@@ -33,13 +34,13 @@ button{
     justify-content: center;
     gap: 20px;
     button{
-      box-shadow: 0px 0px 3px #d1d1d1a8;
+      box-shadow: 0px 0px 3px $med-white;
       font-size: 15px;
     }
     .active{
-      background-color: #005F5F;
+      background-color: $primary-green;
       border: none;
-      color: white;
+      color: $primary-white;
     }
   }
   .qtyBtn{
@@ -57,17 +58,17 @@ button{
   .qtyInput{
     width: 2rem;
     height: 2rem;
-    box-shadow: 0px 0px 3px #d1d1d1a8;
+    box-shadow: 0px 0px 3px $description-black;
     border: none;
     text-align: center;
   }
 }
 
 .submit{
-  background: #005F5F;
+  background: $primary-green;
     width: 50%;
     padding: 10px;
-    color: white;
+    color: $primary-white;
     border-radius: 10px;
     border: none;
     margin: auto;

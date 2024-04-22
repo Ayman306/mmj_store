@@ -1,3 +1,4 @@
+@import '../../../assets/style/variable.scss';
 .category {
   display: flex;
   flex-wrap: wrap;
@@ -16,7 +17,7 @@
     }
 
     &:hover {
-      box-shadow: 1px 1px 2px black;
+      box-shadow: 1px 1px 2px $primary-black;
     }
 
     .img {
@@ -52,7 +53,7 @@
         bottom: 0;
         right: 0;
         border-radius: 0px;
-        color: #FFF;
+        color: $primary-white;
         text-transform: capitalize;
         font-family: Poppins;
         font-style: normal;

@@ -1,3 +1,4 @@
+@import '../../../../assets/style/variable.scss';
 .heroslider {
   border-radius: 30px;
 
@@ -17,7 +18,7 @@
     .tag {
       top: 0;
       font-size: 16px;
-      color: #fff;
+      color: $primary-white;
       text-transform: uppercase;
       letter-spacing: 15%;
       font-weight: bold;
@@ -42,19 +43,19 @@
     width: 50%;
 
     .contentHead {
-      color: white;
+      color: $primary-white;
       margin-bottom: 14px;
     }
 
     .subText {
-      color: white;
+      color: $primary-white;
       font-size: 14px;
     }
 
     .shopNow {
       width: 50%;
-      background-color: #005F5F;
-      color: white;
+      background-color: $primary-green;
+      color: $primary-white;
       padding: 15px 20px;
     }
 
@@ -98,8 +99,8 @@
 
 .shopNow {
   width: 100%;
-  background-color: #005F5F;
-  color: #fff;
+  background-color: $primary-green;
+  color: $primary-white;
   border-radius: 10px;
   font-size: clamp(5px, 10vw, 12px);
   font-style: normal;

@@ -1,5 +1,6 @@
+@import '../../../../assets/style/variable.scss';
         .card-subtitle {
-          color: #5B5B5B;
+          color: $description-black;
           font-size: 24px;
           font-weight: 700;
           padding-bottom: 20px;
@@ -14,19 +15,19 @@
 
             &:disabled {
               border: none;
-              background-color: white;
+              background-color: $primary-white;
             }
           }
         }
         .verifyBtn {
           margin-top: 20px;
-          background-color: #005F5F;
-          color: white;
+          background-color: $primary-green;
+          color: $primary-white;
           padding: 12.5px 0px;
           border-radius: 32px;
         }
         .back {
-          color: #005F5F;
+          color: $primary-green;
           margin: auto;
           display: block;
         }

@@ -1,11 +1,11 @@
 @import url('../../shared/style/animation.scss');
-
+@import '../../../assets/style/variable.scss';
 
 
 .shopNow {
   width: 100%;
-  background-color: #005F5F;
-  color: #fff;
+  background-color: $primary-green;
+  color: $primary-white;
   border-radius: 10px;
   font-size: clamp(5px, 10vw, 20px);
   font-style: normal;
@@ -174,18 +174,18 @@
 
 //       .context {
 //         z-index: 2;
-//         color: white;
+//         color: $primary-white;
 //         text-transform: uppercase;
 //       }
 
 //       .text {
 //         position: absolute;
 //         bottom: 20%;
-//         color: white;
+//         color: $primary-white;
 //       }
 
 //       .hashtag {
-//         color: #fff;
+//         color: $primary-white;
 //         font-size: 14px;
 //         position: absolute;
 //         bottom: 10%;
@@ -262,8 +262,7 @@ border-radius:30px ;
     position: absolute;
     border-radius: inherit;
     height: inherit;
-    background-color: #0000004d;
-    background: linear-gradient(0deg, #000000cf 0%, #00000036 100%);
+    background: linear-gradient(0deg, $black-overlay-1 0%, $black-overlay-2 100%);
     z-index: 10;
     width: 100%;
     top: 0;
@@ -276,7 +275,7 @@ border-radius:30px ;
 &_text{
   position: absolute;
   z-index: 20;
-  color: white;
+  color: $primary-white;
   top: 70%;
   transform: translateY(-50%);
   left: 5%;
@@ -289,8 +288,8 @@ border-radius:30px ;
     font-size: 12px;
   }
   .bannerBtn{
-    background-color: #005F5F;
-    color: white;
+    background-color: $primary-green;
+    color: $primary-white;
     border: none;
     padding: 10px 20px;
     border-radius: 10px;
@@ -300,11 +299,6 @@ border-radius:30px ;
     transition:  all .3s ease;
     display: flex;
     gap: 30px;
-    &:hover{
-
-      background-color: #004141;
-
-    }
   }
 }
   // &_head.first { grid-area: 1 / 1 / 2 / 2; }

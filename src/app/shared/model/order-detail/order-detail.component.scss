@@ -1,5 +1,7 @@
+@import '../../../../assets/style/variable.scss';
+
 .orderSummary {
-  background-color: #fcfcfc;
+  background-color: $light-white-shadow;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
@@ -16,7 +18,7 @@
 
   .saving {
     .price {
-      color: #005F5F;
+      color: $primary-green;
     }
   }
 
@@ -24,7 +26,7 @@
 
 .policy {
   padding: 20px;
-  background-color: #fcfcfc;
+  background-color: $light-white-shadow;
   border-radius: 10px;
 
   .head {
@@ -37,6 +39,6 @@
   }
 
   .readPolicy {
-    color: #005F5F;
+    color: $primary-green;
   }
 }

@@ -1,10 +1,11 @@
+@import '../../../assets/style/variable.scss';
 .top {
   padding: 0;
   // height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #E6EFEF;
+  background-color: $primary-white;
 
 
 
@@ -30,7 +31,7 @@
     .main {
       .content {
         border-radius: 6px;
-        border: 1px solid #E6E6E6;
+        border: 1px solid $light-white-shadow;
 
         .img {
           padding-left: 20px;
@@ -43,7 +44,7 @@
           padding: 1em;
 
           h3 {
-            color: #222;
+            color: $title-black;
             font-size: 18px;
             line-height: 119.682%;
             /* 22.74px */
@@ -52,7 +53,7 @@
           }
 
           p {
-            color: #717171;
+            color: $description-black;
             font-size: 14px;
             line-height: 188.5%;
             /* 28.275px */
@@ -74,11 +75,11 @@
 // footer
 footer {
   // margin-top: 20px;
-  background-color: #538484;
+  background-color: $primary-green;
 
   .container {
     padding: 30px 0px ;
-    color: white;
+    color: $primary-white;
 
     .head {
       font-size: 18px;
@@ -124,7 +125,7 @@ footer {
   }
   .copywrite{
     padding:  10px;
-    color: #bcbcbc;
+    color: $med-white;
     font-size: 12px;
   }
 }

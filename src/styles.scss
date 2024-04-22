@@ -2,6 +2,7 @@
 @import url('./assets/style/toaster.scss');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import './assets/style/variable.scss';
 
 * {
   margin: 0;
@@ -34,13 +35,13 @@ label {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #005F5F;
+  background: $primary-green;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #FFA300;
+  background: $primary-orange;
 }
 
 h1,
@@ -58,7 +59,7 @@ p{
 
 .otp-input {
   border: 0px !important;
-  border-bottom: 1px solid black !important;
+  border-bottom: 1px solid $primary-black !important;
   // margin: 25px;
 
   @media (max-width:480px) {
@@ -88,7 +89,7 @@ ul {
 }
 
 a {
-  color: white;
+  color: $primary-white;
 }
 
 html,
@@ -123,9 +124,9 @@ body {
   /* Override the background color of the active tab */
   .nav-tabs .nav-item .nav-link.active {
     /* Your desired background color */
-    color: #005F5F;
-    // border: 0.2px solid #005F5F;
-    box-shadow: 0.5px 0.5px 1px #005F5F;
+    color: $primary-green;
+    // border: 0.2px solid $primary-green;
+    box-shadow: 0.5px 0.5px 1px $primary-green;
     border-top: 0;
     border-radius: 0;
 
@@ -134,9 +135,9 @@ body {
 
   /* Override the background color of the tab headers */
   .nav-tabs .nav-item .nav-link {
-    background-color: #ffffff;
+    background-color: $primary-white;
     /* Your desired background color */
-    color: #000;
+    color: $primary-black;
     margin: 0px 30px;
     /* Text color for inactive tabs */
   }
@@ -147,37 +148,37 @@ body {
 }
 
 .mat-mdc-select {
-  color: black !important;
+  color: $primary-black !important;
 }
 
 div.mat-mdc-select-panel {
-  background-color: #000 !important;
+  background-color: $primary-black !important;
 }
 
 .mat-mdc-text-field-wrapper {
   background-color: transparent !important;
-  border: 1px solid black;
+  border: 1px solid $primary-black;
 }
 
 .filter {
   .mat-mdc-text-field-wrapper {
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $primary-black;
   }
 }
 
 .mat-mdc-select-placeholder {
-  color: black !important;
+  color: $primary-black !important;
 }
 
 .mat-mdc-select-arrow {
-  color: black !important;
+  color: $primary-black !important;
 }
 
 .view {
   font-size: 20px;
   font-weight: 400;
-  border: 1px solid black;
+  border: 1px solid $primary-black;
   background-color: transparent;
   padding: 5px 10px;
   cursor: pointer;
@@ -212,11 +213,11 @@ div.mat-mdc-select-panel {
   }
 
   .splide__arrow {
-    background-color: #005F5F !important;
+    background-color: $primary-green !important;
   }
 
   .splide__arrow svg {
-    fill: white;
+    fill: $primary-white;
 
   }
 }

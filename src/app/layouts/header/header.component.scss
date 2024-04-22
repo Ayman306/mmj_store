@@ -1,7 +1,9 @@
 @import url('../../shared/style/animation.scss');
+@import '../../../assets/style/variable.scss';
+
 .firstNav{
   padding: 15px 0px;
-  border-top:2px solid #005F5F ;
+  border-top:2px solid $primary-green ;
   position: relative;
   .logout{
     position: absolute;
@@ -19,14 +21,14 @@
       width: 75%;
       background-color: aliceblue;
       border-radius: 30px;
-      color:  #4b4b4b;
+      color:  $black-overlay-1;
       padding: 1em 2em;
     }
     .firsticons{
       .login{
         padding: 0.5em 0.8em;
-        background-color: #005F5F;
-        color: white;
+        background-color: $primary-green;
+        color: $primary-white;
       }
     }
     @media screen and (max-width: 768px) {
@@ -74,7 +76,7 @@
     margin-right: 37px;
     align-items: center;
     p {
-      color: #000;
+      color: $primary-black;
       text-align: center;
       text-transform: capitalize;
       margin: 0;
@@ -83,12 +85,12 @@
       padding-left: 5px;
     }
     @media (max-width:768px) {
-      background-color: #005F5F;
+      background-color: $primary-green;
     padding: 5px;
-    color:  #f0f0f0;
+    color:  $med-white;
     border-radius: 50%;
     :hover, :focus {
-      box-shadow: 0.5px 0.5px 5px 0.5px #f0f0f0;
+      box-shadow: 0.5px 0.5px 5px 0.5px $primary-white;
     }
     }
   }
@@ -145,7 +147,7 @@
   /* Adjust as needed */
   left: auto;
   /* To ensure it's fully aligned to the right */
-  background: white;
+  background: $primary-white;
   transition: transform 0.3s ease-in-out;
   /* Add a smooth transition effect */
   width: 40vw;
@@ -171,7 +173,7 @@
   /* Adjust as needed */
   left: 0;
   /* To ensure it's fully aligned to the right */
-  background: white;
+  background: $primary-white;
   transition: transform 0.2s ease-in-out;
   /* Add a smooth transition effect */
   width: 40vw;
@@ -210,7 +212,7 @@
   /* Adjust as needed */
   left: 0;
   /* To ensure it's fully aligned to the right */
-  background: white;
+  background: $primary-white;
   transition: transform 0.3s ease-in-out;
   /* Add a smooth transition effect */
   width: 100vw;
