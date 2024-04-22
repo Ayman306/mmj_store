@@ -20,13 +20,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // width: 400px;
 
     .desc {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      // gap: 10px;
 
       .title {
         color: $title-black;
@@ -81,57 +79,7 @@
           }
         }
       }
-
-
-      // .colorSize {
-      //   display: flex;
-      //   align-items: center;
-
-      //   .color {
-      //     display: block;
-      //     width: 15px;
-      //     height: 15px;
-      //     border-radius: 50%;
-      //     background-color: pink;
-      //   }
-      // }
-
     }
-
-    // .qtyButtons {
-    //   .qty {
-    //     display: flex;
-    //     width: max-content;
-    //     overflow: hidden;
-    //     height: 40px;
-
-    //     .qtyBtn {
-    //       display: flex;
-    //       flex-direction: row;
-    //       border: 0.5px solid var(--gray, #bdbdbd);
-    //       width: max-content;
-    //       box-shadow: inset 0.5px 0.5px 3px #bebebe;
-
-    //       // .less {
-    //       //   border-right: 0.5px solid var(--gray, #E4E4E4);
-    //       //   width: 100%;
-    //       // }
-
-    //       .add {
-    //         border-left: 0.5px solid var(--gray, #E4E4E4);
-    //         width: 100%;
-    //       }
-
-    //       input {
-    //         border: none;
-    //         text-align: center;
-    //         width: 40px;
-    //       }
-    //     }
-
-
-    //   }
-    // }
   }
 }
 
@@ -158,51 +106,16 @@
 
     .content {
       padding: 10px 5px;
-      // margin: auto;
       width: 100%;
 
       .desc {
         display: flex;
         justify-content: space-between;
-        // align-self: center;
-
-        // .title {
-        //   font-size: 18px;
-        //   font-weight: bold;
-        //   word-break: break-all;
-        // }
 
         .price {
           padding: 0;
         }
       }
-
-      // .desc1 {
-      // .qty {
-      //   .qtyBtn {
-      //     display: flex;
-      //     flex-direction: row;
-      //     border: 0.5px solid var(--gray, #E4E4E4);
-      //     width: max-content;
-
-      //     .less {
-      //       border-right: 0.5px solid var(--gray, #E4E4E4);
-      //     }
-
-      //     .add {
-      //       border-left: 0.5px solid var(--gray, #E4E4E4);
-      //     }
-
-      //     input {
-      //       border: none;
-      //       text-align: center;
-      //       width: 100px;
-      //     }
-      //   }
-
-
-      // }
-      // }
     }
   }
 }

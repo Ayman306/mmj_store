@@ -2,13 +2,9 @@
   @import '../../../assets/style/variable.scss';
 
   .main {
-    // margin: 10px;
     width: 230px;
     transition: 0.5s ease-in-out;
-    // box-shadow: 0.2px 0.2px 5px rgb(0 0 0 / 23%);
-    // border-radius: 10px;
     margin-bottom: 15px;
-    // box-shadow: 0px 0px 1px #00000057;
 
     @media (max-width: 780px) {
       width: 150px;
@@ -141,7 +137,6 @@
   @media (max-width:480px) {
     .main {
       width: 40vw;
-      // margin: 10px 3px;
       margin: 0px;
 
       .img {

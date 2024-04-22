@@ -1,7 +1,6 @@
 @import '../../../assets/style/variable.scss';
 .top {
   padding: 0;
-  // height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,13 +11,6 @@
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-
-    // @media (max-width:1100px) {
-    //   flex-direction: row;
-    //   flex-shrink: 10px;
-    //   flex-wrap: wrap;
-    //   justify-content: center;
-    // }
     @media (max-width:1000px) {
       grid-template-columns: 1fr 1fr;
     }
@@ -74,7 +66,6 @@
 
 // footer
 footer {
-  // margin-top: 20px;
   background-color: $primary-green;
 
   .container {

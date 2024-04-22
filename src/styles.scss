@@ -60,11 +60,7 @@ p{
 .otp-input {
   border: 0px !important;
   border-bottom: 1px solid $primary-black !important;
-  // margin: 25px;
 
-  @media (max-width:480px) {
-    // margin: 15px;
-  }
 
   &:visited {
     border-bottom: 1px solid yellow;
@@ -125,7 +121,6 @@ body {
   .nav-tabs .nav-item .nav-link.active {
     /* Your desired background color */
     color: $primary-green;
-    // border: 0.2px solid $primary-green;
     box-shadow: 0.5px 0.5px 1px $primary-green;
     border-top: 0;
     border-radius: 0;

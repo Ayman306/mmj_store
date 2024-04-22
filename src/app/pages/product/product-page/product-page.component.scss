@@ -119,7 +119,6 @@
           margin: 0;
           white-space: nowrap;
           -webkit-overflow-scrolling: touch;
-          // display: inline-flex;
           display: flex;
           justify-content: flex-start;
           align-items: center;
@@ -136,7 +135,6 @@
             .outline {
               border-color: $description-black;
               position: relative;
-              // border: 1px solid #eaeaec;
               font-size: 14px;
               border-radius: 50%;
             }
